@@ -1,52 +1,62 @@
 @model Aafeben.Models.MediaModel
 
+
 @{
-    ViewData["Title"] = "Create";
+    
+    Layout ="~/Views/Shared/Dashboard/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Ajouter Un Fichier";
 }
 
-<h1>Create</h1>
+<section class="bg-body p-3 d-flex flex-column gap-3 mt-3 rounded-3 shadow">
+ 
+    <h4>@ViewData["Title"]</h4>
 
-<h4>MediaModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="EnCaption" class="control-label"></label>
-                <input asp-for="EnCaption" class="form-control" />
-                <span asp-validation-for="EnCaption" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FrCaption" class="control-label"></label>
-                <input asp-for="FrCaption" class="form-control" />
-                <span asp-validation-for="FrCaption" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Type" class="control-label"></label>
-                <input asp-for="Type" class="form-control" />
-                <span asp-validation-for="Type" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="URI" class="control-label"></label>
-                <input asp-for="URI" class="form-control" />
-                <span asp-validation-for="URI" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PublishedDate" class="control-label"></label>
-                <input asp-for="PublishedDate" class="form-control" />
-                <span asp-validation-for="PublishedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+    <form asp-action="Create" class="row g-3" >
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-md-6">
+            <label asp-for="EnCaption" class="form-label">Légende (En)</label>
+            <input type="text" placeholder="légende en anglais" asp-for="EnCaption" class="form-control" />
+            <span asp-validation-for="EnCaption" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="FrCaption" class="form-label">Légende (Fr)</label>
+            <input  type="text" placeholder="légende en anglais"  asp-for="FrCaption" class="form-control" />
+            <span asp-validation-for="FrCaption" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Type" class="form-label"></label>
+            <select  class="form-select" asp-for="Type" class="form-control" > 
+                <option value="image">image</option>
+                <option value="video">video</option>
+                <option value="audio">audio</option>
+            </select>
+            <span asp-validation-for="Type" class="text-danger"></span>
+        </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+        <div class="col-md-6">
+            <label asp-for="PublishedDate" class="form-label">Date de publication</label>
+            <input asp-for="PublishedDate" class="form-control" />
+            <span asp-validation-for="PublishedDate" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="URI" class="form-label">Lien du cloud</label>
+            <input asp-for="URI" class="form-control" />
+            <span asp-validation-for="URI" class="text-danger"></span>
+        </div>
+
+        
+        <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-list-columns-reverse me-2"></i>
+                Ajouter
+            </button>
+            <a class="btn btn-secondary" id="go-back" href="/fr/administrateurs/media">Retour a la List</a>
+        </div>
+    </form>
+
+</section>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -46,7 +46,7 @@ namespace Aafeben.Controllers
             {
                 Medias = Medias.Where( s => 
                     s.EnCaption.Contains(searchString) 
-                    || s.FrCaption.Contains(searchString)
+                    || s.FrCaption.Contains(searchString) ||  s.Type.Contains(searchString)
                 );
             }
 
@@ -74,7 +74,7 @@ namespace Aafeben.Controllers
             {
                 _context.Add(mediaModel);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return Redirect("/fr/administrateurs/media"); 
             }
             return View(mediaModel);
         }
@@ -126,13 +126,13 @@ namespace Aafeben.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return Redirect("/fr/administrateurs/media"); 
             }
             return View(mediaModel);
         }
 
         // GET: MediaTech/Delete/5
-        [HttpPost("supprimer/{id}")]
+        [Route("supprimer/{id}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -162,7 +162,7 @@ namespace Aafeben.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Redirect("/fr/administrateurs/media"); 
         }
 
         private bool MediaModelExists(int id)
