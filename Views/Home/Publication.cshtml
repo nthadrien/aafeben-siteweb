@@ -1,0 +1,53 @@
+@model Aafeben.Models.PublicationModel
+
+@{
+    ViewData["Title"] = "Publication";
+    ViewData["Description"] = Model.Title;
+}
+
+<main style="max-width: 960px;" class="py-4 container mx-auto lh-2 project-page">
+
+    <h1 class="my-3 text-capitalize">@Html.DisplayFor(model => model.Title)</h1>
+
+    <section class="d-flex flex-wrap gap-3 justify-content-between my-3 text-capitalize small text-muted border-bottom pb-3">
+        <span>@Localizer["when"] : @Model.PublishedDate.ToLongDateString()</span>
+    </section>
+
+    <section class="py-4 overflow-x-auto">
+        @Html.Raw(Model.Content)
+    </section>
+
+    <hr class="container mx-auto"/>
+
+    
+    <a class="btn" id="go-back">
+        <i class="bi bi-chevron-left small"></i> 
+        @Localizer["back"] 
+    </a>
+</main>
+
+<style>
+    #header-hero {
+        background: rgba(0, 0, 0, 0.5) url("../../images/website/publications-hero.jpg") no-repeat center;
+        background-size: cover;
+        background-blend-mode: darken;
+    }
+
+    table {
+        width: 100% !important;
+    }
+
+    @@media screen and (max-width: 680px)  {
+        table:has(img) {
+            & tr {
+                display: grid;
+                grid-template-columns : repeat( auto-fill, min(max(340px, 45%), 100%)) !important;
+            }
+
+            & td {
+                width: 200% !important;
+            }
+        } 
+    }
+    
+</style>

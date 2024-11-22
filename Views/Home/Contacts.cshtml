@@ -1,0 +1,93 @@
+@{
+  ViewData["Title"] = "Contacts";
+}
+
+<main class="container py-5 px-2">
+
+  <div class="d-none d-sm-block mb-5 w-100 border rounded-4 overflow-hidden">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3977.0461935561766!2d13.682841474978616!3d4.585731295388907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNMKwMzUnMDguNiJOIDEzwrA0MScwNy41IkU!5e0!3m2!1sen!2sca!4v1731795153820!5m2!1sen!2sca" width="100%" height="520" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+  <h2>@Localizer["heading"]</h2>
+
+  <section class="row py-4">
+
+    <form  id="contactForm" method="post" action="" class="col-lg-7 row g-3 mb-3">
+
+      <div class="col-12">
+        <textarea class="form-control" placeholder="message..." id="message" rows="8"></textarea>
+      </div>
+
+      <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Votre nom" aria-label="First name">
+      </div>
+
+      <div class="col-md-6">
+        <input type="email" class="form-control" placeholder="Votre address email" aria-label="email" required>
+      </div>
+
+      <div class="col-12">
+        <input type="text" class="form-control" id="subjet" placeholder="Sujet : Demande/requisition de ...">
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">
+          <i class="bi bi-envelope-at"></i>
+          @Localizer["send"]
+        </button>
+      </div>
+
+    </form>
+
+    <ul class="col-lg-5 pt-4">
+
+      <li data-observer="o-right" class="d-flex align-items-start gap-3 mb-3">
+        <i class="bi bi-house-check text-body-secondary fs-3"></i>
+        <p>
+          <strong class="h5 text-success"> @Localizer["where"] </strong> <br/>
+          @Localizer["where1"]
+        </p>
+      </li>
+
+      <li data-observer="o-up" class="d-flex align-items-start gap-3 mb-3">
+        <i class="bi bi-telephone text-body-secondary fs-3"></i>
+        <p>
+          <strong class="h5 text-success">(+237) 653 663 807 / 695 665 858</strong> <br/>
+          @Localizer["day1"]
+        </p>
+      </li>
+
+      <li data-observer="o-up" class="d-flex align-items-start gap-3 mb-3">
+        <i class="bi bi-envelope text-body-secondary fs-3"></i>
+        <p>
+          <strong class="h5 text-success">aafebeno@yahoo.com</strong> <br/>
+          @Localizer["join"]
+        </p>
+      </li>
+
+      <li data-observer="o-up" class="d-flex align-items-start gap-3 mb-3">
+        <i class="bi bi-globe2 text-body-secondary fs-3"></i>
+        <p>
+          <strong class="h5 text-success">
+            @Localizer["also"]
+          </strong> <br/>
+          <span class="text-body-secondary">
+            <partial name="~/Views/Shared/_Socials.cshtml" />
+          </span>
+        </p>
+      </li>
+
+    </ul>
+
+  </section>
+
+        
+</main>
+
+<style>
+  #header-hero {
+    background: rgba(0, 0, 0, 0.7) url("../../images/website/contact-hero.jpg") no-repeat center;
+    background-size: cover;
+    background-blend-mode: darken;
+  }
+</style>

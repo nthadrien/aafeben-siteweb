@@ -1,0 +1,127 @@
+@model Aafeben.Models.AboutCombinedModelDto
+
+@{
+    ViewData["Title"] = @Localizer["title"];
+    ViewData["Description"] = @Localizer["desc"];
+}
+
+
+<section id="qui" data-observer="o-up" class="container mx-auto d-flex flex-column gap-3 justify-content-center align-items-center py-4">
+    <h2>@Localizer["who"]</h2>
+    <p>@Localizer["wtxt1"]</p>
+    <p>@Localizer["wtxt2"]</p>
+</section>
+
+@* notre vsision et mission *@
+<section id="vision" class="bg-body-tertiary container-fluid mx-auto row g-0 row-cols-1 row-cols-lg-2 justify-content-center align-items-start py-4">
+
+    <div style="max-width: 560px;" class="col py-4 px-3">
+
+        <h2>@Localizer["vision"]</h2>
+
+        @* <h1 class="display-6 fw-bold lh-1 text-body-emphasis mb-3">
+           @Localizer["vSummary"]
+        </h1> *@
+
+        <p class="lead">
+           @Localizer["vtxt"]
+        </p>
+
+        <h2>
+            @Localizer["mission"]
+        </h2>
+        <p class="lead">
+            @Localizer["mtxt"]
+        </p>
+    </div>
+
+    <div style="max-width: 640px;"  data-observer="o-right" class="bg-dark col-xl-6">
+        <img height="500px" width="100%" class="object-fit-cover" src="../../images/website/about-1.jpg" alt="a00">
+    </div>
+
+</section>
+
+<section id="zone"  class="container mx-auto row g-0 row-cols-1 row-cols-lg-2 justify-content-center align-items-center py-4">
+
+    <div data-observer="o-left" class="bg-dark col-xl-6">
+        <img height="400px" width="100%" class="object-fit-cover" src="../../images/website/about-2.jpg" alt="a00">
+    </div>
+
+    <div class="col py-4 px-3">
+        <h2 class="text-success">@Localizer["intv"]</h2>
+        <p class="text-body-emphasis mb-3">
+           @Localizer["zone"]
+        </p>
+    </div>
+</section>
+
+
+@* team section ---------------------------------------------- *@
+<section id="staff" class="container-fluid bg-body-tertiary py-4 text-center px-3">
+
+    <h1 class="my-3">@Localizer["staff"]</h1>
+    <p>@Localizer["staffText"]</p>
+
+    <div class="container mx-auto row row-cols-2 row-cols-lg-4 justify-content-evenly g-3 py-4">
+
+        @foreach(var Staff in Model.Users ) {
+
+            <div class="col">
+                <img height="180px" width="180px" class="object-fit-cover mb-3 rounded" src="../../images/staff/@(Staff.Image ?? "placeholder.png")" alt="staff @Staff.Name">
+                <p>
+                    <span class="lead"> @Staff.Name</span> <br/>
+                    @if( ViewBag.Language == "en" ) {
+                        <b>@Staff.EnRole</b>
+                    } else { 
+                        <b>@Staff.FrRole</b>
+                    }
+                    
+                </p>
+            </div>
+        }
+    </div>
+</section>
+
+@* Partenaires start---------------------------------------------- *@
+<section id="partenaires" class="container-fluid text-center py-4 px-3 overflow-hidden">
+
+    <h1 class="text-capitalize text-center my-3">Nos Partenaires</h1>
+    <div class="slider">
+        @foreach(var partner in Model.Partners ) {
+            <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="@partner.Name" href="@partner.UrlLink" target="_blank" class="slide-item p-2">
+                <img loading="lazy"  height="130px" width="130px" class="object-fit-contain rounded" src="~/images/partenaires/@partner.Image" alt="partner image">
+            </a>
+        }
+    </div>
+
+
+</section>
+
+
+<script>
+
+    const slider = document.querySelector(".slider");
+    const size = document.querySelectorAll(".slider a").length;
+    let times = Math.floor(window.innerWidth/260);
+    let j =0;
+    function startTimer() {
+        slider.style.transform = `translateX(-${j*130}px)`;
+        j = (j+1 ) % times;
+    }
+    setInterval(startTimer, 3000);
+</script>
+
+
+
+
+
+
+
+@* Css styling for the page *@
+<style>
+  #header-hero {
+    background: rgba(0, 0, 0, 0.6) url("../../images/website/about-us-hero.jpg") no-repeat center;
+    background-size: cover;
+    background-blend-mode: darken;
+  }
+</style>

@@ -1,0 +1,51 @@
+@model PaginatedList<Aafeben.Models.ProjectModel>
+
+@{
+    string lang = CultureInfo.CurrentCulture.ToString();
+    string proj = lang =="en" ? "/en/projet": "/fr/project";
+    ViewData["Title"] =  @Localizer["title"];
+    ViewData["description"] = @Localizer["desc"];
+}
+
+<h1 class="text-center my-3">@ViewData["Title"]</h1>
+
+
+<main class="container-xl row gy-2 mx-auto px-3">
+
+    <section class="row g-1 g-lg-3 row-cols-2 row-cols-xl-3">
+
+        @foreach (var item in Model) { 
+            <a href="@proj/@item.Title" >
+
+                <section class="position-relative w-100 border lh-sm mb-4">
+                    <img height="200px" width="100%" src="/images/projets/@(item.FeaturedImageUrl ?? "placeholder.png")" alt="...">
+                    <div style="top: 74%; left:8%;min-width:64px;" class="bg-primary text-white text-capitalize position-absolute p-1 p-md-3 text-center">
+                        @{
+                            var b = item.EndDate.ToLongDateString().Split(" ");
+                        }
+                        <span class="h2">@b[1]</span> <br/>
+                        @b[2].Substring(0,3)
+                    </div>
+                </section>
+
+                <div class="pt-3 px-2">
+                    <h4 class="fs-2fw-semibold w-100">@item.Title</h4>
+                </div>    
+            </a>    
+    }
+    </section>
+
+    <section class="py-4">
+        <partial name="~/Views/Shared/HomeLayout/_Pagination.cshtml" />
+    </section>
+
+</main>
+
+
+<style>
+    #header-hero {
+        background: rgba(0, 0, 0, 0.7) url("../../images/website/about-1.jpg") no-repeat center;
+        background-size: cover;
+        background-blend-mode: darken;
+    }
+</style>

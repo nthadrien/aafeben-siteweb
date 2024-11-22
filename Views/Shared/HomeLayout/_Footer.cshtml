@@ -1,0 +1,114 @@
+@{
+  string lang = CultureInfo.CurrentCulture.ToString();
+  string path = Context.Request.Path;
+  string about = lang =="en" ? "/en/about-us": "/fr/a-propos-de-nous";
+  string gre = lang =="en" ? "/en/granary": "/fr/le-grenier";
+  string proj = lang =="en" ? "/en/projets": "/fr/projects";
+  string opp = lang =="en" ? "/en/opportunities": "/fr/opportunités";
+  string med = lang == "en" ? "/en/media-library" : "/fr/médiathèque";
+}
+
+<div class="container-fluid bg-success text-white">
+
+  <footer class="container row row-cols-1  row-cols-md-3 justify-content-between py-5 mx-auto">
+    
+    <div class="col mb-3">
+      <a class="navbar-brand font-bolder" asp-controller="Home" asp-action="Index">
+        <img src="~/images/website/Logo.png" height="64rem" alt="Logo" />
+        <span class="h1 ms-2">AAFEBEN</span>
+      </a> <br/>
+      <small> @Localizer["since"]</small>
+      <p>
+        <a href="@Url.Action("Index", "Home", new { culture = "en" })">English</a> |
+        <a href="@Url.Action("Index", "Home", new { culture = "fr" })">Français</a>
+      </p>
+      <small>
+        Copyright AAFEBEN ©2024 All rights reserved
+      </small>
+    </div>
+
+    <div class="col mb-3 text-capitalize">
+      <h3>Pages</h3>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+              <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" aria-current="page">@Localizer["home"]</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a href="@about#" class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                @Localizer["us"]
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link"  href="@proj" aria-current="page">@Localizer["proj"]</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/@lang/blogs" aria-current="page">Blogs</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/@lang/publications" aria-current="page">Publications</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="@med" aria-current="page">@Localizer["media"]</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link"  href="@opp" aria-current="page">@Localizer["opp"]</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="@gre" aria-current="page">@Localizer["gran"]</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/@lang/contacts" class="nav-link">Contacts</a>
+            </li>
+
+      </ul>
+    </div>
+
+    <aside class="col mb-3">
+
+      <h3>Contacts</h3>
+      <ul class="nav flex-column pt-4">
+        <li class="d-flex gap-2 mb-2">
+          <div class="pill bg-primary p-2">
+            <i class="bi bi-house-check text-white"></i>
+          </div>
+          <small>
+            <span class=" text-turq">@Localizer["where1"]</span> <br/>
+            @Localizer["where"]
+          </small>
+        </li>
+
+        <li class="d-flex gap-2 mb-2">
+          <div class="pill bg-primary p-2">
+            <i class="bi bi-telephone text-white"></i>
+          </div>
+          <small>
+            <span class="text-turq">@Localizer["phone"]</span> <br/>
+            (+237)  653 663 807 / 695 665 858
+          </small>
+        </li>
+
+        <li class="d-flex gap-2 mb-2">
+          <div class="pill bg-primary p-2">
+            <i class="bi bi-globe2 text-white"></i>
+          </div>
+          <small>
+            <span class=" text-turq">@Localizer["oth"]</span> <br/>
+            <partial name="~/Views/Shared/_Socials.cshtml" />
+          </small>
+        </li>
+
+      </ul>
+    </aside>
+
+  </footer>
+
+  
+</div>

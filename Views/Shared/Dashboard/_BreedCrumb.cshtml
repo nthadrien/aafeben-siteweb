@@ -1,0 +1,25 @@
+@{
+  string path = Context.Request.Path;
+  string[] p = path.Replace("/fr/","").Replace("/en/","").Split('/');
+  
+}
+
+<nav aria-label="breadcrumb bg-light">
+
+  <ol class="breadcrumb breadcrumb-chevron p-3 shadow-sm">
+
+    <li class="breadcrumb-item">
+      <a class="link-body-emphasis" asp-controller="Blogs">
+        <i class="bi bi-house-fill"></i>
+        Tableau de Bord
+      </a>
+    </li>
+
+    @foreach(var item in p) {
+      <li class="breadcrumb-item">
+        <a class="link-body-emphasis fw-semibold text-decoration-none" href="#">@item</a>
+      </li>
+    }
+
+  </ol>
+</nav>

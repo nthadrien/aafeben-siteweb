@@ -1,0 +1,39 @@
+@model PaginatedList<Aafeben.Models.BlogPostModel>
+
+@{
+    ViewData["Title"] = "Blogs";
+    ViewData["description"] = @Localizer["desc"];
+}
+
+<h1 class="text-center my-3">@ViewData["Title"]</h1>
+
+
+<main class="container-xl row gy-2 mx-auto px-3">
+
+    <section class="row g-1 g-lg-3 row-cols-2 row-cols-lg-3">
+
+        @foreach (var item in Model) { 
+            <a class="col bog" href="/@item.Language/blog/@item.Title" >
+
+                <section class="position-relative w-100 border lh-sm mb-4">
+                    <img height="200px" width="100%" src="/images/blogs/@(item.FeaturedImageUrl ?? "placeholder.png")" alt="...">
+                    <div style="top: 78%; left:8%;min-width:64px;" class="bg-primary text-white text-capitalize position-absolute p-1 p-md-3 text-center">
+                        <span class="h2">@item.PublishedDate.Day</span> <br/>
+                        <b>@item.PublishedDate.ToString("MMMM").Substring(0,3)</b>
+                    </div>
+                </section>
+
+                <div class="p-2 pt-4">
+                    <h4 class="fs-2fw-semibold w-100">@item.Title</h4>
+                    <p class="h-[45px]">@item.ShortDescription</p>
+                </div>    
+            </a>    
+    }
+    </section>
+
+    <section class="py-4">
+        <partial name="~/Views/Shared/HomeLayout/_Pagination.cshtml" />
+    </section>
+
+</main>
+

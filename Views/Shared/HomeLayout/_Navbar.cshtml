@@ -1,0 +1,83 @@
+
+
+@{
+  string lang = CultureInfo.CurrentCulture.ToString();
+  string path = Context.Request.Path;
+  string about = lang =="en" ? "/en/about-us": "/fr/a-propos-de-nous";
+  string gre = lang =="en" ? "/en/granary": "/fr/le-grenier";
+  string proj = lang =="en" ? "/en/projets": "/fr/projects";
+  string opp = lang =="en" ? "/en/opportunities": "/fr/opportunités";
+  string med = lang == "en" ? "/en/media-library" : "/fr/médiathèque";
+}
+
+  <nav id="home-nav" class="navbar navbar-expand-lg top-0 position-absolute top-0 w-100 py-3" aria-label="Offcanvas navbar large">
+
+    <div class="container text-white">
+
+      <a class="font-bolder" asp-controller="Home" asp-action="Index">
+        <img src="~/images/website/Logo.png" height="53rem" alt="Logo" />
+        AAFEBEN
+      </a>
+
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        @* <span class="navbar-toggler-icon"></span> *@
+        <i class="bi bi-justify h3"></i>
+      </button>
+
+
+      <div class="collapse navbar-collapse bg-inherit"  id="navbar">
+
+
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 gap-3 gap-md-1">
+
+            <li class="nav-item">
+              <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" aria-current="page">@Localizer["home"]</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle @(path.Contains("nous") || path.Contains("about") ? "current-link" : "")"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                @Localizer["us"]
+              </a>
+
+              <ul class="dropdown-menu outline-0 rounded-0 border border-subtle-success ">
+                <li><a href="@about#" class="dropdown-item">@Localizer["who"]</a></li>
+                <li><a href="@about#zone"  class="dropdown-item">@Localizer["domain"]</a></li>
+                <li><a href="@about#zone"  class="dropdown-item">@Localizer["zone"]</a></li>
+                <li><a href="@about#staff" class="dropdown-item">@Localizer["staff"]</a></li>
+                <li><a href="@about#partenaires" class="dropdown-item">@Localizer["part"]</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link @(path.Contains("proj") ? "current-link" : "")"  href="@proj" aria-current="page">@Localizer["proj"]</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link @(path.Contains("blog") ? "current-link" : "")" href="/@lang/blogs" aria-current="page">Blogs</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link @(path.Contains("publica") ? "current-link" : "")" href="/@lang/publications" aria-current="page">@Localizer["pub"]</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link @(path.Contains("@med") ? "current-link" : "")" href="@med" aria-current="page">@Localizer["media"]</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link @(path.Contains("oppo") ? "current-link" : "")"  href="@opp" aria-current="page">@Localizer["opp"]</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link @(path.Contains("gran") || path.Contains("le-gren") ? "current-link" : "") " href="@gre" aria-current="page">@Localizer["gran"]</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/@lang/contacts" class="btn btn-success btn-sm">Contacts</a>
+            </li>
+
+          </ul>
+
+      </div>
+    </div>
+  </nav>

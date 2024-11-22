@@ -1,0 +1,46 @@
+@model Aafeben.Models.BlogPostModel
+
+@{
+    Layout ="~/Views/Shared/Dashboard/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Delete";
+}
+
+<h3 class="alert alert-warning">@Localizer["sure"]</h3>
+
+<div class="py-3">
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Localizer["ptitle"]
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Localizer["descript"]
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ShortDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Localizer["date"]
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PublishedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Localizer["lang"]
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Language)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button class="btn btn-danger me-4" >
+            <i class="bi bi-trash3 me-2"></i> 
+            @Localizer["del"]
+        </button>
+        <a class="btn text-success" id="go-back">@Localizer["back"]</a>
+    </form>
+</div>

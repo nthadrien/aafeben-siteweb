@@ -1,0 +1,106 @@
+@model PaginatedList<Aafeben.Models.MediaModel>
+
+@{
+    ViewData["Title"] = @Localizer["title"];
+    ViewData["Description"] = @Localizer["desc"];
+}
+
+
+<h2 class="py-4 text-center">
+    @ViewData["Title"]
+</h2>
+
+<main class="container mx-auto p-3 row justify-content-start align-items-start g-2">
+
+
+    <aside class="col-md-4 d-flex flex-wrap  gap-3">
+
+        <h3>Videos</h3>
+
+        <iframe src="https://drive.google.com/file/d/1OBdS3YRn0RF4ca06lpRMHh4_RtYEXrfZ/preview" width="640" height="480" allow="autoplay"></iframe>
+
+        <iframe width="100%" height="315"
+            src="https://www.youtube.com/embed/tgbNymZ7vqY">
+        </iframe>
+
+
+    </aside>
+
+    <aside class="col-md-4 d-flex flex-wrap gap-3">
+
+        <h3>Audios</h3>
+
+        <video width="100%" controls>
+            <source src="https://drive.google.com/file/d/1OBdS3YRn0RF4ca06lpRMHh4_RtYEXrfZ/view?usp=sharing" type="video/mp4">
+        </video>
+
+        <iframe width="100%" height="315"
+            src="https://www.youtube.com/embed/tgbNymZ7vqY">
+        </iframe>
+
+        <img src="../../images/website/hero2.jpg" alt="">
+
+        <img src="../../images/website/hero4.jpg" alt="">
+
+
+        <img src="../../images/website/hero3.jpg" alt="">
+
+        <video width="100%" controls>
+            <source src="movie.mp4" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+        </video>
+
+    </aside>
+
+    <aside class="col-md-4 d-flex flex-wrap gap-3">
+
+        <h3>Images</h3>
+
+        <img src="" alt="">
+
+
+
+        <img src="https://www.google.com/imgres?q=image%20of%20orphans&imgurl=https%3A%2F%2Fwww.wfpusa.org%2Fwp-content%2Fuploads%2F2017%2F01%2FCAR_20140330_WFP-Rein_Skullerud_D4A8291-1024x681.jpg&imgrefurl=https%3A%2F%2Fwww.wfpusa.org%2Farticles%2Fcalling-all-heroes-why-the-worlds-orphans-need-your-help%2F&docid=f60Pz2SUeHRtgM&tbnid=ZbE-PzuyuM7Z8M&vet=12ahUKEwihypy0ke6JAxU4QkEAHVY6M38QM3oECB0QAA..i&w=1024&h=681&hcb=2&ved=2ahUKEwihypy0ke6JAxU4QkEAHVY6M38QM3oECB0QAA" alt="">
+
+
+        <img src="https://www.google.com/imgres?q=image%20of%20orphans&imgurl=https%3A%2F%2Fi0.wp.com%2Fafricanrelief.org%2Fwp-content%2Fuploads%2F2023%2F07%2FBWA-JULY-2023_-Kabwata-Orphan-Image-Ironisitc-scaled.jpeg%3Ffit%3D2560%252C1707%26ssl%3D1&imgrefurl=https%3A%2F%2Fafricanrelief.org%2Fhow-to-help-orphans-in-africa%2F&docid=hA5G_1uT6-VzhM&tbnid=1AUPqaUHcEMP6M&vet=12ahUKEwihypy0ke6JAxU4QkEAHVY6M38QM3oECBcQAA..i&w=2560&h=1707&hcb=2&ved=2ahUKEwihypy0ke6JAxU4QkEAHVY6M38QM3oECBcQAA" alt="">
+
+        <iframe width="100%" height="315"
+            src="https://www.google.com/imgres?q=images%20of%20pygmies&imgurl=https%3A%2F%2Flirp.cdn-website.com%2Ff8b455ba%2Fdms3rep%2Fmulti%2Fopt%2F800wm-640w.jpg&imgrefurl=https%3A%2F%2Fwww.lux-ika.com%2Frediscover-cameroon-s-pygmies-culture&docid=aeB0fki01eGByM&tbnid=4mQKRt4cz3D4TM&vet=12ahUKEwjKmbjgke6JAxWmXEEAHcC8H_0QM3oECHkQAA..i&w=640&h=426&hcb=2&ved=2ahUKEwjKmbjgke6JAxWmXEEAHcC8H_0QM3oECHkQAA">
+        </iframe>
+
+        
+
+       
+        <img src="../../images/website/hero2.jpg" alt="Beatles" >
+
+
+        <img src="../../images/website/hero2.jpg" alt="">
+
+        <video width="100%" controls>
+            <source src="movie.mp4" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+        </video>
+
+    </aside>
+
+</main>
+
+<section class="container mx-auto">
+    <partial name="~/Views/Shared/HomeLayout/_Pagination.cshtml" />
+</section>
+
+<style>
+    aside > video ,
+    aside > img ,
+    aside > iframe {
+        height: auto;
+        width: 100%;
+    }
+
+    #header-hero {
+        background: rgba(0, 0, 0, 0.5) url("../../images/website/media-hero.png") no-repeat center;
+        background-size: cover;
+        background-blend-mode: darken;
+    }
+</style>

@@ -1,0 +1,85 @@
+@model PaginatedList<Aafeben.Models.PartnerModel>
+
+@{
+    Layout ="~/Views/Shared/Dashboard/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Liste des Partenaires";
+    int j =1;
+}
+
+<section class="d-flex flex-column gap-3 shadow rounded-2 p-3 ">
+
+    <aside class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+
+        <h3>@ViewData["Title"]</h3>
+
+        <p>
+            <a class="btn btn-primary" asp-action="Create">
+                <i class="bi bi-list-check me-2"></i>
+                Nouveau
+            </a>
+        </p>
+    </aside>
+
+    <form asp-action="Index" method="get" class="d-flex col-lg-8" role="search">
+        <input class="form-control rounded-0" type="search" name="SearchString" value="@ViewData["CurrentFilter"]" placeholder="Nom du Partenaire." aria-label="Search" required/>
+        <button class="btn btn-outline-primary rounded-0" type="submit">Recherche</button>
+    </form>
+
+    <aside class="table-reponsive">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Nom
+                    </th>
+                    <th>
+                        lien web
+                    </th>
+                    <th>
+                        Image
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                         @((j++) + (Model.PageIndex-1)*30 )
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UrlLink)
+                    </td>
+                    <td>
+                        <img height="64px" width="64px" src="/images/partenaires/@item.Image" alt="">
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                options
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end position-fixed">
+                                <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.Id">
+                                    <i class="bi bi-pencil-square me-2"></i> Modifier</a> 
+                                <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id">
+                                    <i class="bi bi-trash3 me-2"></i> Supprimer
+                                </a>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+    </aside>
+
+    <partial name="~/Views/Shared/Dashboard/_Pagination.cshtml" />
+
+</section>

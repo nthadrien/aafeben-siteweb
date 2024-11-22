@@ -1,0 +1,72 @@
+@model PaginatedList<Aafeben.Models.ProductModel>
+
+@{
+    ViewData["Title"] = @Localizer["title"];
+    ViewData["Description"] = @Localizer["description"];
+    string lang = Localizer["lang"].ToString();
+}
+
+<h1 class="text-center my-3">@Localizer["head"]</h1>
+<section class="text-center small">
+    @Localizer["txt1"]
+</section>
+
+
+
+<section class="container my-4 row gy-3 mx-auto">
+
+    @foreach (var item in Model) {
+        <div class="col-md-6 col-lg-3 lh-md">
+            <img style="height: 180px;" src="/images/grenier/@item.Image" class="object-fit-cover rounded w-100 mb-3" alt="@item.EnName">
+            
+            <p>
+                <b>@Localizer["prod"] :</b> @( lang == "en" ? item.EnName : item.FrName) <br/>
+                <b>@Localizer["qty"] :</b> @item.Qty 
+            </p>
+            
+            <button class="btn btn-primary btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#@item.Id">
+                @Localizer["det"]
+            </button>
+    </div>
+    }
+</section>
+
+<section class="container mx-auto">
+    <partial name="~/Views/Shared/HomeLayout/_Pagination.cshtml" />
+</section>
+
+
+
+<!-- Modals -->
+@foreach (var item in Model) {
+    <aside class="modal fade" id="@item.Id" tabindex="-1" aria-labelledby="@item.Id" aria-hidden="true">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header border-0">
+                    <h2 class="modal-title fs-5" id="@item.Id">
+                        <i class="bi bi-cart-fill"></i>
+                        @( lang == "en" ? item.EnName : item.FrName) <br/>
+                    </h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <h5>@Localizer["Description"]:</h5> <p> @( lang == "en" ? item.EnDescription : item.FrDescription )</p>
+                    <h5>@Localizer["addr"]:</h5> <p>@item.Address</p>
+                    <h5>Contacts:</h5> <p>@item.Address</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+}
+
+
+<style>
+    #header-hero {
+        background: rgba(0, 0, 0, 0.5) url("../../images/website/grenier-hero.jpg") no-repeat center;
+        background-size: cover;
+        background-blend-mode: darken;
+    }
+</style>

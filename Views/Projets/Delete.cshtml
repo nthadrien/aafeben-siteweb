@@ -1,0 +1,61 @@
+@model Aafeben.Models.ProjectModel
+
+@{
+    Layout ="~/Views/Shared/Dashboard/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Supprimer Le Projet???</h1>
+
+<h3 class="alert alert-warning">
+    Êtes-vous sûr de vouloir supprimer ceci ?
+</h3>
+
+<dl class="row g-3">
+        <dt class = "col-sm-2">
+            Titre
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            Langue
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Language)
+        </dd>
+        <dt class = "col-sm-2">
+            Zone de mise en œuvre  
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Zone)
+        </dd>
+        <dt class = "col-sm-2">
+            Durée de projet 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+        <dt class = "col-sm-2">
+            Date de Debut
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt class = "col-sm-2">
+            Date de Fin
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+</dl>
+    
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-danger"> 
+        <i class="bi bi-trash3 me-2"> </i>Supprimer
+    </button>
+
+    <a class="btn"   href="/{projectModel.Language}/administrateurs/projets");> Annuler</a>
+</form>

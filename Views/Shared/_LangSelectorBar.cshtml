@@ -1,0 +1,23 @@
+
+
+<header style="font-size: small;" class="container border-bottom d-flex justify-content-between align-item-center px-2 py-0">
+
+    <div style="z-index: 10;" class="dropdown">
+        <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            @Localizer["lang"]
+        </a>
+        <ul class="dropdown-menu p-2 fs-6 rounded-0">
+            <li><a href="@Url.Action("Index", "Home", new { culture = "en" })">English</a></li>
+            <li><a href="@Url.Action("Index", "Home", new { culture = "fr" })">Français</a></li>
+        </ul>
+    </div>
+
+    <span>
+        <i class="bi bi-geo-alt-fill"></i>
+        @Localizer["location"]
+    </span>
+
+    <span>
+        <partial name="~/Views/Shared/_Socials.cshtml" />
+    </span>
+</header>

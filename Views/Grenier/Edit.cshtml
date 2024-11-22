@@ -1,0 +1,77 @@
+@model Aafeben.Models.ProductModel
+
+@{
+    Layout ="~/Views/Shared/Dashboard/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Modifier le Produit";
+}
+
+
+
+<section class="bg-body p-3 d-flex flex-column gap-3 mt-3 rounded-3 shadow">
+ 
+    <h4>@ViewData["Title"]</h4>
+
+    <form enctype="multipart/form-data" method="post" class="row g-3" asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-md-6">
+            <label asp-for="FrName" class="form-label">Nom Du Produit (Fr)</label>
+            <input asp-for="FrName" placeholder="Nom en Francais" class="form-control" />
+            <span asp-validation-for="FrName" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6 visually-hidden">
+            <label asp-for="Image" class="form-label">Image</label>
+            <input type="text"  asp-for="Image" class="form-control" disabled/>
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="EnName" class="form-label">Name  Du Produit (En)</label>
+            <input asp-for="EnName" placeholder="Nom en Anglais" class="form-control" />
+            <span asp-validation-for="EnName" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Contact" class="form-label">Contacts Du Vendeur</label>
+            <input asp-for="Contact" placeholder="Tels, Email etc" class="form-control" />
+            <span asp-validation-for="Contact" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Address" class="form-label">Addresse Du Vendeur</label>
+            <input asp-for="Address" placeholder="Ville, Quatier, Rue" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Qty" class="form-label">Quantité</label>
+            <input asp-for="Qty" placeholder="Quantite: 5kg, 8 g, 1 t .etc" class="form-control" />
+            <span asp-validation-for="Qty" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <label asp-for="EnDescription" class="form-label">Description (En)</label>
+            <textarea rows="3" asp-for="EnDescription" placeholder="Nom en Anglais" class="form-control"> </textarea>
+            <span asp-validation-for="EnDescription" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <label asp-for="FrDescription" class="form-label">Description(Fr)</label>
+            <textarea rows="3" asp-for="FrDescription" placeholder="Nom en Anglais" class="form-control"> </textarea>
+            <span asp-validation-for="FrDescription" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-list me-2"></i>
+                Modifier
+            </button>
+            <a class="btn btn-warning text-white" asp-action="Index">Retour a la List</a>
+        </div>
+    </form>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

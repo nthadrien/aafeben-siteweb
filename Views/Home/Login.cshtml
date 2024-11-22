@@ -1,0 +1,43 @@
+@model Aafeben.Models.LoginDto
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    ViewData["Title"]= "Administrateurs";
+}
+
+<main class="full-page bg-body-tertiary d-flex flex-column justify-content-center align-items-center gap-4 px-3 py-4">
+
+
+    <form method="post" asp-action="Login" class="login bg-body shadow p-3 rounded-2">
+
+        
+        <h2 class="text-center text-success">
+            <img src="~/images/website/Logo.png" class="mx-auto" height="64rem" alt="Logo" /> <br/>
+            AAFEBEN
+        </h2>
+
+        <div class="my-3">
+            <label asp-for="Username" class="form-label">Nom d'utilisateur</label>
+            <input type="text" asp-for="Username" class="form-control" placeholder="nom" aria-describedby="text" required />
+            <span asp-validation-for="Username" class="text-danger form-text"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label">Mot de Passe</label>
+            <input type="Password" asp-for="Password" class="form-control" placeholder="*****" minlength="5" required />
+            <span asp-validation-for="Password" class="text-danger form-text"></span>
+        </div>
+
+       <small class="text-body-secondary">
+         Si vous n'avez pas de compte, veuillez contacter l'administrateur svp.
+       </small>
+
+       <div asp-validation-summary="ModelOnly" class="text-danger form-text">
+       lore
+       </div>
+
+        <button type="submit" class="btn btn-primary w-100 my-3">Se Connecter</button>
+    </form>
+    
+
+</main>
+

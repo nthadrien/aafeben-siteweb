@@ -1,0 +1,50 @@
+@model Aafeben.Models.ProductModel
+
+@{
+    Layout ="~/Views/Shared/Dashboard/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Delete";
+}
+
+<h3 class="alert alert-warning">
+    Etes-vous sûr de vouloir supprimer ce produit?
+</h3>
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Noms
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FrName)
+        </dd>
+        <dt class = "col-sm-2">
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EnName)
+        </dd>
+        <dt class = "col-sm-2">
+            Image Du produit
+        </dt>
+        <dd class = "col-sm-10">
+            <img class="border-2" height="300px" width="400px" src="/images/grenier/@Model.Image" alt="">
+        </dd>
+        <dt class = "col-sm-2">
+            Contacts
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Contact)
+        </dd>
+        <dt class = "col-sm-2">
+           Addresse
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a class="btn" id="go-back">Retour A La List</a>
+    </form>
+</div>

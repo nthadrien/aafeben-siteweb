@@ -1,0 +1,42 @@
+@model PaginatedList<Aafeben.Models.PublicationModel>
+
+@{
+    ViewData["Title"] = "Publications";
+    ViewData["Description"] = @Localizer["desc"];
+}
+
+<h1 class="text-center my-4">@ViewData["Title"]</h1>
+
+<section class="container mx-auto row g-2 justify-content-start mx-auto p-2">
+
+    @foreach (var item in Model) {
+        <a class="col-lg-6" href="/@item.Language/publication/@item.Title" >
+            <div style="height: 100%;" class="pub d-flex flex-column gap-2 justify-content-between border h-100 p-3 p-lg-4 text-body w-100">
+                <h5 class="text-capitalize fw-semibold">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </h5>
+                <p>
+                    <i class="bi bi-bookmarks"></i>
+                    <b>@Localizer["when"]</b> : @Html.DisplayFor(modelItem => item.PublishedDate)
+                </p>
+            </div>
+        </a>
+    }
+
+</section>
+
+<section class="container mx-auto py-4">
+    <partial name="~/Views/Shared/HomeLayout/_Pagination.cshtml" />
+</section>
+
+<style>
+    #header-hero {
+        background: rgba(0, 0, 0, 0.5) url("../../images/website/publications-hero.jpg") no-repeat center;
+        background-size: cover;
+        background-blend-mode: darken;
+    }
+
+    .pub:hover {
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    }
+</style>

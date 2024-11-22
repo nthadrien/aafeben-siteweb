@@ -1,0 +1,156 @@
+﻿@{
+    ViewData["Title"] = "Acceuil";
+    ViewData["Description"] = "Page d'acceuil";
+    string lang = CultureInfo.CurrentCulture.Name.ToString();
+    string gre = lang =="en" ? "/en/granary": "/fr/le-grenier";
+    string proj = lang =="en" ? "/en/projets": "/fr/projects";
+    string opp = lang =="en" ? "/en/opportunities": "/fr/opportunités";
+}
+
+<h1>
+
+</h1>
+
+<main style="max-width: 760px;"  class="container mx-auto p-3">
+
+    <div data-observer="o" class="py-4 mx-auto">
+        <p>Chers internautes,  </p>
+
+        <blockquote class="blockquote">
+            <p>
+                Je suis heureuse, en ma qualité de Directrice de l’Appui à l’Autonomisation de la Femme de la Boumba et Ngoko (AAFEBEN), de souhaiter à tous la bienvenue sur notre site internet www.aafeben.com
+            </p>
+            <p>
+                Vous avez certainement entendu parler d’AAFEBEN ou lu quelques informations relatives à cette organisation de la société civile créée le 11 Mai 2001 dans l’arrondissement de Yokadouma, région de l’Est. Elle a été mise sur pied à la base pour l’autonomisation des femmes de cette localité qui étaient de plus en plus vulnérables. Après plusieurs années de travail acharné sur cette problématique, AAFEBEN a peu à peu embrassé d’autres problématiques sur le plan social, environnemental et économique. Ainsi mettant non plus seulement la femme au centre mais d’autres groupes vulnérables tels les peuples autochtones et de manière générale les communautés locales pour lesquelles AAFEBEN œuvre pour leur bienêtre. 
+            </p>
+            <p>
+                AAFEBEN voudrait, grâce aux moyens de communication digitaux qu’offre Internet, être plus proche de ses publics cibles et plus ouvert au monde pour mieux développer sa notoriété tant au niveau national qu’international. C’est également une opportunité pour nous de pouvoir rencontrer des partenaires qui nous assisteront dans la réalisation de notre mission. 
+            </p>
+            <p>
+                Notre site internet permet également à promouvoir les différents produits des coopératives de notre zone d’intervention que nous appuyons. Il s’agit des produits forestiers non ligneux tels le Djanssang, le Tondo, le poivre noir, la mangue sauvage, la Rondelle, le Plat-plat, le Mbalaka, le Moabi mais aussi du cacao… Ils vous sont présentés sous toutes les formes, partant de la première à la troisième transformation. 
+            </p>
+            <p> 
+                Enfin, le nouveau site vous donnera la possibilité de suivre nos activités au quotidien. Bonne navigation !!!
+            </p>
+            <footer style="font-size: smaller;" class="blockquote-footer text-sm text-end">
+                AKONGONGOL Epse MINKAM Miranda <small>directrice d'Aafeben</small>
+            </footer>
+        </blockquote>
+    </div>
+
+    @* <p>
+        AAFEBEN voudrait, grâce aux moyens de communication digitaux qu’offre Internet, 
+        être plus proche de ses publics cibles et plus ouvert au monde pour mieux développer sa notoriété tant au niveau national qu’international. 
+    </p> *@
+
+</main>
+
+<section class="home-sum px-3 py-4 text-white text-center">
+
+    <h2  class="my-4 container" data-observer="o-down">
+        Nos activités variées ont un impact durable sur les individus et les communautés ou nous exercons.
+    </h2>
+
+    <p class="lead container">
+        Après plusieurs années de travail acharné, AAFEBEN a peu à peu embrassé d’autres problématiques sur le plan social, environnemental et économique. 
+        Nos activités majeures ont peu à peu augmenté du aux besoins urgent dans les diverses communautés d'interventions. Voici quelques-unes des activités les plus courantes: 
+    </p>
+
+    <aside class="container g-4 row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center align-items-between mx-auto">
+
+        @* start card *@
+
+        <div class="col">
+            <div data-observer="o-up" class="p-3 d-flex flex-column justify-content-between align-items-center gap-3 bg-body text-body-emphasis">
+                <i class="bg-success-subtle fs-1 p-2 rounded-2 bi bi-globe-europe-africa"></i>
+                <h5>Appui inclusive femme baka femme bantous</h5>
+                <p>
+                    Autonomiser ces femmes par des formations et des ressources pour améliorer leur participation économique et sociale.
+                </p>
+                <a href="@proj" class="btn btn-primary rounded-0">
+                    voir plus <i class="small bi bi-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+
+        @* start card *@
+
+        <div class="col">
+            <div data-observer="o-up" class="p-3 d-flex flex-column justify-content-between align-items-center gap-3 bg-body text-body-emphasis">
+                <i class="bg-primary-subtle fs-1 p-2 bi bi-capsule rounded-2"></i>
+                <h5>Mobilisation communautaire pour la lutte contre les pandémies et les épidémies</h5>
+                <p>
+                    Sensibiliser et éduquer les communautés pour renforcer leur résilience face aux crises sanitaires.
+                </p>
+                <a href="@proj" class="btn btn-primary rounded-0">
+                    voir plus <i class="small bi bi-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+
+
+        @* type 2 *@
+
+         @* start card *@
+        <div class="col">
+            <div data-observer="o-up" class="p-3 d-flex flex-column justify-content-between align-items-center gap-3 bg-body text-body-emphasis">
+                <i class="bg-primary-subtle fs-1 p-2 bi bi-files"></i>
+                <div>
+                    <h5>Formation et accompagnement des entreprises communautaires</h5>
+                    <p>
+                        Offrir des formations et un accompagnement pour améliorer les compétences entrepreneuriales et faciliter l'accès aux marchés.
+                    </p>
+                    <a href="@proj" class="btn btn-primary rounded-0">
+                        voir plus <i class="small bi bi-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        @* start card *@
+        <div class="col">
+            <div data-observer="o-up" class="col p-3 col d-flex flex-column justify-content-between align-items-center gap-3 bg-body text-body-emphasis">
+                <i class="bg-primary-subtle fs-1 p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="#000" d="m7 22l-1.5-6h13L17 22zm5-14q0-2.5 1.75-4.25T18 2q0 2.25-1.425 3.9T13 7.9V10h8v5H3v-5h8V7.9q-2.15-.35-3.575-2T6 2q2.5 0 4.25 1.75T12 8"/></svg>
+                </i>
+                <div>
+                    <h5>Appui au reboisement des arbres à haute valeurs économique</h5>
+                    <p>
+                        Promouvoir la plantation d'arbres à haute valeur économique pour restaurer les écosystèmes et générer des revenus.
+                    </p>
+                    <a href="/@lang/publications" class="btn btn-primary rounded-0">
+                        voir plus <i class="small bi bi-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+         @* start card *@
+        <div class="col">
+            <div data-observer="o-up" class="col p-3 col d-flex flex-column justify-content-between align-items-center gap-3 bg-body text-body-emphasis">
+                <i class="bg-primary-subtle fs-1 p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"><path fill="#000" d="m22.509 12.689l-6-3.55a1 1 0 0 0-1.018.001l-6 3.55a1 1 0 0 0-.491.86v6.9c0 .354.187.681.491.86l6 3.55a.99.99 0 0 0 1.018 0l6-3.55a1 1 0 0 0 .491-.86v-6.9a1 1 0 0 0-.491-.861M21 19.88l-5 2.958l-5-2.958v-5.76l5-2.958l5 2.958z"/><path fill="#000" d="M6 20.184V11.07l6.2-3.664l-1.017-1.722l-6.692 3.955A1 1 0 0 0 4 10.5v9.684A3 3 0 0 0 2 23c0 1.654 1.346 3 3 3s3-1.346 3-3a3 3 0 0 0-2-2.816M5 24a1.001 1.001 0 0 1 0-2a1.001 1.001 0 0 1 0 2m22-4c-1.654 0-3 1.346-3 3c0 .353.072.687.185 1.002L16 28.838l-6.404-3.784l-1.017 1.722l6.912 4.084a1 1 0 0 0 1.018.001l8.96-5.295c.45.269.97.434 1.531.434c1.654 0 3-1.346 3-3s-1.346-3-3-3m0 4a1.001 1.001 0 0 1 0-2a1.001 1.001 0 0 1 0 2M16 7c.731 0 1.392-.273 1.913-.708L26 11.071V18h2v-7.5a1 1 0 0 0-.491-.861l-8.567-5.062q.056-.28.058-.577c0-1.654-1.346-3-3-3s-3 1.346-3 3s1.346 3 3 3m0-4a1.001 1.001 0 1 1-1 1c0-.552.449-1 1-1"/></svg>
+                </i>
+                <div>
+                    <h5>Valorisation des produits forestiers non ligneux</h5>
+                    <p>
+                    Encourager des pratiques durables pour créer des opportunités de marché pour des produits comme les fruits et les plantes médicinales.
+                    </p>
+                    <a href="@gre" class="btn btn-primary rounded-0">
+                        voir plus <i class="small bi bi-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+
+</section>
+
+<style>
+    #header-hero {
+        background: rgba(0, 0, 0, 0.5) url("../../images/website/home-hero.jpg") no-repeat center;
+        background-size: cover;
+        background-blend-mode: darken;
+    }
+</style>

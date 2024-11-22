@@ -1,0 +1,72 @@
+@model Aafeben.Models.PublicationModel
+
+@{
+    
+    Layout ="~/Views/Shared/Dashboard/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Ajouter Une Publication";
+}
+
+<section class="bg-body p-3 d-flex flex-column gap-3 mt-3 rounded-3 shadow">
+ 
+    <h4>@ViewData["Title"]</h4>
+
+    <form method="post" class="row g-3" asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="col-12">
+            <label asp-for="Title" class="form-label">Titre</label>
+            <input placeholder="Le Titre doit etre le plus court" asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="PublishedDate" class="form-label">Jour de Publication</label>
+            <input type="date" asp-for="PublishedDate" class="form-control" />
+            <span asp-validation-for="PublishedDate" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Language" class="form-label">Langue</label>
+            <select class="form-select" asp-for="Language">
+                <option value="en">en</option>
+                <option value="fr">fr</option>
+            </select>
+            <span asp-validation-for="Language" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Content" class="form-label">Contenu</label>
+            <textarea asp-for="Content" rows="30" id="mytextarea" required></textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+        
+        <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-list me-2"></i>
+                Ajouter
+            </button>
+            <a class="btn btn-warning text-white" href="/fr/administrateurs/publications">Retour a la List</a>
+        </div>
+    </form>
+
+</section>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script src="~/lib/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    document.addEventListener('focusin', (e) => {
+        if (e.target.closest(".tox-tinymce-aux, .moxman-window, .tam-assetmanager-root") !== null) {
+            e.stopImmediatePropagation();
+        }
+    });
+
+    tinymce.init({
+        selector: '#mytextarea',
+        plugins: ["image","table"]
+    });
+
+    
+</script>

@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - aafeben</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/aafeben.styles.css" asp-append-version="true" />
+</head>
+
+<body data-bs-theme="auto" class="full-page d-flex gap-0">
+
+    <aside class="side-nav border-end">
+        <partial name="_DashSideBar.cshtml" /> 
+    </aside>
+
+    <main class="d-flex flex-column gap-4 w-100" >
+        <partial name="_BreedCrumb.cshtml" />
+        <div style="min-height: max(450px,50vh);" class="p-3 p-xl-4"> 
+            @RenderBody()
+        </div>
+        <partial name="_DashFooter.cshtml" />
+    </main>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        document.getElementById("go-back").addEventListener("click", () => {
+            history.back();
+        });
+    </script>
+</body>
+</html>
+

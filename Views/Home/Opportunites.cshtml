@@ -1,0 +1,57 @@
+@model IEnumerable<Aafeben.Models.OpportunityModel>
+
+@{
+    ViewData["Title"] = @Localizer["title"];
+    ViewData["Description"] = @Localizer["description"] ;
+}
+
+<h1 class="text-center my-4">@ViewData["Title"]</h1>
+
+<main class="container py-3 px-3 d-flex flex-column gap-3">
+   
+    <p class="lead text-center">  
+        @Localizer["why"]
+    </p>
+
+
+
+    <div class="my-3 p-3 bg-body rounded shadow-lg mx-auto w-100">
+
+        <div data-observer="o-up" class="d-flex align-items-center p-3 w-100 text-white bg-turq rounded shadow-sm mx-auto">
+            <i class="bi bi-people display-3 me-3"></i> 
+            <h1 class="text-capitalize mb-0 text-white lh-1">@Model.Count() @Localizer["opp"]</h1>
+        </div>
+
+        @foreach (var item in Model)
+        {
+        <aside data-observer="o-down" class="mon-accordion-2 p-3 border-bottom w-100">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+                <h4>@Html.DisplayFor(modelItem => item.Job) </h4>
+                <small class="text-capitalize text-end opacity-50"> @Html.DisplayFor(modelItem => item.PublishedDate)</small>
+            </div>
+            <p>@Html.DisplayFor(modelItem => item.JobDescription)</p>
+            <label class="btn btn-outline-secondary btn-sm">
+                Details <input type="radio" class="visually-hidden" name="accordion" id="accordion">
+            </label>
+
+            <div  class="accord-text">
+                <h6 class="text-body-emphasis text-capitalize">@Localizer["requi"]</h6>
+                <ul>
+                    @foreach(var skill in item.JobRequirements.Split("\\n").ToList() ) {
+                        <li>@skill.Replace("\n","")</li>
+                    }
+                </ul>
+            </div>
+        </aside>
+
+    }
+
+</main>
+
+<style>
+  #header-hero {
+    background: rgba(0, 0, 0, 0.5) url("../../images/website/opportunit-hero.jpg") no-repeat center;
+    background-size: cover;
+    background-blend-mode: darken;
+  }
+</style>

@@ -1,0 +1,44 @@
+@model Aafeben.Models.PublicationModel
+
+@{
+    
+    Layout ="~/Views/Shared/Dashboard/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Delete";
+}
+
+
+<h3 class="alert alert-warning">
+    Etes-vous sûr de vouloir supprimer cette Publication ?
+</h3>
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Titre De La Publication
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            Jour De La Publiation
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PublishedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            Langue
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Language)
+        </dd>
+        <dt class = "col-sm-2">
+            Autheur(s)
+        </dt>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger me-4" />
+        <a class="btn btn-primary" href="/@Model.Language/administrateurs/publications">Retour a la Liste</a>
+    </form>
+    
+</div>

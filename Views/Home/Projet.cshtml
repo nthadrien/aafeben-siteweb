@@ -1,0 +1,42 @@
+@model Aafeben.Models.ProjectModel
+
+@{
+    ViewData["Title"] = "Projet";
+    ViewData["description"] = Model.Title;
+}
+
+<main style="max-width: 960px;" class="py-4 container mx-auto lh-2 project-page">
+
+    <h1 class="my-3 text-capitalize">@Html.DisplayFor(model => model.Title)</h1>
+
+    <section class="small my-3 py-3 text-capitalize small text-muted border-bottom pb-3">
+        <p>@Localizer["long"] : @Model.Duration <br/>
+        @Localizer["start"]: @Model.StartDate.ToLongDateString()<br/>
+        @Localizer["end"] : @Model.EndDate.ToLongDateString()</p>
+    </section>
+
+    <img class="bg-dark mmg my-3" src="/images/projets/@(Model.FeaturedImageUrl ?? "placeholder.png")" alt="MO">
+
+    <section class="py-4">
+        @Html.Raw(Model.Content)
+    </section>
+
+    <a class="btn btn-outline" id="go-back">
+        <i class="bi bi-chevron-left small"></i> 
+        @Localizer["back"]
+    </a>
+
+</main>
+
+<style>
+    .mmg {
+        width: 100%;
+        height: max(420px,20vh);
+    }
+
+    #header-hero {
+        background: rgba(0, 0, 0, 0.7) url("../../images/website/about-1.jpg") no-repeat center;
+        background-size: cover;
+        background-blend-mode: darken;
+    }
+</style>

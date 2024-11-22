@@ -1,0 +1,39 @@
+
+    
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<aside class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+
+    <nav class="small" >
+
+        <a 
+            asp-route-sortOrder="@ViewData["CurrentSort"]"
+            asp-route-pageNumber="@(Model.PageIndex - 1)"
+            asp-route-currentFilter="@ViewData["CurrentFilter"]"
+            class="btn btn-sm small border-0 @prevDisabled">
+                <i class="bi bi-chevron-left"></i>
+        </a>
+
+        @for( int i = 1 ; i <= Model.TotalPages ; i++ ) {
+            <a class="btn btn-sm @(Model.PageIndex == i ? "btn-primary": "")" asp-route-pageNumber="@i" >
+                @i
+            </a>  
+        }
+        <a
+            asp-route-sortOrder="@ViewData["CurrentSort"]"
+            asp-route-pageNumber="@(Model.PageIndex + 1)"
+            asp-route-currentFilter="@ViewData["CurrentFilter"]"
+            class="btn btn-sm small border-0 @nextDisabled">
+                <i class="bi bi-chevron-right"></i>
+        </a>
+    </nav>
+
+    <p class="small">
+        vue: 
+        @(Model.Count * Model.PageIndex ) / @Model.Count
+    </p>
+
+</aside>

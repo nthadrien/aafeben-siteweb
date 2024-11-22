@@ -1,0 +1,47 @@
+@model Aafeben.Models.UserModel
+
+@{
+    Layout ="~/Views/Shared/Dashboard/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Add";
+}
+
+<section class="bg-body rounded-3 shadow p-3">
+
+    <h3 class="my-3">@ViewData["Title"] Staff</h3>
+
+    <form class="row g-3" asp-action="Create" method="post" enctype="multipart/form-data">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="col-md-6">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="EnRole" class="control-label"></label>
+            <input asp-for="EnRole" class="form-control" />
+            <span asp-validation-for="EnRole" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="FrRole" class="control-label"></label>
+            <input asp-for="FrRole" class="form-control" />
+            <span asp-validation-for="FrRole" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Image" class="control-label"></label>
+            <input type="file" accept=".jpg, .jpeg, .png" asp-for="Image" class="form-control" required/>
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex flex-wrap justify-content-between gap-2">
+            <input type="submit" value="Create" class="btn btn-primary" />
+            <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

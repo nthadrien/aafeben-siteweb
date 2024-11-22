@@ -1,0 +1,107 @@
+@{ 
+    string path = Context.Request.Path;
+    string culture = CultureInfo.CurrentCulture.ToString();
+}
+
+<div class="offcanvas-md offcanvas-start text-white" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
+
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasResponsiveLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
+    </div>
+
+
+    <div class="offcanvas-body nav-offcanvas p-3">
+
+        <a href="/@culture/administrateurs/blogs/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis bg-body border-bottom">
+            <img src="~/images/website/Logo.png" height="53rem" alt="Logo" />
+            <span class="ms-2 fs-5 fw-semibold">AAFEBEN</span>
+        </a>
+
+        <div class="w-100 text-start">
+            <button class="btn btn-toggle collapsed text-start @(path.Contains("logs") ? "bg-turq text-white" : "")" data-bs-toggle="collapse" data-bs-target="#blog-collapse" aria-expanded="true">
+                <i class="bi bi-list-columns me-2"></i>
+                Blogs
+            </button>
+            <div class="collapse" id="blog-collapse">
+                <div class="btn-toggle-nav border-start border-info border-3 rounded-2">
+                    <a href="/@culture/administrateurs/blogs/" class="d-inline-flex btn text-start" >
+                        <i class="bi bi-list-ul me-2"></i> @Localizer["list"]
+                    </a>
+                    <a href="/@culture/administrateurs/blogs/nouveau" class="d-inline-flex btn text-start">
+                        <i class="bi bi-plus-lg me-2"></i> @Localizer["add"]  Blog
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 text-start">
+            <button class="btn btn-toggle collapsed text-start @(path.Contains("Publica") ? "bg-turq text-white" : "")" data-bs-toggle="collapse" data-bs-target="#pub-collapse" aria-expanded="true">
+                <i class="bi bi-layout-sidebar me-2"></i>
+                Publications
+            </button>
+            <div class="collapse" id="pub-collapse">
+                <div class="btn-toggle-nav border-start border-info border-3 rounded-2">
+                    <a href="/@culture/administrateurs/publications/" class="d-inline-flex btn text-start">
+                        <i class="bi bi-list-ul me-2"></i> @Localizer["list"]
+                    </a>
+                    <a href="/@culture/administrateurs/blogs/nouveau" class="d-inline-flex btn text-start">
+                        <i class="bi bi-plus-lg me-2"></i> @Localizer["add"]  Publication
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 text-start">
+            <button class="btn btn-toggle collapsed text-start @(path.Contains("Proj") ? "bg-turq text-white" : "")" data-bs-toggle="collapse" data-bs-target="#proj-collapse" aria-expanded="true">
+                <i class="bi bi-list-check me-2"></i>
+                @Localizer["proj"]
+            </button>
+            <div class="collapse" id="proj-collapse">
+                <div class="btn-toggle-nav border-start border-info border-3 rounded-2">
+                    <a href="/@culture/administrateurs/projets/" class="d-inline-flex btn text-start">
+                        <i class="bi bi-list-ul me-2"></i> @Localizer["list"]
+                    </a>
+                    <a href="/@culture/administrateurs/projets/nouveau" class="d-inline-flex btn text-start">
+                        <i class="bi bi-plus-lg me-2"></i> @Localizer["add"]  @Localizer["proj"]
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <a href="/@culture/administrateurs/grenier/"  class="btn btn-toggle collapsed text-start @(path.Contains("Greni") ? "bg-turq text-white" : "")" >
+            <i class="bi bi-truck"></i>
+            Le Grenier
+        </a>
+
+        <a href="/@culture/administrateurs/opportunites" class="btn btn-toggle collapsed text-start @(path.Contains("pport") ? "bg-turq text-white" : "")" >
+            <i class="bi bi-people-fill me-2"></i>
+            @Localizer["opp"]
+        </a>
+
+        <a href="/@culture/administrateurs/partenaires/" class="btn btn-toggle collapsed text-start @(path.Contains("arten") ? "bg-turq text-white" : "")" >
+            <i class="bi bi-link me-2"></i>
+            @Localizer["part"]
+        </a>
+
+        <a href="/@culture/administrateurs/staff/"  class="btn btn-toggle collapsed text-start @(path.Contains("taff") ? "bg-turq text-white" : "")" >
+            <i class="bi bi-people-fill me-2"></i>
+            Staff
+        </a>
+
+        <a href="/@culture/administrateurs/media/" class="btn btn-toggle collapsed text-start @(path.Contains("edia") ? "bg-turq text-white" : "")" >
+            <i class="bi bi-collection-play me-2"></i>
+            Médiathèque
+        </a>
+
+
+        <form class="w-100" asp-controller="Home" asp-action="Logout">
+            <button type="submit" class="btn w-100 text-start btn-toggle" >
+                <i class="bi bi-power me-2"></i>
+                Logout
+            </button>
+        </form>
+
+    </div>
+
+</div>
