@@ -15,7 +15,7 @@
         <h3>Liste du Staff</h3>
 
         <p>
-            <a class="btn btn-primary" asp-action="Create">
+            <a class="btn btn-primary" href="/fr/administrateurs/staff/nouveau">
                 <i class="bi bi-list-check me-2"></i>
                 Nouveau
             </a>
@@ -34,10 +34,7 @@
                         Nom
                     </th>
                     <th>
-                        Role
-                    </th>
-                    <th>
-                        Nom D'utilisateur
+                        Role (Anglais | Français )
                     </th>
                     <th>
                         Photo
@@ -49,31 +46,31 @@
         @foreach (var item in Model) {
                 <tr>
                     <td>
-                        @( (j++) + (Model.PageIndex-1)*j)
+                        @( (j++) + (Model.PageIndex-1)*30)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.EnRole)
+                        @Html.DisplayFor(modelItem => item.EnRole) |
                         @Html.DisplayFor(modelItem => item.FrRole)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Image)
+                        <img height="90px" width="90px" src="/images/staff/@(item.Image ?? "placeholder.png")" alt="photo @item.Name" />
                     </td>
                     <td>
-                        <div class="btn-group">
-                                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                        options
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-end position-fixed">
-                                        <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.Id">
-                                            <i class="bi bi-pencil-square me-2"></i> Editer</a> 
-                                        <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id">
-                                            <i class="bi bi-trash3 me-2"></i> Supprimer
-                                        </a>
-                                    </ul>
-                                </div>
+                        <div class="btn-group position-relative">
+                            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                options
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end position-absolute">
+                                <a class="dropdown-item" href="/fr/administrateurs/staff/modifier/@item.Id">
+                                    <i class="bi bi-pencil-square me-2"></i> Modifier Profil</a> 
+                                <a class="dropdown-item" href="/fr/administrateurs/staff/supprimer/@item.Id">
+                                    <i class="bi bi-trash3 me-2"></i> Supprimer Staff
+                                </a>
+                            </ul>
+                        </div>
                     </td>
                 </tr>
         }

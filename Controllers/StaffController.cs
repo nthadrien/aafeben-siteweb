@@ -76,30 +76,38 @@ namespace Aafeben.Controllers
 
             if (ModelState.IsValid && Image != null ) 
             {
-                if (!Directory.Exists(directoryPath))
-                {
-                    Directory.CreateDirectory(directoryPath);
+                try {
+                    if (!Directory.Exists(directoryPath))
+                    {
+                        Directory.CreateDirectory(directoryPath);
+                    }
+
+                    string fileName = Guid.NewGuid() + Path.GetExtension(Image.FileName);
+                    string filePath = Path.Combine(directoryPath, fileName);
+
+                    using ( var memoryStream = new MemoryStream())
+                    {
+                        await Image.CopyToAsync(memoryStream);
+                        // Upload the file if less than 2 MB
+                        if (memoryStream.Length < 2098152) {
+                            var stream = new FileStream(filePath, FileMode.Create);
+                            await Image.CopyToAsync(stream);
+                            stream.Close();
+                        } else {
+                            Console.WriteLine("Errrrorrrr_____________");
+                            ModelState.AddModelError("Image","L'image doit peser moins de 2 Mo, svp.");
+                            return View( userModel );
+                        }
+                    }
+
+                    userModel.Image = $"{fileName}";
+
+                    _context.Users.Add(userModel);
+                    await _context.SaveChangesAsync();
+                    return Redirect("/fr/administrateurs/staff/"); // Redirect as needed
+                } catch {
+                    return View( userModel );
                 }
-
-                string fileName = userModel.Name.Trim().Replace(" ","-").Replace("?","").Replace("/","").Replace(":","") + Path.GetExtension(Image.FileName);
-                string filePath = Path.Combine(directoryPath, fileName);
-
-                using ( var memoryStream = new MemoryStream())
-                {
-                    await Image.CopyToAsync(memoryStream);
-                    // Upload the file if less than 2 MB
-                    if (memoryStream.Length < 2097152) {
-                        var stream = new FileStream(filePath, FileMode.Create);
-                        await Image.CopyToAsync(stream);
-                    } else throw new Exception ("Image too big");
-                    
-                }
-
-                userModel.Image = $"{fileName}";
-
-                _context.Users.Add(userModel);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index"); // Redirect as needed
             } 
             return View( userModel );
         }
@@ -152,7 +160,8 @@ namespace Aafeben.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                
+                return Redirect("/fr/administrateurs/staff/"); // Redirect as needed
             }
             return View(userModel);
         }
@@ -199,7 +208,7 @@ namespace Aafeben.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Redirect("/fr/administrateurs/staff/"); // Redirect as needed
         }
 
         private bool UserModelExists(int id)
