@@ -18,7 +18,7 @@ namespace Aafeben.Controllers
         private readonly AafebenDbContext _context;
         readonly string directoryPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images","staff");
 
-        public StaffController(AafebenDbContext context,IWebHostEnvironment webHost)
+        public StaffController(AafebenDbContext context)
         {
             _context = context;
         }
@@ -41,7 +41,7 @@ namespace Aafeben.Controllers
 
             ViewData["CurrentFilter"] = searchString;
            
-            var staff = from s in _context.Users select s;
+            var staff = from s in _context.Users.OrderByDescending( s => s.CreatedAt ) select s;
             
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -94,7 +94,6 @@ namespace Aafeben.Controllers
                             await Image.CopyToAsync(stream);
                             stream.Close();
                         } else {
-                            Console.WriteLine("Errrrorrrr_____________");
                             ModelState.AddModelError("Image","L'image doit peser moins de 2 Mo, svp.");
                             return View( userModel );
                         }

@@ -109,7 +109,7 @@ namespace Aafeben.Models
                             Image="gba.jpg"
                         },
                         new PartnerModel {
-                            UrlLink="https://www.google.com/search?client=opera&q=well+grounded&sourceid=opera&ie=UTF-8&oe=UTF-8",
+                            UrlLink="https://well-grounded.org",
                             Name="WELL GROUNDED",
                             Image="ground.jpg"
                         },

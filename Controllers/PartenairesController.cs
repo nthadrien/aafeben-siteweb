@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace Aafeben.Controllers
 {
     [Authorize]
-    [Route("/{culture}/administrateurs/partenaires")]
+    [Route("/{culture}/administrateurs/partenaires/")]
     public class PartenairesController : Controller
     {
         private readonly AafebenDbContext _context;
@@ -42,7 +42,7 @@ namespace Aafeben.Controllers
             }
 
             ViewData["CurrentFilter"] = searchString;
-            var partenaires = from p in _context.Partners select p;
+            var partenaires = from p in _context.Partners.OrderByDescending( p => p.CreatedAt ) select p;
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -56,13 +56,14 @@ namespace Aafeben.Controllers
         }
 
         // GET: Partenaires/Create
+        [Route("nouveau")]
         public IActionResult Create()
         {
             return View();
         }
 
         // POST: Partenaires/Create
-        [HttpPost]
+        [HttpPost("nouveau")]
         public async Task<IActionResult> Create(PartnerModel partnerModel, IFormFile Image )
         {
             if (ModelState.IsValid && Image != null ) 
@@ -87,12 +88,13 @@ namespace Aafeben.Controllers
                 partnerModel.Image =$"{fileName}";
                 _context.Partners.Add(partnerModel);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index"); // Redirect as needed
+                return Redirect("/fr/administrateurs/partenaires/"); // Redirect as needed
             } 
             return View( partnerModel );
         }
 
         // GET: Partenaires/Edit/5
+        [Route("modifier/{id}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -111,7 +113,7 @@ namespace Aafeben.Controllers
         // POST: Partenaires/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost("modifier/{id}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,UrlLink,Name,Image")] PartnerModel partnerModel)
         {
@@ -140,12 +142,13 @@ namespace Aafeben.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return Redirect("/fr/administrateurs/partenaires/");
             }
             return View(partnerModel);
         }
 
         // GET: Partenaires/Delete/5
+        [Route("supprimer/{id}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -164,7 +167,7 @@ namespace Aafeben.Controllers
         }
 
         // POST: Partenaires/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost("supprimer/{id}"), ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -175,7 +178,7 @@ namespace Aafeben.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Redirect("/fr/administrateurs/partenaires/");
         }
 
         private bool PartnerModelExists(int id)

@@ -9,15 +9,11 @@
 <section class="d-flex flex-column gap-3 shadow rounded-2 p-3 ">
 
     <aside class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
-
         <h3>@ViewData["Title"]</h3>
-
-        <p>
-            <a class="btn btn-primary" asp-action="Create">
-                <i class="bi bi-list-check me-2"></i>
-                Nouveau
-            </a>
-        </p>
+        <a class="btn btn-primary" href="/fr/administrateurs/partenaires/nouveau/">
+            <i class="bi bi-list-check me-2"></i>
+            Nouveau
+        </a>
     </aside>
 
     <form asp-action="Index" method="get" class="d-flex col-lg-8" role="search">
@@ -55,20 +51,20 @@
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.UrlLink)
+                        <a target="_blccak" href="@item.UrlLink">Voir le Siteweb</a>
                     </td>
                     <td>
-                        <img height="64px" width="64px" src="/images/partenaires/@item.Image" alt="">
+                        <img loading="lazy" height="64px" width="64px" src="/images/partenaires/@(item.Image ?? "placeholder.png" )" alt="">
                     </td>
                     <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 options
                             </button>
-                            <ul class="dropdown-menu dropdown-menu-end position-fixed">
-                                <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.Id">
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="/fr/administrateurs/partenaires/modifier/@item.Id">
                                     <i class="bi bi-pencil-square me-2"></i> Modifier</a> 
-                                <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id">
+                                <a class="dropdown-item" href="/fr/administrateurs/partenaires/supprimer/@item.Id">
                                     <i class="bi bi-trash3 me-2"></i> Supprimer
                                 </a>
                             </ul>

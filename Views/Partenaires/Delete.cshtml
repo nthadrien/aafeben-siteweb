@@ -29,11 +29,19 @@
         <dd class = "col-sm-10">
             <img height="128px" width="128px" src="/images/partenaires/@Model.Image" alt="">
         </dd>
+
+
+        <dt class="col-sm-2"> 
+            ajouté Le 
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Supprimer" class="btn btn-danger me-4" />
-        <a asp-action="Index">Retour à la liste</a>
+        <a href="#" id="go-back">Retour à la liste</a>
     </form>
 </div>

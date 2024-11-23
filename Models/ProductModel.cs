@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Aafeben.Models
 {
@@ -16,5 +17,7 @@ namespace Aafeben.Models
         public required string EnDescription {get; set;}
         public required string FrDescription {get; set;}
         public required string Qty {get; set;}
+        [DataType(DataType.Date)]
+        public DateTime CreatedAt { get; set; }
     }
 }

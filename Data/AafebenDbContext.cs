@@ -25,9 +25,18 @@ namespace Aafeben.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<UserModel>().HasIndex(u => u.Name).IsUnique();
+            modelBuilder.Entity<UserModel>( entity => 
+            {
+                entity.HasIndex(u => u.Name).IsUnique();
+                entity.Property( e => e.CreatedAt ).HasDefaultValueSql("getdate()");
 
-            modelBuilder.Entity<PartnerModel>().HasIndex(u => u.Name).IsUnique();
+            });
+            
+            modelBuilder.Entity<PartnerModel>( entity => 
+            {
+                entity.HasIndex(u => u.Name).IsUnique();
+                entity.Property( e => e.CreatedAt ).HasDefaultValueSql("getdate()");
+            });
 
             modelBuilder.Entity<BlogPostModel>().HasIndex(u => u.Title).IsUnique();
 
@@ -39,21 +48,3 @@ namespace Aafeben.Data
         
     }
 }
-
-// dotnet aspnet-codegenerator controller -name BlogsController -m BlogPostModel -dc Aafeben.Data.AafebenDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlServer
-// dotnet aspnet-codegenerator controller -name TagsController -m TagModel -dc Aafeben.Data.AafebenDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlServer
-// dotnet aspnet-codegenerator controller -name OpportunityController -m OpportunityModel -dc Aafeben.Data.AafebenDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlServer
-// dotnet aspnet-codegenerator controller -name staffController -m UserModel -dc Aafeben.Data.AafebenDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlServer
-// dotnet aspnet-codegenerator controller -name PartnersController -m PartnerModel -dc Aafeben.Data.AafebenDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlServer
-
-
-// dotnet ef database drop -f -v
-// dotnet ef migrations add Initial
-// dotnet ef database update
-
-// <script>
-// var model = @Html.Raw(JsonSerializer.Serialize(Model));
-// </script>
-
-// dotnet aspnet-codegenerator controller -name GrenierController -m PublicationModel -dc Aafeben.Data.AafebenDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlServer
-
