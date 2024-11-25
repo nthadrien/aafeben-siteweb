@@ -78,21 +78,22 @@ namespace Aafeben.Controllers
                 string filePath = Path.Combine(directoryPath, fileName);
 
                 using ( var memoryStream = new MemoryStream())
-                {
-                    await Image.CopyToAsync(memoryStream);
-                    // Upload the file if less than 2 MB
-                    if (memoryStream.Length < 2097152) {
-                        var stream = new FileStream(filePath, FileMode.Create);
-                        await Image.CopyToAsync(stream);
-                    } else {
-                        throw new Exception ("Image trop large");
+                    {
+                        await Image.CopyToAsync(memoryStream); // Upload the file if less than 2 MB
+                        if (memoryStream.Length <  1676160 ) {
+                            var stream = new FileStream(filePath, FileMode.Create);
+                            await Image.CopyToAsync(stream);
+                            stream.Close();
+                        } else {
+                            ModelState.AddModelError("Image","L'image doit peser moins de 1,5 Mo, svp.");
+                            return View( productModel );
+                        }
                     }
-                }
 
                 productModel.Image = $"{fileName}";
                 _context.Add(productModel);
                 await _context.SaveChangesAsync();
-                return Redirect($"/fr/administrateurs/grenier");
+                return Redirect("/fr/administrateurs/grenier/");
             }
             return View(productModel);
         }
@@ -119,7 +120,7 @@ namespace Aafeben.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost("modifier/{id}")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FrName,EnName,Contact,EnDescription, FrDescription,Address")] ProductModel productModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FrName,EnName,Contact,EnDescription,Qty, FrDescription,Address, Image")] ProductModel productModel)
         {
             if (id != productModel.Id)
             {
@@ -144,7 +145,7 @@ namespace Aafeben.Controllers
                         throw;
                     }
                 }
-                return Redirect("/fr/administrateurs/grenier");
+                return Redirect("/fr/administrateurs/grenier/");
             }
             return View(productModel);
         }
@@ -190,7 +191,7 @@ namespace Aafeben.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return Redirect($"/fr/administrateurs/grenier");
+            return Redirect("/fr/administrateurs/grenier/");
         }
 
         private bool ProductModelExists(int id)

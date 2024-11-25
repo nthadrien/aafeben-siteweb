@@ -1,4 +1,4 @@
-@model IEnumerable<Aafeben.Models.OpportunityModel>
+@model PaginatedList<Aafeben.Models.OpportunityModel>
 
 @{
     Layout ="~/Views/Shared/Dashboard/_DashboardLayout.cshtml";
@@ -12,13 +12,17 @@
 
     <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
         <h3>@ViewData["title"]</h3>
-        <p>
-            <a class="btn btn-primary" asp-action="Create">
-                <i class="bi bi-person-add"></i>
-                Ajouter
-            </a>
-        </p>
+        
+        <a class="btn btn-primary" href="/fr/administrateurs/opportunites/nouvelle">
+            <i class="bi bi-person-add"></i>
+            Ajouter
+        </a>
     </div>
+
+    <form asp-action="Index" method="get" class="d-flex col-lg-8" role="search">
+        <input class="form-control rounded-0" type="search" name="SearchString" value="@ViewData["CurrentFilter"]" placeholder="Nom, Quantite, Addresse" aria-label="Search" required/>
+        <button class="btn btn-outline-primary rounded-0" type="submit">Recherche</button>
+    </form>
 
     <div class="table-responsive">
         <table class="table">
@@ -62,9 +66,9 @@
                                 options
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end position-fixed">
-                                <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.Id">
+                                <a class="dropdown-item" href="/fr/administrateurs/opportunites/modifier/@item.Id">
                                 <i class="bi bi-pencil-square me-2"></i> Modifier</a> 
-                                <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id">
+                                <a class="dropdown-item" href="/fr/administrateurs/opportunites/supprimer/@item.Id">
                                     <i class="bi bi-trash3 me-2"></i> Supprimer
                                 </a>
                             </ul>
@@ -76,5 +80,7 @@
         </table>
 
     </div>
+
+    <partial name="~/Views/Shared/Dashboard/_Pagination.cshtml" />
 
 </section>

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace Aafeben.Controllers
 {
     [Authorize]
-    [Route("/{culture}/administrateurs/opportunites")]
+    [Route("/{culture}/administrateurs/opportunites/")]
     public class OpportunityController : Controller
     {
         private readonly AafebenDbContext _context;
@@ -19,31 +19,37 @@ namespace Aafeben.Controllers
 
         // GET: Opportunity
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(
+            string searchString,
+            string currentFilter,
+            int? pageNumber
+        )
         {
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewData["CurrentFilter"] = searchString;
             // return View(await _context.Opportunities.ToListAsync());
-            return View(await _context.Opportunities.ToListAsync());
-        }
-
-        // GET: Opportunity/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
+            var oppos = from op in  _context.Opportunities.OrderByDescending( o => o.PublishedDate) select op;
+            if (!String.IsNullOrEmpty(searchString))
             {
-                return NotFound();
+                oppos = oppos.Where(
+                    s => s.Job.Contains(searchString) || s.JobDescription.Contains(searchString)
+                );
             }
-
-            var opportunityModel = await _context.Opportunities
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (opportunityModel == null)
-            {
-                return NotFound();
-            }
-
-            return View(opportunityModel);
+            
+            int pageSize = 30;
+            return View(await PaginatedList<OpportunityModel>.CreateAsync(oppos.AsNoTracking(), pageNumber ?? 1 , pageSize ) );
         }
 
         // GET: Opportunity/Create
+        [Route("nouvelle")]
         public IActionResult Create()
         {
             return View();
@@ -52,7 +58,7 @@ namespace Aafeben.Controllers
         // POST: Opportunity/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost("nouvelle")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Job,JobDescription,Language,JobRequirements,PublishedDate")] OpportunityModel opportunityModel)
         {
@@ -60,12 +66,13 @@ namespace Aafeben.Controllers
             {
                 _context.Add(opportunityModel);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return Redirect("/fr/administrateurs/opportunites/");
             }
             return View(opportunityModel);
         }
 
         // GET: Opportunity/Edit/5
+        [Route("modifier/{id}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -84,7 +91,7 @@ namespace Aafeben.Controllers
         // POST: Opportunity/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost("modifier/{id}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Job,JobDescription,Language,JobRequirements,PublishedDate")] OpportunityModel opportunityModel)
         {
@@ -111,12 +118,13 @@ namespace Aafeben.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return Redirect("/@opportunityModel.Language/administrateurs/opportunites/");
             }
             return View(opportunityModel);
         }
 
         // GET: Opportunity/Delete/5
+        [HttpGet("supprimer/{id}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,7 +143,7 @@ namespace Aafeben.Controllers
         }
 
         // POST: Opportunity/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost("supprimer/{id}"), ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -146,7 +154,7 @@ namespace Aafeben.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Redirect("/@opportunityModel.Language/administrateurs/opportunites/");
         }
 
         private bool OpportunityModelExists(int id)
