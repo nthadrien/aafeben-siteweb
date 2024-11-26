@@ -18,12 +18,6 @@
             <input placeholder="le titre du projet" asp-for="Title" class="form-control" />
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
-        
-        <div class="col-md-6">
-            <label asp-for="FeaturedImageUrl" class="form-label">Image</label>
-            <input type="text" disabled asp-for="FeaturedImageUrl" class="form-control" />
-            <span asp-validation-for="FeaturedImageUrl" class="text-danger"></span>
-        </div>
 
         <div class="col-md-6">
             <label asp-for="Language" class="form-label">Langue</label>
@@ -58,6 +52,10 @@
             <span asp-validation-for="Duration" class="text-danger"></span>
         </div>
 
+        <div class="col-md-6">
+            <input type="hidden" asp-for="FeaturedImageUrl" class="form-control" required />
+        </div>
+
 
         <div>
             <label asp-for="Content" class="form-label">Contenu</label>
@@ -85,6 +83,6 @@
 <script>
     tinymce.init({
         selector: '#mytextarea',
-        plugins: 'image', 
+        plugins: ['table','image'], 
     });
 </script>

@@ -12,7 +12,8 @@
     <section class="p-4">
         <h1 class="my-3 text-capitalize">@Html.DisplayFor(model => model.Title)</h1>
         <p class="lead">@Html.DisplayFor(model => model.ShortDescription)</p>
-        <p>@Localizer["Le :"] @Model.PublishedDate.ToLongDateString()</p>
+        <p>@Localizer["le"] :#header-hero @Model.PublishedDate.ToLongDateString()</p>
+        <hr/>
         <img class="bg-dark mmg my-5" src="/images/blogs/@(Model.FeaturedImageUrl ?? "placeholder.png")" alt="MO">
         @Html.Raw(Model.Content)
     </section>
@@ -23,7 +24,7 @@
     <hr class="border-success" />
 
     <a id="go-back" class="btn success mt-3" >
-        <i class="bi bi-chevron-left"></i> Retour
+        <i class="bi bi-chevron-left"></i> @Localizer["back"]
     </a>
 
 </section>

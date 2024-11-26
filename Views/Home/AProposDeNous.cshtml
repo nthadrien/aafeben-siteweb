@@ -89,7 +89,7 @@
     <div class="slider">
         @foreach(var partner in Model.Partners ) {
             <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="@partner.Name" href="@partner.UrlLink" target="_blank" class="slide-item p-2">
-                <img loading="lazy"  height="130px" width="130px" class="object-fit-contain rounded" src="~/images/partenaires/@partner.Image" alt="partner image">
+                <img loading="lazy"  height="130px" width="130px" class="object-fit-contain rounded" src="~/images/partenaires/@(partner.Image ?? "placeholder.png")" alt="partner image">
             </a>
         }
     </div>
@@ -104,9 +104,13 @@
     const size = document.querySelectorAll(".slider a").length;
     let times = Math.floor(window.innerWidth/260);
     let j =0;
+    let children = slider.childNodes;
+    let counts = children.length;
+
     function startTimer() {
         slider.style.transform = `translateX(-${j*130}px)`;
-        j = (j+1 ) % times;
+        if ( j % counts === 0 ) j = -1;
+        j++;
     }
     setInterval(startTimer, 3000);
 </script>

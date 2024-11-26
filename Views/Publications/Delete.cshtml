@@ -30,15 +30,12 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Language)
         </dd>
-        <dt class = "col-sm-2">
-            Autheur(s)
-        </dt>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger me-4" />
-        <a class="btn btn-primary" href="/@Model.Language/administrateurs/publications">Retour a la Liste</a>
+        <a class="btn" href="/@Model.Language/administrateurs/publications">Retour a la Liste</a>
     </form>
     
 </div>
