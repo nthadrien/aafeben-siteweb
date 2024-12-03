@@ -10,7 +10,8 @@
  
     <h4>@ViewData["Title"]</h4>
 
-    <form method="post" class="row g-3" asp-action="Create">
+    <form  enctype="multipart/form-data" class="row g-3" method="post" asp-action="Create">
+
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
         <div class="col-12">
@@ -34,9 +35,9 @@
             <span asp-validation-for="Language" class="text-danger"></span>
         </div>
 
-        <div>
-            <label asp-for="Content" class="form-label">Contenu</label>
-            <textarea asp-for="Content" rows="30" id="mytextarea" required></textarea>
+        <div class="col-md-6">
+            <label asp-for="Content" class="form-label">Contenu (PDF)</label>
+            <input type="file" accept="application/pdf"  asp-for="Content" class="form-control" />
             <span asp-validation-for="Content" class="text-danger"></span>
         </div>
         
@@ -55,18 +56,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-<script src="~/lib/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-    document.addEventListener('focusing', (e) => {
-        if (e.target.closest(".tox-tinymce-aux, .moxman-window, .tam-assetmanager-root") !== null) {
-            e.stopImmediatePropagation();
-        }
-    });
-
-    tinymce.init({
-        selector: '#mytextarea',
-        plugins: ["image","table"]
-    });
-
-    
-</script>

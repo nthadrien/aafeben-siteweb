@@ -51,18 +51,20 @@ namespace Aafeben.Models
                         },
                         new UserModel {
                             Name="LANGUEL Simon Pierre",
-                            EnRole="Field Liaison",
+                            EnRole="Field Officer",
                             FrRole="Relais terrain"
                         },
                         new UserModel {
                             Name="MABESSIMO Thierry",
-                            EnRole="Field Liaison",
-                            FrRole="Relais terrain"
+                            EnRole="Field Officer",
+                            FrRole="Relais terrain",
+                            Image="thierry.jpg"
                         },
                         new UserModel {
                             Name="AMBIL BENI CARDOREL",
-                            EnRole="Field Liaison",
-                            FrRole="Relais terrain"
+                            EnRole="Field Officer",
+                            FrRole="Relais terrain",
+                            Image="beni.jpg"
                         }
                     );
 

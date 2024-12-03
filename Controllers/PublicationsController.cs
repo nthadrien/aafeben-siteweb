@@ -68,10 +68,29 @@ namespace Aafeben.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost("nouvelle")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Content,PublishedDate,Language")] PublicationModel publicationModel)
+        public async Task<IActionResult> Create([Bind("Id,Title,PublishedDate,Language")] PublicationModel publicationModel, IFormFile Content)
         {
-            if (ModelState.IsValid)
+
+            if (ModelState.IsValid && Content != null  )
             {
+                if (!Directory.Exists(directoryPath))
+                {
+                    Directory.CreateDirectory(directoryPath);
+                }
+
+                string fileName = Guid.NewGuid()  + Path.GetExtension(Content.FileName);
+                string filePath = Path.Combine(directoryPath, fileName);
+
+                using ( var memoryStream = new MemoryStream())
+                {
+                    await Content.CopyToAsync(memoryStream);
+                    // Upload the file if less than 2 MB
+                    var stream = new FileStream(filePath, FileMode.Create);
+                    await Content.CopyToAsync(stream);
+                }
+
+                publicationModel.Content = $"{fileName}";
+
                 _context.Add(publicationModel);
                 await _context.SaveChangesAsync();
                 return Redirect($"/{publicationModel.Language}/administrateurs/publications");
@@ -156,14 +175,23 @@ namespace Aafeben.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var publicationModel = await _context.Publications.FindAsync(id);
-            var lang = publicationModel.Language ?? "fr";
             if (publicationModel != null)
             {
+                var filePath = publicationModel.Content;
+
+                if ( filePath != null )
+                {
+                    var ImgPath = Path.Combine(directoryPath, filePath );
+                    if (System.IO.File.Exists(ImgPath))
+                    {
+                        System.IO.File.Delete(ImgPath);
+                    }
+                }
                 _context.Publications.Remove(publicationModel);
             }
 
             await _context.SaveChangesAsync();
-             return Redirect($"/{lang}/administrateurs/publications");
+             return Redirect("/fr/administrateurs/publications");
         }
 
         private bool PublicationModelExists(int id)

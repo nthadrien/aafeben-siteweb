@@ -117,60 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="desc" xml:space="preserve">
-    <value>L'ONG existe depuis le 11 Mai 2001.</value>
+  <data name="on" xml:space="preserve">
+    <value>Written in</value>
     <comment/>
   </data>
-  <data name="title" xml:space="preserve">
-    <value>À propos de nous</value>
-    <comment/>
-  </data>
-  <data name="vision" xml:space="preserve">
-    <value>Notre Vision</value>
-    <comment/>
-  </data>
-  <data name="vSummary" xml:space="preserve">
-    <value>Donner aux communautés les moyens d'un avenir durable.</value>
-    <comment/>
-  </data>
-  <data name="vtxt" xml:space="preserve">
-    <value>Les peuples autochtones et communautés locales, spécifiquement les femmes et les jeunes tirent des bénéfices économiques de la gestion durable des ressources forestières dans les paysages TRIDOM et TNS pour leur bien-être.</value>
-    <comment/>
-  </data>
-  <data name="mission" xml:space="preserve">
-    <value>Notre Mission</value>
-    <comment/>
-  </data>
-  <data name="mtxt" xml:space="preserve">
-    <value>Nous avons pour mission d'accompagner les communautés à la gestion rationnelle et durable de leurs ressources naturelles et la prise de conscience de leurs atouts pour leur développement.</value>
-    <comment/>
-  </data>
-  <data name="zone" xml:space="preserve">
-    <value>Depuis plus de 20 ans, nous menons un grand nombre d’activités dans la région de l’Est Cameroun, principalement dans deux paysages à haute valeur de conservation : le Tri National de la Sangha (TNS) et le TRIDOM. Notre travail se concentre sur les communautés riveraines de cinq aires protégées, à savoir les Parcs Nationaux de Lobéké, Boumba-Bek et Nki, ainsi que la réserve de faune de Ngoyla et la réserve de biosphère du Dja. Ces interventions s’étendent principalement dans le département de la Boumba et Ngoko et le Haut-Nyong, couvrant les arrondissements de Mouloundou, Salapoumbé, Yokadouma, Lomié, Ngoyla, Mindourou et Messok.</value>
-    <comment/>
-  </data>
-  <data name="intv" xml:space="preserve">
-    <value>Zones d’interventions</value>
-    <comment/>
-  </data>
-  <data name="staff" xml:space="preserve">
-    <value>Notre Staff</value>
-    <comment/>
-  </data>
-  <data name="staffText" xml:space="preserve">
-    <value>Nous sommes majoritairement jeunes et dynamiques. C'est avec plaisir que nous vous présentons notre staff</value>
-    <comment/>
-  </data>
-  <data name="who" xml:space="preserve">
-    <value>Qui Sommes-Nous?</value>
-    <comment/>
-  </data>
-  <data name="wtxt1" xml:space="preserve">
-    <value>AAFEBEN est une organisation de la société civile créée le 11 Mai 2001 dans l’arrondissement de Yokadouma, région de l’Est du Cameroun.          Elle a été mise sur pied à la base pour l’autonomisation des femmes de cette localité qui étaient de plus en plus vulnérables. </value>
-    <comment/>
-  </data>
-  <data name="wtxt2" xml:space="preserve">
-    <value>Et peu à peu nous avons embrassé d’autres problématiques sur le plan social environnemental et économique.          Ainsi mettant non plus seulement la femme au centre mais d’autres groupes vulnérables tels les peuples  autochtones et de manière générale les communautés locales.</value>
+  <data name="back" xml:space="preserve">
+    <value>Back to Blog list</value>
     <comment/>
   </data>
 </root>

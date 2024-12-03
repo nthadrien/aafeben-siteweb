@@ -10,7 +10,7 @@ namespace Aafeben.Models
     {
         public int Id { get; set; }
         public required string Title { get; set; }
-        public required string Content { get; set; }
+        public string? Content { get; set; }
         [DataType(DataType.Date)]
         public required DateTime PublishedDate { get; set; }
         public required string Language {get; set;}

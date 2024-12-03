@@ -1,10 +1,10 @@
+
 * {
   margin: 0;
   padding: 0;
   border-radius: 0px;
   box-sizing: border-box;
 }
-
 
 html {
   font-size: 14px;
@@ -188,8 +188,9 @@ input, textarea, button {
 /* partners slider */
 .slider {
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 1rem;
-  transition: transform 0.5s linear;
 }
 
 .slider::-webkit-scrollbar {
@@ -198,13 +199,16 @@ input, textarea, button {
 
 .slider a {
   flex: 1 0 130px ;
-  opacity: 0.4;
-  min-width: 130px;
+  opacity: 0.8;
+  width: 130px;
+}
+
+.slider img {
+  object-fit: cover;
 }
 
 .slider a:hover {
   opacity: 1;
-  filter: grayscale(0%);
 }
 
 /* home */
@@ -224,8 +228,6 @@ input, textarea, button {
 .table tr td {
   max-width: 200px;
 }
-
-
 /* tooltip */
 
 /* blog cards */
@@ -273,4 +275,13 @@ a.bog:hover {
 
 .mon-accordion:hover .bi-chevron-down {
   transform: rotate(180deg);
+}
+
+.text-justify {
+  text-justify: inter-word;
+  text-align: justify;
+}
+
+.content-wrapper img {
+  max-width: 100%;
 }

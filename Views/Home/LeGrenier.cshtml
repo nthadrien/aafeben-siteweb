@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = @Localizer["title"];
     ViewData["Description"] = @Localizer["description"];
-    string lang = Localizer["lang"].ToString();
+    string lang = CultureInfo.CurrentCulture.ToString();
 }
 
 <h1 class="text-center my-3">@Localizer["head"]</h1>
@@ -34,7 +34,6 @@
 <section class="container mx-auto">
     <partial name="~/Views/Shared/HomeLayout/_Pagination.cshtml" />
 </section>
-
 
 
 <!-- Modals -->

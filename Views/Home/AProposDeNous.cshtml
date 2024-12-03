@@ -6,7 +6,7 @@
 }
 
 
-<section id="qui" data-observer="o-up" class="container mx-auto d-flex flex-column gap-3 justify-content-center align-items-center py-4">
+<section id="qui" data-observer="o-up" class="container mx-auto d-flex flex-column gap-3 justify-content-center align-items-center py-4 text-justify">
     <h2>@Localizer["who"]</h2>
     <p>@Localizer["wtxt1"]</p>
     <p>@Localizer["wtxt2"]</p>
@@ -15,13 +15,9 @@
 @* notre vsision et mission *@
 <section id="vision" class="bg-body-tertiary container-fluid mx-auto row g-0 row-cols-1 row-cols-lg-2 justify-content-center align-items-start py-4">
 
-    <div style="max-width: 560px;" class="col py-4 px-3">
+    <div style="max-width: 560px;" class="col py-4 px-3 text-justify">
 
         <h2>@Localizer["vision"]</h2>
-
-        @* <h1 class="display-6 fw-bold lh-1 text-body-emphasis mb-3">
-           @Localizer["vSummary"]
-        </h1> *@
 
         <p class="lead">
            @Localizer["vtxt"]
@@ -35,7 +31,7 @@
         </p>
     </div>
 
-    <div style="max-width: 640px;"  data-observer="o-right" class="bg-dark col-xl-6">
+    <div style="max-width: 620px;"  data-observer="o-right" class="bg-dark col-xl-6">
         <img height="500px" width="100%" class="object-fit-cover" src="../../images/website/about-1.jpg" alt="a00">
     </div>
 
@@ -47,13 +43,108 @@
         <img height="400px" width="100%" class="object-fit-cover" src="../../images/website/about-2.jpg" alt="a00">
     </div>
 
-    <div class="col py-4 px-3">
+    <div class="col py-4 px-3 text-justify">
         <h2 class="text-success">@Localizer["intv"]</h2>
-        <p class="text-body-emphasis mb-3">
+        <p class="text-justify text-body-emphasis mb-3">
            @Localizer["zone"]
         </p>
     </div>
 </section>
+
+@* Axes Strategique ------------------------------------------- *@
+
+
+<section class="container py-4 text-capitalize">
+
+    <h1 class="text-center">Axes Strategiques </h1>
+
+
+    <div class="py-5 px-2 g-3 row row-cols-2 row-cols-lg-4">
+
+        <aside class="col">
+            <div class="card border-0">
+                <img src="/images/website/grenier-hero.jpg" class="card-img-top" alt="...">
+                <div class="card-body bg-success-subtle">
+                    <h5 class="card-title">
+                        @( ViewBag.Language == "en"  ? "Valorization of NTFPs": "Valorisation des PFNL")
+                    </h5>
+                </div>
+            </div>
+        </aside>
+
+
+        <aside class="col">
+            <div class="card border-0">
+                <img src="/images/website/axes-agro.jpeg" class="card-img-top" alt="...">
+                <div class="card-body bg-success-subtle ">
+                    <h5 class="card-title">
+                        @( ViewBag.Language == "en"  ? 
+                        "Production and marketing of zero deforestation cocoa":
+                        "Production et commercialisation du cacao zéro déforestation"
+                        )
+                    </h5>
+                </div>
+            </div>
+        </aside>
+
+        <aside class="col">
+            <div class="card border-0">
+                <img src="/images/website/axes-edu.jpeg" class="card-img-top" alt="...">
+                <div class="card-body bg-success-subtle ">
+                    <h5 class="card-title">
+                        @( ViewBag.Language == "en"  ? "Environmental education":"Education environnementale")
+                    </h5>
+                </div>
+            </div>
+        </aside>
+
+        <aside class="col">
+            <div class="card border-0">
+                <img src="/images/website/axes-rest.jpeg" class="card-img-top" alt=".">
+                <div class="card-body bg-success-subtle ">
+                    <h5 class="card-title">
+                        @( ViewBag.Language == "en"  ? "Restoration of degraded lands":"Restauration des terres dégradées")
+                    </h5>
+                </div>
+            </div>
+        </aside>
+
+        <aside class="col">
+            <div class="card border-0">
+                <img src="/images/website/axes-dev.jpeg" class="card-img-top" alt="...">
+                <div class="card-body bg-success-subtle">
+                    <h5 class="card-title"> @( ViewBag.Language == "en"  ? "Development of agro-ecological activities":"Développement des activités agro écologique")</h5>
+                </div>
+            </div>
+        </aside>
+
+        <aside class="col">
+            <div class="card border-0">
+                <img src="/images/website/axes-cito.jpeg" class="card-img-top" alt="...">
+                <div class="card-body bg-success-subtle ">
+                    <h5 class="card-title">
+                        @( ViewBag.Language == "en" ?  "Citizenship" : "Citoyenneté" )    
+                     </h5>
+                </div>
+            </div>
+        </aside>
+
+
+        <aside class="col">
+            <div class="card border-0">
+                <img src="/images/website/axes-eco.jpeg" class="card-img-top" alt="...">
+                <div class="card-body bg-success-subtle">
+                    <h5 class="card-title">
+                    @( ViewBag.Language == "en" ?  "Ecotourism" : "Écotourisme" )
+                    </h5>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+</section>
+
 
 
 @* team section ---------------------------------------------- *@
@@ -86,40 +177,42 @@
 <section id="partenaires" class="container-fluid text-center py-4 px-3 overflow-hidden">
 
     <h1 class="text-capitalize text-center my-3">Nos Partenaires</h1>
-    <div class="slider">
+    <div id="slid" class="slider">
         @foreach(var partner in Model.Partners ) {
+            <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="@partner.Name" href="@partner.UrlLink" target="_blank" class="slide-item p-2">
+                <img loading="lazy"  height="130px" width="130px" class="object-fit-contain rounded" src="~/images/partenaires/@(partner.Image ?? "placeholder.png")" alt="partner image">
+            </a>
+        }
+
+        @foreach(var partner in Model.Partners.Slice(0,5) ) {
             <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="@partner.Name" href="@partner.UrlLink" target="_blank" class="slide-item p-2">
                 <img loading="lazy"  height="130px" width="130px" class="object-fit-contain rounded" src="~/images/partenaires/@(partner.Image ?? "placeholder.png")" alt="partner image">
             </a>
         }
     </div>
 
-
 </section>
 
 
 <script>
-
-    const slider = document.querySelector(".slider");
-    const size = document.querySelectorAll(".slider a").length;
-    let times = Math.floor(window.innerWidth/260);
+    const slider = document.querySelector("#slid");
+    const children = slider.children;
     let j =0;
-    let children = slider.childNodes;
-    let counts = children.length;
+    
 
-    function startTimer() {
-        slider.style.transform = `translateX(-${j*130}px)`;
-        if ( j % counts === 0 ) j = -1;
-        j++;
+
+    function transform () {
+        const last = children[children.length - 1];
+        const lastBound = last.getBoundingClientRect();
+        if ( lastBound.right <= window.innerWidth ) {
+            j = 0;
+            slider.style.transition = "0s";
+        } else slider.style.transition = "0.4s";
+        slider.style.transform = `translateX(${-j}px)`;
+        j+=140;
     }
-    setInterval(startTimer, 3000);
+    setInterval(transform , 3000);
 </script>
-
-
-
-
-
-
 
 @* Css styling for the page *@
 <style>
@@ -128,4 +221,10 @@
     background-size: cover;
     background-blend-mode: darken;
   }
+
+  .card img {
+    width:auto 100%;
+    height: 180px;
+  }
+
 </style>

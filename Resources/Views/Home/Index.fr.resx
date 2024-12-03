@@ -117,12 +117,92 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Hi" xml:space="preserve">
-    <value>Bonjour Salut Salut</value>
+  <data name="title" xml:space="preserve">
+    <value>Acceuil</value>
     <comment/>
   </data>
-  <data name="lang" xml:space="preserve">
-    <value>Francais</value>
+  <data name="description" xml:space="preserve">
+    <value>Page d'acceuil</value>
+    <comment/>
+  </data>
+  <data name="dear" xml:space="preserve">
+    <value>Chers internautes,</value>
+    <comment/>
+  </data>
+  <data name="speech1" xml:space="preserve">
+    <value>Je suis heureuse, en ma qualité de Directrice de l’Appui à l’Autonomisation de la Femme de la Boumba et Ngoko (AAFEBEN), de souhaiter à tous la bienvenue sur notre site internet www.aafeben.com .                 Vous avez certainement entendu parler d’AAFEBEN ou lu quelques informations relatives à cette organisation de la société civile créée le 11 Mai 2001 dans l’arrondissement de Yokadouma, région de l’Est. </value>
+    <comment/>
+  </data>
+  <data name="speech2" xml:space="preserve">
+    <value>Elle a été mise sur pied à la base pour l’autonomisation des femmes de cette localité qui étaient de plus en plus vulnérables. Après plusieurs années de travail acharné sur cette problématique, AAFEBEN a peu à peu embrassé d’autres problématiques sur le plan social, environnemental et économique. Ainsi mettant non plus seulement la femme au centre mais d’autres groupes vulnérables tels les peuples autochtones et de manière générale les communautés locales pour lesquelles AAFEBEN œuvre pour leur bienêtre. </value>
+    <comment/>
+  </data>
+  <data name="speech3" xml:space="preserve">
+    <value>AAFEBEN voudrait, grâce aux moyens de communication digitaux qu’offre Internet, être plus proche de ses publics cibles et plus ouvert au monde pour mieux développer sa notoriété tant au niveau national qu’international. C’est également une opportunité pour nous de pouvoir rencontrer des partenaires qui nous assisteront dans la réalisation de notre mission. </value>
+    <comment/>
+  </data>
+  <data name="speech4" xml:space="preserve">
+    <value>Notre site internet permet également à promouvoir les différents produits des coopératives de notre zone d’intervention que nous appuyons. Il s’agit des produits forestiers non ligneux tels le Djanssang, le Tondo, le poivre noir, la mangue sauvage, la Rondelle, le Plat-plat, le Mbalaka, le Moabi mais aussi du cacao… Ils vous sont présentés sous toutes les formes, partant de la première à la troisième transformation. </value>
+    <comment/>
+  </data>
+  <data name="speech5" xml:space="preserve">
+    <value>Enfin, le nouveau site vous donnera la possibilité de suivre nos activités au quotidien. Bonne navigation !!!</value>
+    <comment/>
+  </data>
+  <data name="p1" xml:space="preserve">
+    <value>AKONGONGOL Epse MINKAM Miranda &lt;small&gt;directrice d'Aafeben&lt;/small&gt;</value>
+    <comment/>
+  </data>
+  <data name="activ" xml:space="preserve">
+    <value> Nos activités variées ont un impact durable sur les individus et les communautés ou nous exercons.</value>
+    <comment/>
+  </data>
+  <data name="activtxt" xml:space="preserve">
+    <value>Après plusieurs années de travail acharné, AAFEBEN a peu à peu embrassé d’autres problématiques sur le plan social, environnemental et économique.          Nos activités majeures ont peu à peu augmenté du aux besoins urgent dans les diverses communautés d'interventions. Voici quelques-unes des activités les plus courantes: </value>
+    <comment/>
+  </data>
+  <data name="actT1" xml:space="preserve">
+    <value>Appui inclusive femme baka femme bantous</value>
+    <comment/>
+  </data>
+  <data name="actP1" xml:space="preserve">
+    <value> Autonomiser ces femmes par des formations et des ressources pour améliorer leur participation économique et sociale.</value>
+    <comment/>
+  </data>
+  <data name="actT2" xml:space="preserve">
+    <value>Mobilisation communautaire pour la lutte contre les pandémies et les épidémies</value>
+    <comment/>
+  </data>
+  <data name="actP2" xml:space="preserve">
+    <value>Sensibiliser et éduquer les communautés pour renforcer leur résilience face aux crises sanitaires.</value>
+    <comment/>
+  </data>
+  <data name="actT3" xml:space="preserve">
+    <value>Formation et accompagnement des entreprises communautaires</value>
+    <comment/>
+  </data>
+  <data name="actP3" xml:space="preserve">
+    <value> Offrir des formations et un accompagnement pour améliorer les compétences entrepreneuriales et faciliter l'accès aux marchés.</value>
+    <comment/>
+  </data>
+  <data name="actT4" xml:space="preserve">
+    <value>Appui au reboisement des arbres à haute valeurs économique</value>
+    <comment/>
+  </data>
+  <data name="actP4" xml:space="preserve">
+    <value>Promouvoir la plantation d'arbres à haute valeur économique pour restaurer les écosystèmes et générer des revenus.</value>
+    <comment/>
+  </data>
+  <data name="actT5" xml:space="preserve">
+    <value>Valorisation des produits forestiers non ligneux</value>
+    <comment/>
+  </data>
+  <data name="actP5" xml:space="preserve">
+    <value>Encourager des pratiques durables pour créer des opportunités de marché pour des produits comme les fruits et les plantes médicinales.</value>
+    <comment/>
+  </data>
+  <data name="more" xml:space="preserve">
+    <value>Voir Plus</value>
     <comment/>
   </data>
 </root>

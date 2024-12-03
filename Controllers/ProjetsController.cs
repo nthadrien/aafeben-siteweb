@@ -84,7 +84,7 @@ namespace Aafeben.Controllers
                         var stream = new FileStream(filePath, FileMode.Create);
                         await FeaturedImageUrl.CopyToAsync(stream);
                     } else {
-                        throw new Exception ("Image too big");
+                        throw new Exception ("Image ne doit pas etre plus de 2MB");
                     }
                 }
 
@@ -191,7 +191,7 @@ namespace Aafeben.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return Redirect($"/{projectModel.Language}/administrateurs/projets");
+            return Redirect("/fr/administrateurs/projets");
         }
 
         private bool ProjectModelExists(int id)

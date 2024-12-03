@@ -1,3 +1,4 @@
+@model Aafeben.Models.MessageModel
 @{
   ViewData["Title"] = "Contacts";
 }
@@ -12,22 +13,24 @@
 
   <section class="row py-4">
 
-    <form  id="contactForm" method="post" action="" class="col-lg-7 row g-3 mb-3">
+    <form  id="contactForm" method="post" asp-action="Contacts" class="col-lg-7 row g-3 mb-3">
+
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
       <div class="col-12">
-        <textarea class="form-control" placeholder="message..." id="message" rows="8"></textarea>
+        <textarea asp-for="Message" class="form-control" placeholder="message..." id="message" rows="8"></textarea>
       </div>
 
       <div class="col-md-6">
-        <input type="text" class="form-control" placeholder="Votre nom" aria-label="First name">
+        <input type="text" asp-for="Name" class="form-control" placeholder="Votre nom" aria-label="First name">
       </div>
 
       <div class="col-md-6">
-        <input type="email" class="form-control" placeholder="Votre address email" aria-label="email" required>
+        <input type="email" asp-for="Email" class="form-control" placeholder="Votre address email" aria-label="email" required>
       </div>
 
       <div class="col-12">
-        <input type="text" class="form-control" id="subjet" placeholder="Sujet : Demande/requisition de ...">
+        <input asp-for="Subject" type="text" class="form-control" id="subjet" placeholder="Sujet : Demande/requisition de ...">
       </div>
 
       <div class="col-12">

@@ -27,12 +27,23 @@ public class HomeController : Controller
     }
 
     // [Route("a-propos", Name = "AboutFr")] // French version
-    // [Route("acerca", Name = "AboutEs")]
-    // [Route("{culture}/contacts", Name="contacts")]
-    [Route("/{culture}/contacts")]
+    [HttpGet("/{culture}/contacts")]
     public IActionResult Contacts ()
     {
         return View();
+    }
+
+    [HttpPost("/{culture}/contacts")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Contacts ([Bind("Id,Name,Email,Subject,Message")] MessageModel messageModel)
+    {
+        if (ModelState.IsValid)
+        {
+            _context.Add(messageModel);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        return View(messageModel);
     }
 
     [Route("/{culture}/a-propos-de-nous")]

@@ -173,7 +173,6 @@ namespace Aafeben.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var blogPostModel = await _context.BlogPosts.FindAsync(id);
-            var lang = blogPostModel.Language ?? "fr";
 
             if (blogPostModel != null)
             {
@@ -191,7 +190,7 @@ namespace Aafeben.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return Redirect($"/{lang}/administrateurs/blogs");
+            return Redirect("/fr/administrateurs/blogs");
         }
 
         private bool BlogPostModelExists(int id)
