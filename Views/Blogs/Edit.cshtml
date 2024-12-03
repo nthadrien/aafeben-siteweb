@@ -21,18 +21,6 @@
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
 
-        <div class="col-md-6 visually-hidden">
-            <label asp-for="FeaturedImageUrl" class="form-label">Image</label>
-            <input type="text"  asp-for="FeaturedImageUrl" class="form-control" disabled/>
-            <span asp-validation-for="FeaturedImageUrl" class="text-danger"></span>
-        </div>
-
-        <div class="col-md-6">
-            <label asp-for="ShortDescription" class="form-label">@Localizer["descript"]</label>
-            <input asp-for="ShortDescription" class="form-control" />
-            <span asp-validation-for="ShortDescription" class="text-danger"></span>
-        </div>
-
         <div class="col-md-6">
             <label asp-for="PublishedDate" class="form-label">@Localizer["date"]</label>
             <input type="date" asp-for="PublishedDate" class="form-control" />
@@ -49,14 +37,22 @@
         </div>
 
         <div>
+            <label asp-for="ShortDescription" class="form-label">@Localizer["descript"]</label>
+            <textarea asp-for="ShortDescription" class="form-control" ></textarea>
+            <span asp-validation-for="ShortDescription" class="text-danger"></span>
+        </div>
+
+        <div>
             <label asp-for="Content" class="form-label">@Localizer["content"]</label>
             <textarea asp-for="Content" rows="20" id="mytextarea" required></textarea>
             <span asp-validation-for="Content" class="text-danger"></span>
         </div>
 
-        <div class="col-md-6">
+
+        <div class="col-md-6 ">
             <input type="hidden" asp-for="FeaturedImageUrl" class="form-control" />
-        </div> 
+            <span asp-validation-for="FeaturedImageUrl" class="text-danger"></span>
+        </div>
 
         
 
@@ -65,7 +61,7 @@
                 <i class="bi bi-list-columns-reverse"></i>
                 Modifier le Blog
             </button>
-            <a class="btn btn-danger" id="go-back">Annuler les Modifications</a>
+            <a class="btn btn-danger" href="/fr/administrateurs/blogs/">Annuler les Modifications</a>
         </div>
 
     </form>

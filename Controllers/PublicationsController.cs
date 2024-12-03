@@ -93,7 +93,7 @@ namespace Aafeben.Controllers
 
                 _context.Add(publicationModel);
                 await _context.SaveChangesAsync();
-                return Redirect($"/{publicationModel.Language}/administrateurs/publications");
+                return Redirect("/fr/administrateurs/publications");
             }
             return View(publicationModel);
         }
@@ -145,7 +145,7 @@ namespace Aafeben.Controllers
                         throw;
                     }
                 }
-                return Redirect($"/{publicationModel.Language}/administrateurs/publications");
+                return Redirect("/fr/administrateurs/publications");
             }
             return View(publicationModel);
         }

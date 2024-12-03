@@ -84,14 +84,14 @@ namespace Aafeben.Controllers
                         var stream = new FileStream(filePath, FileMode.Create);
                         await FeaturedImageUrl.CopyToAsync(stream);
                     } else {
-                        throw new Exception ("Image too big");
+                        throw new Exception ("Image trop large.");
                     }
 
                 }
                 blogPostModel.FeaturedImageUrl = $"{fileName}";
                 _context.Add(blogPostModel);
                 await _context.SaveChangesAsync();
-                return Redirect($"/{blogPostModel.Language}/administrateurs/blogs");
+                return Redirect("/fr/administrateurs/blogs");
             }
             return View(blogPostModel);
         }
@@ -143,7 +143,7 @@ namespace Aafeben.Controllers
                         throw;
                     }
                 }
-                return Redirect($"/{blogPostModel.Language}/administrateurs/blogs");
+                return Redirect("/fr/administrateurs/blogs");
             }
             return View(blogPostModel);
         }
@@ -173,7 +173,7 @@ namespace Aafeben.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var blogPostModel = await _context.BlogPosts.FindAsync(id);
-
+            
             if (blogPostModel != null)
             {
                 var filePath = blogPostModel.FeaturedImageUrl;
@@ -188,7 +188,6 @@ namespace Aafeben.Controllers
                 }
                 _context.BlogPosts.Remove(blogPostModel);
             }
-
             await _context.SaveChangesAsync();
             return Redirect("/fr/administrateurs/blogs");
         }

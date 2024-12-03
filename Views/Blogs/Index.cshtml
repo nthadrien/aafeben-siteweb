@@ -2,7 +2,7 @@
 
 @{
     Layout ="~/Views/Shared/Dashboard/_DashboardLayout.cshtml";
-    ViewData["Title"] = @Localizer["Title"];
+    ViewData["Title"] = "Liste Des Blogs";
     int j  = 1;
     string link = "/fr/administrateurs/blogs";
 }
@@ -56,7 +56,7 @@
                             @item.Title
                         </td>
                         <td>
-                            @item.ShortDescription
+                            @item.ShortDescription 
                         </td>
                         <td>
                             @Html.DisplayFor( model => item.PublishedDate)

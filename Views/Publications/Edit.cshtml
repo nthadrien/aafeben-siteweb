@@ -35,8 +35,7 @@
         </div>
 
         <div>
-            <label asp-for="Content" class="form-label">Contenu</label>
-            <textarea asp-for="Content" rows="32" id="mytextarea" required></textarea>
+            <input type="hidden" asp-for="Content" required/>
             <span asp-validation-for="Content" class="text-danger"></span>
         </div>
         
@@ -55,10 +54,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-<script src="~/lib/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-    tinymce.init({
-        selector: '#mytextarea',
-        plugins: ["image","table"], 
-    });
-</script>

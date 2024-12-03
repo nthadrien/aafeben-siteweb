@@ -16,16 +16,16 @@
             <a class="col bog" href="/@item.Language/blog/@item.Title" >
 
                 <section class="position-relative w-100 border lh-sm mb-4">
-                    <img height="200px" width="100%" src="/images/blogs/@(item.FeaturedImageUrl ?? "placeholder.png")" alt="...">
-                    <div style="top: 78%; left:8%;min-width:64px;" class="bg-primary text-white text-capitalize position-absolute p-1 p-md-3 text-center">
+                    <img class="object-fit-cover" height="200px" width="100%" src="/images/blogs/@(item.FeaturedImageUrl ?? "placeholder.png")" alt="...">
+                    <div style="top: 76%; left:8%;min-width:60px;" class="bg-primary text-white text-capitalize position-absolute p-1 p-md-2 text-center">
                         <span class="h2">@item.PublishedDate.Day</span> <br/>
                         <b>@item.PublishedDate.ToString("MMMM").Substring(0,3)</b>
                     </div>
                 </section>
 
-                <div class="p-2 pt-4">
-                    <h4 class="fs-2fw-semibold w-100">@item.Title</h4>
-                    <p class="h-[45px]">@item.ShortDescription</p>
+                <div class="p-2 pt-3">
+                    <h5 class="fw-semibold w-100">@item.Title</h5>
+                    <p>@item.ShortDescription</p>
                 </div>    
             </a>    
     }

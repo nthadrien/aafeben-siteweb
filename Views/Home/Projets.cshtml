@@ -15,10 +15,12 @@
     <section class="row g-1 g-lg-3 row-cols-2 row-cols-xl-3">
 
         @foreach (var item in Model) { 
-            <a href="@proj/@item.Title" >
+            
+            <a href="@proj/@item.Title" class="col bog">
+                <p>@(item.FeaturedImageUrl ?? "placeholder.png") _________</p>
 
                 <section class="position-relative w-100 border lh-sm mb-4">
-                    <img height="200px" width="100%" src="/images/projets/@(item.FeaturedImageUrl ?? "placeholder.png")" alt="...">
+                    <img height="200px" width="100%" src="./images/projets/@(item.FeaturedImageUrl ?? "placeholder.png")" alt="...">
                     <div style="top: 74%; left:8%;min-width:64px;" class="bg-primary text-white text-capitalize position-absolute p-1 p-md-3 text-center">
                         @{
                             var b = item.EndDate.ToLongDateString().Split(" ");
