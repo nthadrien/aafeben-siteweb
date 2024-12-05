@@ -150,7 +150,7 @@
     <comment/>
   </data>
   <data name="p1" xml:space="preserve">
-    <value>AKONGONGOL Epse MINKAM Miranda &lt;small&gt;directrice d'Aafeben&lt;/small&gt;</value>
+    <value>AKONGONGOL Epse MINKAM Miranda</value>
     <comment/>
   </data>
   <data name="activ" xml:space="preserve">
@@ -158,11 +158,11 @@
     <comment/>
   </data>
   <data name="activtxt" xml:space="preserve">
-    <value>Après plusieurs années de travail acharné, AAFEBEN a peu à peu embrassé d’autres problématiques sur le plan social, environnemental et économique.          Nos activités majeures ont peu à peu augmenté du aux besoins urgent dans les diverses communautés d'interventions. Voici quelques-unes des activités les plus courantes: </value>
+    <value>Après plusieurs années de travail acharné, AAFEBEN a peu à peu embrassé d’autres problématiques sur le plan social, environnemental et économique. Nos activités majeures ont peu à peu augmenté selon les besoins urgents dans nos communautés d'interventions. Voici quelques-unes des activités les plus courantes :</value>
     <comment/>
   </data>
   <data name="actT1" xml:space="preserve">
-    <value>Appui inclusive femme baka femme bantous</value>
+    <value>Appui inclusive des femmes baka et bantous</value>
     <comment/>
   </data>
   <data name="actP1" xml:space="preserve">
@@ -203,6 +203,10 @@
   </data>
   <data name="more" xml:space="preserve">
     <value>Voir Plus</value>
+    <comment/>
+  </data>
+  <data name="p2" xml:space="preserve">
+    <value>Directrice d'AAFEBEN</value>
     <comment/>
   </data>
 </root>

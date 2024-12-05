@@ -37,8 +37,8 @@
             <div  class="accord-text">
                 <h6 class="text-body-emphasis text-capitalize">@Localizer["requi"]</h6>
                 <ul>
-                    @foreach(var skill in item.JobRequirements.Split("\\n").ToList() ) {
-                        <li>@skill.Replace("\n","")</li>
+                    @foreach(var skill in item.JobRequirements.Split(".").ToList() ) {
+                        <li>@skill</li>
                     }
                 </ul>
             </div>

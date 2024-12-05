@@ -17,16 +17,12 @@
         @foreach (var item in Model) { 
             
             <a href="@proj/@item.Title" class="col bog">
-                <p>@(item.FeaturedImageUrl ?? "placeholder.png") _________</p>
 
                 <section class="position-relative w-100 border lh-sm mb-4">
-                    <img height="200px" width="100%" src="./images/projets/@(item.FeaturedImageUrl ?? "placeholder.png")" alt="...">
+                    <img class="img-proj" height="200px" width="100%" src="/images/projets/@(item.FeaturedImageUrl ?? "placeholder.png")" alt="...">
                     <div style="top: 74%; left:8%;min-width:64px;" class="bg-primary text-white text-capitalize position-absolute p-1 p-md-3 text-center">
-                        @{
-                            var b = item.EndDate.ToLongDateString().Split(" ");
-                        }
-                        <span class="h2">@b[1]</span> <br/>
-                        @b[2].Substring(0,3)
+                        <span class="h2">@item.EndDate.Day</span> <br/>
+                        <b>@item.EndDate.ToString("MMMM").Substring(0,3)</b>
                     </div>
                 </section>
 
@@ -49,5 +45,10 @@
         background: rgba(0, 0, 0, 0.7) url("../../images/website/about-1.jpg") no-repeat center;
         background-size: cover;
         background-blend-mode: darken;
+    }
+
+    .img-proj {
+        min-height: 180px;
+        background: gray;
     }
 </style>

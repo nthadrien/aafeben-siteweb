@@ -173,4 +173,8 @@
     <value>With time, we have embraced other issues on the social, environmental and economic level.          Thus placing not only women at the center but other vulnerable groups such as indigenous peoples and in general local communities.</value>
     <comment/>
   </data>
+  <data name="axes" xml:space="preserve">
+    <value> Strategic Axes</value>
+    <comment/>
+  </data>
 </root>

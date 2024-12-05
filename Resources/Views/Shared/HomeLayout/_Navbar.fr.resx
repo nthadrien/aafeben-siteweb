@@ -165,4 +165,8 @@
     <value>Médiathèque</value>
     <comment/>
   </data>
+  <data name="axes" xml:space="preserve">
+    <value>Axes Strategiques</value>
+    <comment/>
+  </data>
 </root>

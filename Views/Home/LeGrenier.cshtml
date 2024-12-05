@@ -55,14 +55,14 @@
                     <h5>@Localizer["Description"]:</h5> 
                   
                     <ul>
-                    @foreach(var skill in (lang == "en" ? item.EnDescription : item.FrDescription).Split("\\n").ToList() ) {
+                    @foreach(var skill in (lang == "en" ? item.EnDescription : item.FrDescription).Split(".").ToList() ) {
                         <li>@skill.Replace("\n","")</li>
                     }
                     </ul>
 
 
                     <h5>@Localizer["addr"]:</h5> <p>@item.Address</p>
-                    <h5>Contacts:</h5> <p>@item.Address</p>
+                    <h5>Contacts:</h5> <p>@item.Contact</p>
                 </div>
             </div>
         </div>

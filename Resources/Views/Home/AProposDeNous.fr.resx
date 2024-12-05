@@ -173,4 +173,8 @@
     <value>Et peu à peu nous avons embrassé d’autres problématiques sur le plan social environnemental et économique.          Ainsi mettant non plus seulement la femme au centre mais d’autres groupes vulnérables tels les peuples  autochtones et de manière générale les communautés locales.</value>
     <comment/>
   </data>
+  <data name="axes" xml:space="preserve">
+    <value>Axes Strategiques</value>
+    <comment/>
+  </data>
 </root>

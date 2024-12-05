@@ -165,4 +165,8 @@
     <value>Media library</value>
     <comment/>
   </data>
+  <data name="axes" xml:space="preserve">
+    <value> Strategic Axes</value>
+    <comment/>
+  </data>
 </root>

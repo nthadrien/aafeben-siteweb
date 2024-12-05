@@ -139,7 +139,7 @@ public class HomeController : Controller
         int? pageNumber
     )
     {
-        var cult = CultureInfo.CurrentCulture.Name;
+        var cult = CultureInfo.CurrentCulture.Name.ToString();
         var projets = from p in _context.Projets.OrderByDescending(s => s.EndDate).Where(
             s => s.Language == cult
         ) select p;
