@@ -15,16 +15,18 @@
 
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-        <div class="col-md-6">
-            <label asp-for="FrName" class="form-label">Nom Du Produit (Fr)</label>
-            <input asp-for="FrName" placeholder="Nom en Francais" class="form-control" />
-            <span asp-validation-for="FrName" class="text-danger"></span>
-        </div>
+        
 
         <div class="col-md-6">
             <label asp-for="EnName" class="form-label">Name  Du Produit (En)</label>
-            <input asp-for="EnName" placeholder="Nom en Anglais" class="form-control" />
+            <input asp-for="EnName" placeholder="Nom en anglais" class="form-control" />
             <span asp-validation-for="EnName" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="FrName" class="form-label">Nom Du Produit (Fr)</label>
+            <input asp-for="FrName" placeholder="Nom en français" class="form-control" />
+            <span asp-validation-for="FrName" class="text-danger"></span>
         </div>
 
         <div class="col-md-6">

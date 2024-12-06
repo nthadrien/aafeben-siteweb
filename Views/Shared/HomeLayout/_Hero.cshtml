@@ -1,15 +1,34 @@
 
-<header id="header-hero" class="container-fluid position-relative d-flex flex-column justify-content-center align-items-center">
-    
+
+<header id="header-hero"  class="container-fluid position-relative">
+
     <partial name="~/Views/Shared/HomeLayout/_Navbar.cshtml" />
 
-    <section  style="text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.677);" class="container row text-white justify-content-lg-end">
+    <div class="slide-show">
 
-        <div class="col col-md-10 col-lg-6">
-            <h2 class="text-capitalize">@ViewData["Title"]</h2>
-            <p class="lead">@ViewData["Description"]</p>
-        </div>
+        <section id="img-one" class="row justify-content-center justify-content-lg-end">
+            <div class="col col-md-10 col-lg-6">
+                <h2 class="text-capitalize">@ViewData["Title"]</h2>
+                <p class="lead">@ViewData["Description"]</p>
+            </div>
+        </section>
 
-    </section>
+        <section id="img-two" class="row justify-content-center justify-content-lg-end">
+            <div class="col col-md-10 col-lg-6">
+                <h2 class="text-capitalize">@ViewData["Description"]</h2>
+            </div>
+        </section>
 
+        <section id="img-three" class="row justify-content-center justify-content-lg-end">
+            <div class="col col-md-10 col-lg-6">
+                <h2 class="text-capitalize">@ViewData["Title"]</h2>
+            </div>
+        </section>
+    </div>
+
+    <div class="slide-show-dots">
+        <button class="dot btn p-0"></button>
+        <button class="dot btn p-0"></button>
+        <button class="dot btn p-0"></button>
+    </div>
 </header>

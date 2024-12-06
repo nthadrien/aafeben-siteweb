@@ -179,10 +179,10 @@ input, textarea, button {
 /* hero header*/
 #header-hero {
   min-height: max(320px, 88vh);
-  width: 100%;
   background: rgba(0, 0, 0, 0.6) url("../images/website/media-hero1.png") no-repeat center;
   background-size: cover;
   background-blend-mode: darken;
+  overflow: hidden;
 }
 
 /* partners slider */
@@ -290,4 +290,120 @@ a.bog:hover img {
   max-width: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+/* personal hero carousel */
+.slide-show {
+  display: flex;
+  justify-content: flex-start;
+  min-height: 90vh;
+  max-height: 760px;
+  animation-name: slide-in;
+  animation-duration: 24s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+}
+
+.slide-show > section {
+  flex: 1 0 100vw;
+  height: inherit;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-show-dots {
+  display: grid;
+  grid-template-columns: repeat(3, 10px);
+  gap: 0.4rem;
+  bottom: 0.15rem;
+  height: 42px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  animation-name: changeDots;
+  animation-duration: 24s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+.slide-show-dots .dot {
+  background-color: white;
+  height: 8px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+#img-one, 
+#img-two, 
+#img-three {
+  color: white;
+  background: inherit inherit no-repeat center;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(0%);
+    transition: transform 1s linear;
+  }
+
+  49% {
+    transform: translateX(-0.1%);
+    transition: transform 0s;
+  }
+
+  50% {
+    transform: translateX(-100%);
+  }
+
+  75% {
+    transform: translateX(-100%);
+    transition: transform 0s;
+  }
+
+  76% {
+    transform: translateX(-200%);
+    transition: transform 1s linear;
+  }
+
+  80% {
+    transform: translateX(-200%);
+    transition: transform 1s linear;
+  }
+
+  98% {
+    transform: translateX(-200%);
+    transition: transform 1s linear;
+  }
+}
+
+@keyframes changeDots {
+
+  0% {
+    grid-template-columns: 10px 32px 10px;
+  }
+
+  49% {
+    grid-template-columns: 10px 32px 10px;
+  }
+
+  50% {
+    grid-template-columns: 10px 10px 32px;
+  }
+
+  72% {
+    grid-template-columns:  10px 10px 32px;
+  }
+
+  75% {
+    grid-template-columns: 32px 10px 10px;
+  }
+
+  90% {
+    grid-template-columns: 32px 10px 10px;
+  }
+  
 }
