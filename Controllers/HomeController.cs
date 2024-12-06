@@ -177,8 +177,8 @@ public class HomeController : Controller
 
     // Lee grenier or Granary
     // "/en/granary": "/fr/le-grenier";
-    [Route("/{culture}/granary")]
-    [Route("/{culture}/le-grenier")]
+    [Route("/{culture}/vitrine")]
+    [Route("/{culture}/showcase")]
     public async Task<IActionResult> LeGrenier (
             int? pageNumber
     )
@@ -203,11 +203,6 @@ public class HomeController : Controller
             await PaginatedList<MediaModel>.CreateAsync(media.AsNoTracking(), pageNumber ?? 1 , pageSize ) 
         );
     }
-
-    // public IActionResult MediaTech ()
-    // {
-    //     return View();
-    // }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
@@ -256,6 +251,50 @@ public class HomeController : Controller
     public async Task<IActionResult> Logout()
     {
         await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-        return RedirectToAction("Index","Home");
+        return Redirect("/fr/");
     }
+
+
+    [Route("/{culture}/valorisation-des-PFNL")]
+    public IActionResult AxesPFNL () {
+        ViewBag.Language =  CultureInfo.CurrentCulture.Name.ToString();
+        return View();
+    }
+
+    [Route("/{culture}/production-of-zero-deforestation-cocoa")]
+    public IActionResult AxesCacao () {
+        ViewBag.Language =  CultureInfo.CurrentCulture.Name.ToString();
+        return View();
+    }
+
+    [Route("/{culture}/citizenship")]
+    public IActionResult AxesCitizen () {
+        ViewBag.Language =  CultureInfo.CurrentCulture.Name.ToString();
+        return View();
+    }
+
+    [Route("/{culture}/development-of-agro-ecological-activities")]
+    public IActionResult AxesDevelopment () {
+        ViewBag.Language =  CultureInfo.CurrentCulture.Name.ToString();
+        return View();
+    }
+
+    [Route("/{culture}/environmental-education")]
+    public IActionResult AxesEducation () {
+        ViewBag.Language =  CultureInfo.CurrentCulture.Name.ToString();
+        return View();
+    }
+
+    [Route("/{culture}/restoration-of-degraded-lands")]
+    public IActionResult AxesRestoration () {
+        ViewBag.Language =  CultureInfo.CurrentCulture.Name.ToString();
+        return View();
+    }
+
+    [Route("/{culture}/ecotourism")]
+    public IActionResult AxesTourism () {
+        ViewBag.Language =  CultureInfo.CurrentCulture.Name.ToString();
+        return View();
+    }
+
 }

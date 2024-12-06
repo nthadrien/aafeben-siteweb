@@ -7,10 +7,6 @@
     string opp = lang =="en" ? "/en/opportunities": "/fr/opportunités";
 }
 
-<h1>
-
-</h1>
-
 <main style="max-width: 1080px;"  class="container mx-auto p-3">
 
     <section data-observer="o" class="py-4 mx-auto">
@@ -30,13 +26,10 @@
                 <p class="mb-3 ">@Localizer["dear"] </p>
                 <p>@Localizer["speech1"]  </p>
                 <p>@Localizer["speech2"]  </p>
-            
-           
-
-            <p class="w-100">@Localizer["speech3"]  </p>
-            <p class="w-100">@Localizer["speech4"] </p>
-
-             </div>
+                <p class="w-100">@Localizer["speech3"]  </p>
+                <p class="w-100">@Localizer["speech4"] </p>
+                <p class="w-100">@Localizer["speech5"] </p>
+            </div>
             
         </blockquote>
 
@@ -45,93 +38,24 @@
 
 </main>
 
-<section class="home-sum px-3 py-4 text-white text-center">
-
-    <h2  class="my-4 container" data-observer="o-down">@Localizer["activ"]</h2>
-
-    <p class="lead container">@Localizer["activtxt"]</p>
-
-    <aside class="container g-4 row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center align-items-between mx-auto">
-
-        @* start card *@
-
-        <div class="col">
-            <div data-observer="o-up" class="p-3 d-flex flex-column justify-content-between align-items-center gap-3 bg-body text-body-emphasis">
-                <i class="bg-success-subtle fs-1 p-2 rounded-2 bi bi-globe-europe-africa"></i>
-                <h5>@Localizer["actT1"]</h5>
-                <p>@Localizer["actP1"]</p>
-                <a href="@proj" class="btn btn-primary rounded-0">
-                    @Localizer["more"] <i class="small bi bi-chevron-right"></i>
-                </a>
-            </div>
-        </div>
-
-        @* start card *@
-
-        <div class="col">
-            <div data-observer="o-up" class="p-3 d-flex flex-column justify-content-between align-items-center gap-3 bg-body text-body-emphasis">
-                <i class="bg-primary-subtle fs-1 p-2 bi bi-capsule rounded-2"></i>
-                <h5>@Localizer["actT2"]</h5>
-                <p>@Localizer["actP2"]</p>
-                <a href="@proj" class="btn btn-primary rounded-0">
-                    @Localizer["more"] <i class="small bi bi-chevron-right"></i>
-                </a>
-            </div>
-        </div>
-
-        @* start card *@
-        <div class="col">
-            <div data-observer="o-up" class="p-3 d-flex flex-column justify-content-between align-items-center gap-3 bg-body text-body-emphasis">
-                <i class="bg-primary-subtle fs-1 p-2 bi bi-files"></i>
-                <div>
-                    <h5>@Localizer["actT3"]</h5>
-                    <p>@Localizer["actP3"]</p>
-                    <a href="@proj" class="btn btn-primary rounded-0">
-                        @Localizer["more"] <i class="small bi bi-chevron-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        @* start card *@
-        <div class="col">
-            <div data-observer="o-up" class="col p-3 col d-flex flex-column justify-content-between align-items-center gap-3 bg-body text-body-emphasis">
-                <i class="bg-primary-subtle fs-1 p-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="#000" d="m7 22l-1.5-6h13L17 22zm5-14q0-2.5 1.75-4.25T18 2q0 2.25-1.425 3.9T13 7.9V10h8v5H3v-5h8V7.9q-2.15-.35-3.575-2T6 2q2.5 0 4.25 1.75T12 8"/></svg>
-                </i>
-                <div>
-                    <h5>@Localizer["actT4"]</h5>
-                    <p>@Localizer["actP4"]</p>
-                    <a href="/@lang/publications" class="btn btn-primary rounded-0">
-                        @Localizer["more"] <i class="small bi bi-chevron-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-         @* start card *@
-        <div class="col">
-            <div data-observer="o-down" class="col p-3 col d-flex flex-column justify-content-between align-items-center gap-3 bg-body text-body-emphasis">
-                <i class="bg-primary-subtle fs-1 p-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"><path fill="#000" d="m22.509 12.689l-6-3.55a1 1 0 0 0-1.018.001l-6 3.55a1 1 0 0 0-.491.86v6.9c0 .354.187.681.491.86l6 3.55a.99.99 0 0 0 1.018 0l6-3.55a1 1 0 0 0 .491-.86v-6.9a1 1 0 0 0-.491-.861M21 19.88l-5 2.958l-5-2.958v-5.76l5-2.958l5 2.958z"/><path fill="#000" d="M6 20.184V11.07l6.2-3.664l-1.017-1.722l-6.692 3.955A1 1 0 0 0 4 10.5v9.684A3 3 0 0 0 2 23c0 1.654 1.346 3 3 3s3-1.346 3-3a3 3 0 0 0-2-2.816M5 24a1.001 1.001 0 0 1 0-2a1.001 1.001 0 0 1 0 2m22-4c-1.654 0-3 1.346-3 3c0 .353.072.687.185 1.002L16 28.838l-6.404-3.784l-1.017 1.722l6.912 4.084a1 1 0 0 0 1.018.001l8.96-5.295c.45.269.97.434 1.531.434c1.654 0 3-1.346 3-3s-1.346-3-3-3m0 4a1.001 1.001 0 0 1 0-2a1.001 1.001 0 0 1 0 2M16 7c.731 0 1.392-.273 1.913-.708L26 11.071V18h2v-7.5a1 1 0 0 0-.491-.861l-8.567-5.062q.056-.28.058-.577c0-1.654-1.346-3-3-3s-3 1.346-3 3s1.346 3 3 3m0-4a1.001 1.001 0 1 1-1 1c0-.552.449-1 1-1"/></svg>
-                </i>
-                <div>
-                    <h5>@Localizer["actT5"]</h5>
-                    <p>@Localizer["actP5"]</p>
-                    <a href="@gre" class="btn btn-primary rounded-0">
-                        @Localizer["more"] <i class="small bi bi-chevron-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-    </aside>
-
-</section>
-
 <style>
-    #header-hero {
+
+    #img-one {
         background: rgba(0, 0, 0, 0.5) url("../../images/website/home-hero.jpg") no-repeat center;
+    }
+
+    #img-two {
+        background: rgba(0, 0, 0, 0.5) url("../../images/website/home-hero2.jpg") no-repeat center;
+    }
+
+    #img-three {
+        background: rgba(0, 0, 0, 0.5) url("../../images/website/home-hero3.jpg") no-repeat top;
+    }
+
+    #header-hero, 
+    #img-one, 
+    #img-two, 
+    #img-three {
         background-size: cover;
         background-blend-mode: darken;
     }

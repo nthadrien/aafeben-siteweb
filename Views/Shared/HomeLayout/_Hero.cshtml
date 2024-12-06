@@ -4,26 +4,14 @@
 
     <partial name="~/Views/Shared/HomeLayout/_Navbar.cshtml" />
 
+    <div class="container hero-text text-white">
+        <h2 class="text-capitalize">@ViewData["Title"]</h2>
+    </div>
+
     <div class="slide-show">
-
-        <section id="img-one" class="row justify-content-center justify-content-lg-end">
-            <div class="col col-md-10 col-lg-6">
-                <h2 class="text-capitalize">@ViewData["Title"]</h2>
-                <p class="lead">@ViewData["Description"]</p>
-            </div>
-        </section>
-
-        <section id="img-two" class="row justify-content-center justify-content-lg-end">
-            <div class="col col-md-10 col-lg-6">
-                <h2 class="text-capitalize">@ViewData["Description"]</h2>
-            </div>
-        </section>
-
-        <section id="img-three" class="row justify-content-center justify-content-lg-end">
-            <div class="col col-md-10 col-lg-6">
-                <h2 class="text-capitalize">@ViewData["Title"]</h2>
-            </div>
-        </section>
+        <section id="img-one" class="row justify-content-center justify-content-lg-end"></section>
+        <section id="img-two" class="row justify-content-center justify-content-lg-end"></section>
+        <section id="img-three" class="row justify-content-center justify-content-lg-end"></section>
     </div>
 
     <div class="slide-show-dots">

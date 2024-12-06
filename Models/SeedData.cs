@@ -127,21 +127,11 @@ namespace Aafeben.Models
                         }
 
                     );
-
                     ctx.SaveChanges();
                 }
 
                 if(!ctx.Opportunities.Any() ) {
-
                     ctx.Opportunities.AddRange(
-                        new OpportunityModel
-                        {
-                            Job="Teacher",
-                            JobDescription="Teach kids and adults on many primary schools subjects",
-                            Language="en",
-                            JobRequirements="Proficient in Microsoft Office Suite. \n Strong communication skills. \n 2+ years of experience in NGO sector.\n Able to Create and implement communication strategies.",
-                            PublishedDate= DateTime.Parse("2023-09-03")
-                        },
                         new OpportunityModel
                         {
                             Job="Training Facillitators",
@@ -149,14 +139,6 @@ namespace Aafeben.Models
                             Language="en",
                             JobRequirements="Proficient in Microsoft Office Suite. \n Strong communication skills. \n 2+ years of experience in NGO sector.\n Able to Create and implement communication strategies.",
                             PublishedDate= DateTime.Parse("2024-10-03")
-                        },
-                        new OpportunityModel
-                        {
-                            Job="Enseignants",
-                            JobDescription="Enseigner aux enfants et aux adultes de nombreuses matières du primaire",
-                            Language="fr",
-                            JobRequirements="Maîtrise de la suite Microsoft Office. \n Solides compétences en communication. \n Plus de 2 ans d'expérience dans le secteur des ONG. \n Capable de créer et de mettre en œuvre des stratégies de communication.\n avoir un diplome en communications etc.",
-                            PublishedDate= DateTime.Parse("2023-09-03")
                         },
                         new OpportunityModel
                         {

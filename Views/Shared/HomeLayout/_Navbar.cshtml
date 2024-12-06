@@ -4,7 +4,7 @@
   string lang = CultureInfo.CurrentCulture.ToString();
   string path = Context.Request.Path;
   string about = lang =="en" ? "/en/about-us": "/fr/a-propos-de-nous";
-  string gre = lang =="en" ? "/en/granary": "/fr/le-grenier";
+  string gre = lang =="en" ? "/en/showcase": "/fr/vitrine";
   string proj = lang =="en" ? "/en/projects": "/fr/projets";
   string opp = lang =="en" ? "/en/opportunities": "/fr/opportunités";
   string med = lang == "en" ? "/en/media-library" : "/fr/médiathèque";
@@ -70,7 +70,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link @(path.Contains("gran") || path.Contains("le-gren") ? "current-link" : "") " href="@gre" aria-current="page">@Localizer["gran"]</a>
+              <a class="nav-link @(path.Contains("showcase") || path.Contains("vitrine") ? "current-link" : "") " href="@gre" aria-current="page">@Localizer["gran"]</a>
             </li>
 
             <li class="nav-item">
@@ -82,3 +82,9 @@
       </div>
     </div>
   </nav>
+
+<style>
+#home-nav {
+  z-Index: 99;
+}
+</style>

@@ -7,12 +7,12 @@
 
 <main style="max-width: 960px;" class="py-4 container mx-auto lh-2 project-page">
 
-    <h1 class="my-3 text-capitalize">@Html.DisplayFor(model => model.Title)</h1>
+    <h1 class="text-capitalize">@Html.DisplayFor(model => model.Title)</h1>
 
-    <section class="small my-3 py-3 text-capitalize small text-muted border-bottom pb-3">
-        <p>@Localizer["long"] : @Model.Duration <br/>
-        @Localizer["start"]: @Model.StartDate.ToLongDateString()<br/>
-        @Localizer["end"] : @Model.EndDate.ToLongDateString()</p>
+    <section class="row py-2 text-capitalize text-muted border-bottom">
+        <p class="col-12">@Localizer["long"] : @Model.Duration <br/>
+        <p class="col-md-5">@Localizer["start"]: @Model.StartDate.ToString("MMMM") @Model.StartDate.ToString("yyyy")</p>
+        <p class="col-md-5">@Localizer["end"] : @Model.EndDate.ToString("MMMM") @Model.StartDate.ToString("yyyy")</p>
     </section>
 
     <img class="bg-dark mmg my-3" src="/images/projets/@(Model.FeaturedImageUrl ?? "placeholder.png")" alt="MO">

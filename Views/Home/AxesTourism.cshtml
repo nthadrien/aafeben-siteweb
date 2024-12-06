@@ -1,0 +1,47 @@
+@{
+    string lang = ViewBag.Language;
+    ViewData["Title"] = lang == "en" ? 
+    "Valorization of NTFPs" 
+    : "Valorisation des PFNL";
+}
+
+<main style="max-width:1080px;" class="container mx-auto my-5 text-justify">
+
+    <h2>@ViewData["Title"] </h2>
+    
+    <p> 
+        Les PFNL revêtent une importance considérable sur le plan économique, social, culturel et environnemental dans le pays et dans l’ensemble de la sous-région Afrique Centrale.
+    </p>
+    <p>
+        Dans certaines zones forestières, les populations sont fortement dépendantes de la valorisation des PFNL qui génère environ 45% de leurs revenus (Tieguhong J.C and al, 2009).
+    </p>
+
+    <p>
+        Les femmes sont intéressées par les activités de cueillette, de ramassage, de transformation et de commercialisation. 
+        Elles tiennent également 95% du marché de détail (Tieguhong J.C and al, 2009). S’agissant de la satisfaction des besoins de santé, 80% de la population des zones rurales en Afrique Centrale, utilisent les PFNL. 
+        Pour toutes ces considérations, il est clair que les PFNL constituent un instrument de lutte contre la pauvreté. Malgré l’importance socio-économique avérée des PFNL, leur valorisation actuelle ne permet pas encore d’atteindre le niveau de développement qu’ils sont susceptibles de générer, pour les raisons telles que le faible accès aux ressources en forêt ; la faible utilisation des dérivées des PFNLs dans les secteurs de la pharmacopée, cosmétique et agro alimentation ; le manque de technologie appropriée. Ces problèmes entravent le développement du sous-secteur PFNL et par la même occasion le développement des peuples autochtones et communautés locales (PACL) qui sont les acteurs primaires de ce secteur et ont des conséquences sur le plan local et national notamment : un faible revenus des PACL qui engendre une pauvreté continue en milieu rural par conséquence un faible développement des communautés ; 
+        une faible contribution des PFNLs au Produit Intérieur Brut du pays ; conflits entre les détenteurs des titres et les PACL qui généralement font face à un refus d’exercer leur droit d’usage ou de pénétrer aux seins des UFA, Safari pour collecter les PFNLs ; sous consommation des PFNLs au niveau national ; faible utilisation des PFNLs comme matière première par les industries.
+    </p>
+
+
+
+</main>
+
+<style>
+    #header-hero {
+        background: rgba(0, 0, 0, 0.5) url("../../images/website/axes-agro.jpeg") no-repeat center;
+    }
+
+
+    .slide-show, .slide-show-dots  {
+        display: none;
+    }
+
+    #header-hero, 
+    #img-one, 
+    #img-two, 
+    #img-three {
+        background-size: cover;
+        background-blend-mode: darken;
+    }
+</style>

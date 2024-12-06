@@ -179,12 +179,25 @@ input, textarea, button {
 /* hero header*/
 #header-hero {
   min-height: max(320px, 88vh);
-  background: rgba(0, 0, 0, 0.6) url("../images/website/media-hero1.png") no-repeat center;
+  background: rgba(0, 0, 0, 0.527) url("../images/website/media-hero1.png") no-repeat center;
   background-size: cover;
   background-blend-mode: darken;
   overflow: hidden;
+  z-index: 1;
 }
 
+.hero-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+}
+
+@media  screen and (max-width: 768px)   {
+  .hero-text {
+    left: 5%;
+  }
+}
 /* partners slider */
 .slider {
   display: flex;
@@ -236,8 +249,9 @@ a.bog {
   justify-content: start;
 }
 
-a.bog:hover {
+a.bog:hover , .bog a:hover {
   color: inherit;
+  border: 1px solid darkgray;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
@@ -294,20 +308,19 @@ a.bog:hover img {
 
 /* personal hero carousel */
 .slide-show {
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(3, 100vw);
   min-height: 90vh;
   max-height: 760px;
   animation-name: slide-in;
-  animation-duration: 24s;
+  animation-duration: 18s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-out;
 }
 
 .slide-show > section {
-  flex: 1 0 100vw;
   height: inherit;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -330,16 +343,14 @@ a.bog:hover img {
 
 .slide-show-dots .dot {
   background-color: white;
-  height: 8px;
+  height: 7px;
   width: 100%;
-  border-radius: 6px;
+  border-radius: 5px;
 }
 
 #img-one, 
 #img-two, 
 #img-three {
-  color: white;
-  background: inherit inherit no-repeat center;
   background-size: cover;
   background-blend-mode: darken;
 }
@@ -356,26 +367,26 @@ a.bog:hover img {
   }
 
   50% {
-    transform: translateX(-100%);
+    transform: translateX(-100vw);
   }
 
   75% {
-    transform: translateX(-100%);
+    transform: translateX(-100vw);
     transition: transform 0s;
   }
 
   76% {
-    transform: translateX(-200%);
+    transform: translateX(-200vw);
     transition: transform 1s linear;
   }
 
   80% {
-    transform: translateX(-200%);
+    transform: translateX(-200vw);
     transition: transform 1s linear;
   }
 
   98% {
-    transform: translateX(-200%);
+    transform: translateX(-200vw);
     transition: transform 1s linear;
   }
 }
@@ -406,4 +417,11 @@ a.bog:hover img {
     grid-template-columns: 32px 10px 10px;
   }
   
+}
+
+
+/* about bg card subtitles goes here */
+
+.bg-sub {
+  background-color: rgba(0, 128, 0, 0.363);
 }

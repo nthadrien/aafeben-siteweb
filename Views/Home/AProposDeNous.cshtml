@@ -54,20 +54,24 @@
 @* Axes Strategique ------------------------------------------- *@
 
 
-<section class="container py-4 text-capitalize">
+<section id="axes" class="container py-4">
 
     <h1 class="text-center">@Localizer["axes"] </h1>
 
 
     <div class="py-5 px-2 g-3 row row-cols-2 row-cols-lg-4">
 
+
         <aside class="col">
             <div class="card border-0">
-                <img src="/images/website/grenier-hero.jpg" class="card-img-top" alt="...">
-                <div class="card-body bg-success-subtle">
+                <img src="/images/website/axes-pfnl.jpg" class="card-img-top" alt="...">
+                <div class="card-body bg-sub">
                     <h5>
                         @( ViewBag.Language == "en"  ? "Valorization of NTFPs": "Valorisation des PFNL")
                     </h5>
+                    <a href="/@ViewBag.Language/valorisation-des-PFNL" class="my-2 btn btn-primary rounded-0">
+                        @( ViewBag.Language == "en"  ? "see more": "voir plus" )
+                    </a>
                 </div>
             </div>
         </aside>
@@ -75,14 +79,18 @@
 
         <aside class="col">
             <div class="card border-0">
-                <img src="/images/website/axes-agro.jpeg" class="card-img-top" alt="...">
-                <div class="card-body bg-success-subtle ">
+                <img src="/images/website/axes-agro.jpeg" class="card-img-top"  alt="...">
+                <div class="card-body bg-sub">
                     <h5>
                         @( ViewBag.Language == "en"  ? 
                         "Production of zero deforestation cocoa":
                         "Production d'un cacao zéro déforestation"
                         )
                     </h5>
+
+                    <a href="/@ViewBag.Language/production-of-zero-deforestation-cocoa"  class="my-2 btn btn-primary rounded-0">
+                        @( ViewBag.Language == "en"  ? "see more": "voir plus" )
+                    </a>
                 </div>
             </div>
         </aside>
@@ -90,10 +98,14 @@
         <aside class="col">
             <div class="card border-0">
                 <img src="/images/website/axes-edu.jpeg" class="card-img-top" alt="...">
-                <div class="card-body bg-success-subtle ">
+                <div class="card-body bg-sub">
                     <h5>
                         @( ViewBag.Language == "en"  ? "Environmental education":"Education environnementale")
                     </h5>
+
+                    <a href="/@ViewBag.Language/environmental-education" class="my-2 btn btn-primary rounded-0">
+                        @( ViewBag.Language == "en"  ? "see more": "voir plus" )
+                    </a>
                 </div>
             </div>
         </aside>
@@ -101,10 +113,14 @@
         <aside class="col">
             <div class="card border-0">
                 <img src="/images/website/axes-rest.jpeg" class="card-img-top" alt=".">
-                <div class="card-body bg-success-subtle ">
+                <div class="card-body bg-sub">
                     <h5>
                         @( ViewBag.Language == "en"  ? "Restoration of degraded lands":"Restauration des terres dégradées")
                     </h5>
+
+                    <a href="/@ViewBag.Language/restoration-of-degraded-lands" class="my-2 btn btn-primary rounded-0">
+                        @( ViewBag.Language == "en"  ? "see more": "voir plus" )
+                    </a>
                 </div>
             </div>
         </aside>
@@ -112,8 +128,12 @@
         <aside class="col">
             <div class="card border-0">
                 <img src="/images/website/axes-dev.jpeg" class="card-img-top" alt="...">
-                <div class="card-body bg-success-subtle">
+                <div class="card-body bg-sub">
                     <h5> @( ViewBag.Language == "en"  ? "Development of agro-ecological activities":"Développement des activités agro écologique")</h5>
+
+                    <a href="/@ViewBag.Language/development-of-agro-ecological-activities" class="my-2 btn btn-primary rounded-0">
+                        @( ViewBag.Language == "en"  ? "see more": "voir plus" )
+                    </a>
                 </div>
             </div>
         </aside>
@@ -121,10 +141,15 @@
         <aside class="col">
             <div class="card border-0">
                 <img src="/images/website/axes-cito.jpeg" class="card-img-top" alt="...">
-                <div class="card-body bg-success-subtle ">
+                <div class="card-body bg-sub">
                     <h5>
                         @( ViewBag.Language == "en" ?  "Citizenship" : "Citoyenneté" )    
                      </h5>
+
+                     <a href="/@ViewBag.Language/citizenship" class="my-2 btn btn-primary rounded-0">
+                        @( ViewBag.Language == "en"  ? "see more": "voir plus" )
+                    </a>
+
                 </div>
             </div>
         </aside>
@@ -133,10 +158,14 @@
         <aside class="col">
             <div class="card border-0">
                 <img src="/images/website/axes-eco.jpeg" class="card-img-top" alt="...">
-                <div class="card-body bg-success-subtle">
+                <div class="card-body bg-sub">
                     <h5>
                     @( ViewBag.Language == "en" ?  "Ecotourism" : "Écotourisme" )
                     </h5>
+
+                    <a href="/@ViewBag.Language/ecotourism" class="my-2 btn btn-primary rounded-0">
+                        @( ViewBag.Language == "en"  ? "see more": "voir plus" )
+                    </a>
                 </div>
             </div>
         </aside>
@@ -216,22 +245,29 @@
 
 @* Css styling for the page *@
 <style>
-  #header-hero {
-    background: rgba(0, 0, 0, 0.6) url("../../images/website/about-us-hero.jpg") no-repeat center;
-    background-size: cover;
-    background-blend-mode: darken;
-  }
 
-  .card img {
-    width:auto 100%;
-    height: 180px;
-  }
+    .card-img-top {
+        width:auto 100%;
+        height: 180px;
+    }
 
-  .card-body {
-    text-transform: lowercase;
-  }
+    #img-one {
+        background: rgba(0, 0, 0, 0.5) url("../../images/website/about-us-hero2.jpg") no-repeat center;
+    }
 
-  .card-body::first-letter {text-transform: uppercase}
-  
+    #img-two {
+        background: rgba(0, 0, 0, 0.5) url("../../images/website/about-us-hero1.jpg") no-repeat top;
+    }
 
+    #img-three {
+        background: rgba(0, 0, 0, 0.5) url("../../images/website/home-hero2.jpg") no-repeat center;
+    }
+
+    #header-hero, 
+    #img-one, 
+    #img-two, 
+    #img-three {
+        background-size: cover;
+        background-blend-mode: darken;
+    }
 </style>
