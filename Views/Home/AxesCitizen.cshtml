@@ -1,27 +1,64 @@
 @{
     string lang = ViewBag.Language;
-    ViewData["Title"] = lang == "en" ? 
-    "Valorization of NTFPs" 
-    : "Valorisation des PFNL";
+    ViewData["Title"] = lang == "en" ? "Citizenship" : "Citoyenneté";
 }
 
-<main style="max-width:1080px;" class="container mx-auto my-5 text-justify">
+<main style="max-width:876px;" class="container mx-auto my-5 text-justify">
 
     <h2>@ViewData["Title"] </h2>
     
-    <p> 
-        Les PFNL revêtent une importance considérable sur le plan économique, social, culturel et environnemental dans le pays et dans l’ensemble de la sous-région Afrique Centrale.
+   @if( lang == "en" ) 
+   {
+    <p>
+        Citizenship, as materialized by documents such as the national identity card and birth certificate, 
+        is of considerable importance in economic, social, cultural, and environmental terms in Cameroon and 
+        the entire Central African sub-region. These documents are essential for guaranteeing the rights of individuals 
+        and their integration into society. These documents play a crucial role in accessing economic opportunities. 
+        The possession of these documents allows citizens to open bank accounts, access loans, find formal employment, 
+        and benefit from public services.
     </p>
     <p>
-        Dans certaines zones forestières, les populations sont fortement dépendantes de la valorisation des PFNL qui génère environ 45% de leurs revenus (Tieguhong J.C and al, 2009).
+        Most economic opportunities, particularly in the formal sector, require the presentation of these documents. 
+        Without an identity card or birth certificate, many Cameroonians are excluded from the formal economic system, 
+        which hinders their development and financial inclusion. These documents are also important for social 
+        inclusion and civic participation.
     </p>
-
     <p>
-        Les femmes sont intéressées par les activités de cueillette, de ramassage, de transformation et de commercialisation. 
-        Elles tiennent également 95% du marché de détail (Tieguhong J.C and al, 2009). S’agissant de la satisfaction des besoins de santé, 80% de la population des zones rurales en Afrique Centrale, utilisent les PFNL. 
-        Pour toutes ces considérations, il est clair que les PFNL constituent un instrument de lutte contre la pauvreté. Malgré l’importance socio-économique avérée des PFNL, leur valorisation actuelle ne permet pas encore d’atteindre le niveau de développement qu’ils sont susceptibles de générer, pour les raisons telles que le faible accès aux ressources en forêt ; la faible utilisation des dérivées des PFNLs dans les secteurs de la pharmacopée, cosmétique et agro alimentation ; le manque de technologie appropriée. Ces problèmes entravent le développement du sous-secteur PFNL et par la même occasion le développement des peuples autochtones et communautés locales (PACL) qui sont les acteurs primaires de ce secteur et ont des conséquences sur le plan local et national notamment : un faible revenus des PACL qui engendre une pauvreté continue en milieu rural par conséquence un faible développement des communautés ; 
-        une faible contribution des PFNLs au Produit Intérieur Brut du pays ; conflits entre les détenteurs des titres et les PACL qui généralement font face à un refus d’exercer leur droit d’usage ou de pénétrer aux seins des UFA, Safari pour collecter les PFNLs ; sous consommation des PFNLs au niveau national ; faible utilisation des PFNLs comme matière première par les industries.
+        Possessing a national identity card allows citizens to vote, participate in political life, 
+        and benefit from the protection of the law. They also facilitate access to education and health services, 
+        thus contributing to the overall well-being of citizens. Women, for example, 
+        represent a significant proportion of beneficiaries of social services when these documents are available, 
+        allowing them to participate fully in society and protect their rights.
     </p>
+   }
+   else 
+   {
+     <p> 
+        La citoyenneté, matérialisée par des documents tels que la carte nationale d'identité et l'acte de naissance, 
+        revêt une importance considérable sur les plans économique, social, culturel et environnemental au Cameroun 
+        et dans l’ensemble de la sous-région Afrique Centrale. Ces documents sont essentiels pour garantir les droits 
+        des individus et leur intégration dans la société. Ces pièces jouent un rôle crucial dans l'accès aux 
+        opportunités économiques. La possession de ces documents permet aux citoyens d'ouvrir des comptes bancaires, 
+        d'accéder à des prêts, de trouver un emploi formel et de bénéficier de services publics. 
+    </p><p>
+        La plupart des opportunités économiques, notamment dans le secteur formel, 
+        requièrent la présentation de ces documents. 
+        Sans carte d'identité ou acte de naissance, de nombreux Camerounais sont exclus du système économique formel, 
+        ce qui entrave leur développement et leur inclusion financière. Ces documents sont également importants pour 
+        l'inclusion sociale et la participation civique. 
+    </p><p>
+        Posséder une carte nationale d'identité permet aux citoyens de voter, de participer à la vie politique 
+        et de bénéficier de la protection de la loi. Ils favorisent également l'accès à l'éducation et aux services 
+        de santé, contribuant ainsi au bien-être général des citoyens. Les femmes, par exemple, représentent une part 
+        importante des bénéficiaires de services sociaux lorsque ces documents sont disponibles, 
+        leur permettant de participer pleinement à la société et de protéger leurs droits.
+    </p>
+   }
+   
+    <a href="/@lang/a-propos-de-nous#axes" class="btn">
+        <i class="bi bi-chevron-left"></i>
+        @(lang == "en" ? "Return to Strategic axes" : "Voir les axes stratégiques" )
+    </a>
 
 
 
@@ -29,7 +66,7 @@
 
 <style>
     #header-hero {
-        background: rgba(0, 0, 0, 0.5) url("../../images/website/axes-agro.jpeg") no-repeat center;
+        background: rgba(0, 0, 0, 0.5) url("../../images/website/axes-cito.jpeg") no-repeat center;
     }
 
 
@@ -37,10 +74,7 @@
         display: none;
     }
 
-    #header-hero, 
-    #img-one, 
-    #img-two, 
-    #img-three {
+    #header-hero {
         background-size: cover;
         background-blend-mode: darken;
     }

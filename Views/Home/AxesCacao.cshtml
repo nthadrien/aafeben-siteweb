@@ -1,26 +1,54 @@
 @{
     string lang = ViewBag.Language;
-    ViewData["Title"] = lang =="en" ? "Production of zero deforestation cocoa": "Production d'un cacao zéro déforestation" ;
+    ViewData["Title"] = lang == "en" ? 
+        "Production of zero deforestation cocoa":
+        "Production d'un cacao zéro déforestation";
+                        
 }
 
 <main style="max-width:1080px;" class="container mx-auto my-5 text-justify">
 
     <h2>@ViewData["Title"] </h2>
     
-    <p> 
-        Les PFNL revêtent une importance considérable sur le plan économique, social, culturel et environnemental dans le pays et dans l’ensemble de la sous-région Afrique Centrale.
-    </p>
-    <p>
-        Dans certaines zones forestières, les populations sont fortement dépendantes de la valorisation des PFNL qui génère environ 45% de leurs revenus (Tieguhong J.C and al, 2009).
-    </p>
+    @if( lang == "en" ) {
+        <p> 
+            Agriculture is currently seen as one of the main causes of 
+            forest destruction and thus justifies a growing concern for forest ecosystem conservation. 
+            Cocoa-based agroforestry systems, although being agricultural production areas, 
+            harbor forest fauna and flora whose conservation and sustainable management can 
+            contribute to the sustainability of current practices in the area.
+        </p>
 
-    <p>
-        Les femmes sont intéressées par les activités de cueillette, de ramassage, de transformation et de commercialisation. 
-        Elles tiennent également 95% du marché de détail (Tieguhong J.C and al, 2009). S’agissant de la satisfaction des besoins de santé, 80% de la population des zones rurales en Afrique Centrale, utilisent les PFNL. 
-        Pour toutes ces considérations, il est clair que les PFNL constituent un instrument de lutte contre la pauvreté. Malgré l’importance socio-économique avérée des PFNL, leur valorisation actuelle ne permet pas encore d’atteindre le niveau de développement qu’ils sont susceptibles de générer, pour les raisons telles que le faible accès aux ressources en forêt ; la faible utilisation des dérivées des PFNLs dans les secteurs de la pharmacopée, cosmétique et agro alimentation ; le manque de technologie appropriée. Ces problèmes entravent le développement du sous-secteur PFNL et par la même occasion le développement des peuples autochtones et communautés locales (PACL) qui sont les acteurs primaires de ce secteur et ont des conséquences sur le plan local et national notamment : un faible revenus des PACL qui engendre une pauvreté continue en milieu rural par conséquence un faible développement des communautés ; 
-        une faible contribution des PFNLs au Produit Intérieur Brut du pays ; conflits entre les détenteurs des titres et les PACL qui généralement font face à un refus d’exercer leur droit d’usage ou de pénétrer aux seins des UFA, Safari pour collecter les PFNLs ; sous consommation des PFNLs au niveau national ; faible utilisation des PFNLs comme matière première par les industries.
-    </p>
+        <p>
+            Eastern Cameroon represents the 5th largest cocoa-producing region, accounting for nearly 3.38% of national production. 
+            The decision to support communities living near protected areas in the cocoa sector is justified by 
+            the fact that this zone is one of the major cocoa-producing basins and often calls for the opening of new spaces, 
+            thus contributing to the loss of forest cover through degradation caused by tree cutting.
+        </p>
+    } 
+    else 
+    {
+        <p>
+            L’agriculture est aujourd’hui perçue comme étant une des causes majeures de destruction des
+            forêts et justifie ainsi une préoccupation toujours croissante en matière de conservation de l’écosystème forestier.
+            Les agro forêts à base de cacao, bien qu’étant des espaces de production agricole, abritent une faune et une
+            flore forestière dont la conservation et la gestion durable peuvent concourir à la durabilité des pratiques courantes de la zone.
+        </p>
 
+        <p>
+            L’Est Cameroun représente la 5eme région de forte production de cacao estimé à près 3,38% de la production national .
+            Le choix d’accompagner les communautés riveraines aux aires protégées dans la filière cacao se justifie par le fait que cette zone est un des bassins de forte production du cacao et appel souvent à l’ouverture de nouvel espace contribuant ainsi à la perte du couvert forestier à travers la dégradation issue de la coupe des arbres.
+        </p>
+    }
+
+
+
+
+
+    <a href="/@lang/a-propos-de-nous#axes" class="btn">
+        <i class="bi bi-chevron-left"></i>
+        @(lang == "en" ? "Return to Strategic axes" : "Voir les axes stratégiques" )
+    </a>
 
 
 </main>
@@ -35,10 +63,7 @@
         display: none;
     }
 
-    #header-hero, 
-    #img-one, 
-    #img-two, 
-    #img-three {
+    #header-hero {
         background-size: cover;
         background-blend-mode: darken;
     }

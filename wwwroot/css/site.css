@@ -190,6 +190,7 @@ input, textarea, button {
   position: absolute;
   left: 50%;
   top: 50%;
+  transform: translateX(-50%);
   z-index: 2;
 }
 
@@ -313,7 +314,7 @@ a.bog:hover img {
   min-height: 90vh;
   max-height: 760px;
   animation-name: slide-in;
-  animation-duration: 18s;
+  animation-duration: 16s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-out;
 }
@@ -336,7 +337,7 @@ a.bog:hover img {
   left: 50%;
   transform: translate(-50%, 0);
   animation-name: changeDots;
-  animation-duration: 24s;
+  animation-duration: 16s;
   animation-iteration-count: infinite;
   animation-timing-function: ease;
 }

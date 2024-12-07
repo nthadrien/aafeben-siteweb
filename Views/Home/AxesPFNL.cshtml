@@ -9,20 +9,45 @@
 
     <h2>@ViewData["Title"] </h2>
     
-    <p> 
+    @if( lang == "en" ) {
+        <p> 
+            Non-Timber Forest Products (NTFPs) play a significant role in the economic, social, cultural, and environmental spheres of the country and the entire Central African sub-region.
+        </p>
+        <p>
+           In certain forest areas, populations are heavily reliant on the exploitation of NTFPs, which generate about 45% of their income (Tieguhong J.C and al, 2009).
+        </p>
+
+        <p>
+            Women are involved in gathering, collecting, processing, and marketing activities. 
+            They also control 95% of the retail market (Tieguhong J.C and al, 2009). 
+            Regarding the satisfaction of health needs, 80% of the rural population in Central Africa uses NTFPs. 
+            Given all these factors, it is clear that NTFPs are a tool for fighting poverty. 
+            Despite the proven socio-economic importance of NTFPs, their current exploitation has not yet reached the level of development that they could generate, due to reasons such as limited access to forest resources; 
+            the low use of NTFP derivatives in the pharmaceutical, cosmetic, and agri-food sectors; and the lack of appropriate technology. These issues hinder the development of the NTFP sub-sector and, consequently, the development of indigenous peoples and local communities (IPLCs) who are the primary actors in this sector and have implications at the local and national levels, including: low incomes for IPLC, leading to persistent rural poverty and consequently weak community development; a low contribution of NTFPs to the country's Gross Domestic Product; conflicts between titleholders and IPLC who generally face refusal to exercise their right to use or enter the UFA, Safari to collect NTFPs; underconsumption of NTFPs at the national level; and low use of NTFPs as raw materials by industries.
+        </p>
+    } 
+    else 
+    {
+        <p>
         Les PFNL revêtent une importance considérable sur le plan économique, social, culturel et environnemental dans le pays et dans l’ensemble de la sous-région Afrique Centrale.
-    </p>
-    <p>
-        Dans certaines zones forestières, les populations sont fortement dépendantes de la valorisation des PFNL qui génère environ 45% de leurs revenus (Tieguhong J.C and al, 2009).
-    </p>
+        </p>
+        <p>
+            Dans certaines zones forestières, les populations sont fortement dépendantes de la valorisation des PFNL qui génère environ 45% de leurs revenus (Tieguhong J.C et al, 2009).
+        </p>
 
-    <p>
-        Les femmes sont intéressées par les activités de cueillette, de ramassage, de transformation et de commercialisation. 
-        Elles tiennent également 95% du marché de détail (Tieguhong J.C and al, 2009). S’agissant de la satisfaction des besoins de santé, 80% de la population des zones rurales en Afrique Centrale, utilisent les PFNL. 
-        Pour toutes ces considérations, il est clair que les PFNL constituent un instrument de lutte contre la pauvreté. Malgré l’importance socio-économique avérée des PFNL, leur valorisation actuelle ne permet pas encore d’atteindre le niveau de développement qu’ils sont susceptibles de générer, pour les raisons telles que le faible accès aux ressources en forêt ; la faible utilisation des dérivées des PFNLs dans les secteurs de la pharmacopée, cosmétique et agro alimentation ; le manque de technologie appropriée. Ces problèmes entravent le développement du sous-secteur PFNL et par la même occasion le développement des peuples autochtones et communautés locales (PACL) qui sont les acteurs primaires de ce secteur et ont des conséquences sur le plan local et national notamment : un faible revenus des PACL qui engendre une pauvreté continue en milieu rural par conséquence un faible développement des communautés ; 
-        une faible contribution des PFNLs au Produit Intérieur Brut du pays ; conflits entre les détenteurs des titres et les PACL qui généralement font face à un refus d’exercer leur droit d’usage ou de pénétrer aux seins des UFA, Safari pour collecter les PFNLs ; sous consommation des PFNLs au niveau national ; faible utilisation des PFNLs comme matière première par les industries.
-    </p>
+        <p>
+            Les femmes sont intéressées par les activités de cueillette, de ramassage, de transformation et de commercialisation. 
+            Elles tiennent également 95% du marché de détail (Tieguhong J.C et al, 2009). S’agissant de la satisfaction des besoins de santé, 80% de la population des zones rurales en Afrique Centrale, utilisent les PFNL. 
+            Pour toutes ces considérations, il est clair que les PFNL constituent un instrument de lutte contre la pauvreté. Malgré l’importance socio-économique avérée des PFNL, leur valorisation actuelle ne permet pas encore d’atteindre le niveau de développement qu’ils sont susceptibles de générer, pour les raisons telles que le faible accès aux ressources en forêt ; la faible utilisation des dérivées des PFNLs dans les secteurs de la pharmacopée, cosmétique et agro alimentation ; le manque de technologie appropriée. Ces problèmes entravent le développement du sous-secteur PFNL et par la même occasion le développement des peuples autochtones et communautés locales (PACL) qui sont les acteurs primaires de ce secteur et ont des conséquences sur le plan local et national notamment : un faible revenus des PACL qui engendre une pauvreté continue en milieu rural par conséquence un faible développement des communautés ; 
+            une faible contribution des PFNLs au Produit Intérieur Brut du pays ; conflits entre les détenteurs des titres et les PACL qui généralement font face à un refus d’exercer leur droit d’usage ou de pénétrer aux seins des UFA, Safari pour collecter les PFNLs ; sous consommation des PFNLs au niveau national ; faible utilisation des PFNLs comme matière première par les industries.
+        </p>
+    }
 
+
+    <a href="/@lang/a-propos-de-nous#axes" class="btn">
+        <i class="bi bi-chevron-left"></i>
+        @(lang == "en" ? "Return to Strategic axes" : "Voir les axes stratégiques" )
+    </a>
 
 
 </main>

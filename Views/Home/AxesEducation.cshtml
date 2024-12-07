@@ -1,35 +1,68 @@
 @{
     string lang = ViewBag.Language;
-    ViewData["Title"] = lang == "en" ? 
-    "Valorization of NTFPs" 
-    : "Valorisation des PFNL";
+    ViewData["Title"] = lang == "en"  ? "Environmental education":"Education environnementale";
+                        
 }
 
 <main style="max-width:1080px;" class="container mx-auto my-5 text-justify">
 
     <h2>@ViewData["Title"] </h2>
     
-    <p> 
-        Les PFNL revêtent une importance considérable sur le plan économique, social, culturel et environnemental dans le pays et dans l’ensemble de la sous-région Afrique Centrale.
-    </p>
-    <p>
-        Dans certaines zones forestières, les populations sont fortement dépendantes de la valorisation des PFNL qui génère environ 45% de leurs revenus (Tieguhong J.C and al, 2009).
-    </p>
+    @if( lang == "en" ) {
+       <p>
+        Environmental education plays a crucial role in raising awareness and training local populations and stakeholders on the protection and sustainable management of forests, particularly in the Congo Basin. This region, rich in biodiversity, is essential for the ecological and economic stability of Cameroon and the entire Central African region. Environmental education contributes to the promotion of sustainable natural resource management practices. By raising awareness among communities about the long-term economic benefits of sustainable forest management, it helps increase income through activities compatible with conservation, such as ecotourism and the sustainable harvesting of non-timber forest products (NTFPs). Forest conservation is deeply rooted in the cultural practices of many local communities.
+        </p>
 
-    <p>
-        Les femmes sont intéressées par les activités de cueillette, de ramassage, de transformation et de commercialisation. 
-        Elles tiennent également 95% du marché de détail (Tieguhong J.C and al, 2009). S’agissant de la satisfaction des besoins de santé, 80% de la population des zones rurales en Afrique Centrale, utilisent les PFNL. 
-        Pour toutes ces considérations, il est clair que les PFNL constituent un instrument de lutte contre la pauvreté. Malgré l’importance socio-économique avérée des PFNL, leur valorisation actuelle ne permet pas encore d’atteindre le niveau de développement qu’ils sont susceptibles de générer, pour les raisons telles que le faible accès aux ressources en forêt ; la faible utilisation des dérivées des PFNLs dans les secteurs de la pharmacopée, cosmétique et agro alimentation ; le manque de technologie appropriée. Ces problèmes entravent le développement du sous-secteur PFNL et par la même occasion le développement des peuples autochtones et communautés locales (PACL) qui sont les acteurs primaires de ce secteur et ont des conséquences sur le plan local et national notamment : un faible revenus des PACL qui engendre une pauvreté continue en milieu rural par conséquence un faible développement des communautés ; 
-        une faible contribution des PFNLs au Produit Intérieur Brut du pays ; conflits entre les détenteurs des titres et les PACL qui généralement font face à un refus d’exercer leur droit d’usage ou de pénétrer aux seins des UFA, Safari pour collecter les PFNLs ; sous consommation des PFNLs au niveau national ; faible utilisation des PFNLs comme matière première par les industries.
-    </p>
+        <p>
+        Environmental education strengthens these practices by integrating modern knowledge of natural resource management. Educational programs can include modules on the cultural and traditional roles of forests, thus strengthening the link between communities and their environment.
+        </p>
 
+        <p>
+        The challenges of environmental education in the Eastern region of Cameroon include limited access to education: in rural areas, access to formal education, including environmental education, is often restricted. Conflicts of interest: Short-term economic interests, such as illegal logging, often conflict with the long-term conservation goals promoted by environmental education. By raising awareness and training IPLC, it promotes biodiversity conservation, sustainable economic development, and the well-being of populations.
+        </p>
+
+        <p>
+        To maximize its impact, it is crucial to overcome existing challenges and strengthen educational programs with adequate support and appropriate resources. This strategy will contribute not only to environmental protection but also to improving the quality of life of IPLC.
+        </p>
+
+
+    } 
+    else 
+    {
+        <p>
+            L'éducation environnementale joue un rôle crucial dans la sensibilisation et la formation des populations locales et des parties prenantes à la protection et à la gestion durable des forêts, notamment dans le bassin du Congo. Cette région, riche en biodiversité, est essentielle pour la stabilité écologique et économique du Cameroun et de l'ensemble de l'Afrique centrale. L'éducation environnementale contribue à la promotion de pratiques de gestion durable des ressources naturelles. En sensibilisant les communautés sur les bénéfices économiques à long terme d'une exploitation forestière durable, elle aide à augmenter les revenus grâce à des activités compatibles avec la conservation, telles que l'écotourisme et la récolte durable des produits forestiers non ligneux (PFNL).
+            La conservation des forêts est profondément ancrée dans les pratiques culturelles de nombreuses communautés locales.
+        </p>
+
+        <p>
+            L'éducation environnementale renforce ces pratiques en intégrant des connaissances modernes de gestion des ressources naturelles. Les programmes éducatifs peuvent inclure des modules sur les rôles culturels et traditionnels des forêts, renforçant ainsi le lien entre les communautés et leur environnement.
+        </p>
+
+        <p>
+            Les Problèmes et Défis de l'Éducation Environnementale dans la région de l’EST-Cameroun sont entre autres Accès Limité à l'Éducation : car Dans les zones rurales, l'accès à l'éducation formelle, y compris l'éducation environnementale, est souvent restreint, Conflits d'Intérêts : Les intérêts économiques à court terme, tels que l'exploitation forestière illégale, entrent souvent en conflit avec les objectifs à long terme de conservation promus par l'éducation environnementale. En sensibilisant et en formant les PACL, elle favorise la conservation de la biodiversité, le développement économique durable et le bien-être des populations.
+        </p>
+
+        <p>
+            Pour maximiser son impact, il est crucial de surmonter les défis existants et de renforcer les programmes éducatifs avec un soutien adéquat et des ressources appropriées. Cette stratégie contribuera non seulement à la protection de l'environnement mais aussi à l'amélioration de la qualité de vie des PACL.
+        </p>
+
+    }
+
+
+
+
+
+    <a href="/@lang/a-propos-de-nous#axes" class="btn">
+        <i class="bi bi-chevron-left"></i>
+        @(lang == "en" ? "Return to Strategic axes" : "Voir les axes stratégiques" )
+    </a>
 
 
 </main>
 
 <style>
     #header-hero {
-        background: rgba(0, 0, 0, 0.5) url("../../images/website/axes-agro.jpeg") no-repeat center;
+        background: rgba(0, 0, 0, 0.5) url("../../images/website/axes-edu.jpeg") no-repeat center;
     }
 
 
@@ -37,10 +70,7 @@
         display: none;
     }
 
-    #header-hero, 
-    #img-one, 
-    #img-two, 
-    #img-three {
+    #header-hero {
         background-size: cover;
         background-blend-mode: darken;
     }
