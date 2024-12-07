@@ -11,6 +11,7 @@ namespace Aafeben.Controllers
     public class OpportunityController : Controller
     {
         private readonly AafebenDbContext _context;
+        readonly string directoryPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "docs","jobs");
 
         public OpportunityController(AafebenDbContext context)
         {
@@ -60,13 +61,34 @@ namespace Aafeben.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost("nouvelle")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Job,JobDescription,Language,JobRequirements,PublishedDate")] OpportunityModel opportunityModel)
+        public async Task<IActionResult> Create([Bind("Id,Job,JobDescription,Language,JobRequirements,PublishedDate")] OpportunityModel opportunityModel, IFormFile Doc)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && Doc != null )
             {
-                _context.Add(opportunityModel);
-                await _context.SaveChangesAsync();
-                return Redirect("/fr/administrateurs/opportunites/");
+                try {
+                    if (!Directory.Exists(directoryPath))
+                    {
+                        Directory.CreateDirectory(directoryPath);
+                    }
+
+                    string fileName = Guid.NewGuid() + Path.GetExtension(Doc.FileName);
+                    string filePath = Path.Combine(directoryPath, fileName);
+
+                    using ( var memoryStream = new MemoryStream())
+                    {
+                        await Doc.CopyToAsync(memoryStream);
+                        var stream = new FileStream(filePath, FileMode.Create);
+                        await Doc.CopyToAsync(stream);
+                        stream.Close();
+                    }
+
+                    opportunityModel.Doc = $"{fileName}";
+                    _context.Add(opportunityModel);
+                    await _context.SaveChangesAsync();   
+                    return Redirect("/fr/administrateurs/opportunites/"); // Redirect as needed
+                } catch {
+                    return View( opportunityModel );
+                }
             }
             return View(opportunityModel);
         }
@@ -93,7 +115,7 @@ namespace Aafeben.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost("modifier/{id}")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Job,JobDescription,Language,JobRequirements,PublishedDate")] OpportunityModel opportunityModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Job,JobDescription,Language,JobRequirements,PublishedDate, Doc")] OpportunityModel opportunityModel)
         {
             if (id != opportunityModel.Id)
             {
@@ -118,7 +140,7 @@ namespace Aafeben.Controllers
                         throw;
                     }
                 }
-                return Redirect("/@opportunityModel.Language/administrateurs/opportunites/");
+                return Redirect("/fr/administrateurs/opportunites/");
             }
             return View(opportunityModel);
         }
@@ -154,7 +176,7 @@ namespace Aafeben.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return Redirect("/@opportunityModel.Language/administrateurs/opportunites/");
+            return Redirect("/fr/administrateurs/opportunites/");
         }
 
         private bool OpportunityModelExists(int id)

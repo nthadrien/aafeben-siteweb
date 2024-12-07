@@ -16,7 +16,7 @@ namespace Aafeben.Controllers
     public class PublicationsController : Controller
     {
         private readonly AafebenDbContext _context;
-        private readonly string directoryPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images","publications");
+        private readonly string directoryPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "docs","publications");
 
         public PublicationsController(AafebenDbContext context)
         {

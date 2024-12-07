@@ -19,7 +19,6 @@ namespace Aafeben.Data
         public DbSet<PublicationModel> Publications { get; set; }
         public DbSet<ProjectModel> Projets { get; set; }
         public DbSet<MediaModel> Medias { get; set; }
-        public DbSet<MessageModel> Messages { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -44,8 +43,6 @@ namespace Aafeben.Data
             modelBuilder.Entity<PublicationModel>().HasIndex(u => u.Title).IsUnique();
 
             modelBuilder.Entity<ProjectModel>().HasIndex(u => u.Title).IsUnique();
-
-            modelBuilder.Entity<MessageModel>().Property( e => e.SendOn ).HasDefaultValueSql("getdate()");
         }
 
         

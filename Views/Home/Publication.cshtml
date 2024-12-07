@@ -14,14 +14,14 @@
              <span>@Localizer["when"] : @Model.PublishedDate.ToLongDateString()</span>
         </div>
 
-        <a id="download" class="btn btn-success btn-sm" href="/images/publications/@Model.Content" download>
+        <a id="download" class="btn btn-success btn-sm" href="/docs/publications/@Model.Content" download>
             <i class="bi bi-file-earmark-pdf-fill me-1"></i>
             @Localizer["download"]
         </a>
     </section>
 
     <section class="py-4 overflow-x-auto content-wrapper">
-      <embed style="overflow:hidden; min-height: 100vh;"  src="/images/publications/@Model.Content" width="100%" type="application/pdf">
+      <embed style="overflow:hidden; min-height: 100vh;"  src="/docs/publications/@Model.Content" width="100%" type="application/pdf">
     </section>
 
     
@@ -38,21 +38,8 @@
         background-blend-mode: darken;
     }
 
-    table {
-        width: 100% !important;
-    }
-
-    @@media screen and (max-width: 680px)  {
-        table:has(img) {
-            & tr {
-                display: grid;
-                grid-template-columns : repeat( auto-fill, min(max(340px, 45%), 100%)) !important;
-            }
-
-            & td {
-                width: 200% !important;
-            }
-        } 
+    .slide-show, .slide-show-dots  {
+        display: none;
     }
     
 </style>

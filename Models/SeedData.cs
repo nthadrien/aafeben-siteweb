@@ -78,7 +78,7 @@ namespace Aafeben.Models
                         new PartnerModel {
                             UrlLink="https://www.worldwildlife.org",
                             Name="WWF",
-                            Image="wwf.jpg"
+                            Image="wwf.png"
                         },
                         new PartnerModel {
                             UrlLink="",
@@ -98,12 +98,12 @@ namespace Aafeben.Models
                         new PartnerModel {
                             UrlLink="https://www.unesco.org",
                             Name="UNESCO",
-                            Image="unesco.jpg"
+                            Image="unesco.png"
                         },
                         new PartnerModel {
                             UrlLink="https://www.thegef.org",
                             Name="GLOBAL ENVIRONMENT FACILITY (GEF)",
-                            Image="gef.jpg"
+                            Image="gef.webp"
                         },
                         new PartnerModel {
                             UrlLink="https://rightsindevelopment.org/fr/member/green-development-advocates/",
@@ -113,12 +113,12 @@ namespace Aafeben.Models
                         new PartnerModel {
                             UrlLink="https://well-grounded.org",
                             Name="WELL GROUNDED",
-                            Image="ground.jpg"
+                            Image="ground.png"
                         },
                         new PartnerModel {
                             UrlLink="https://www.google.com/search?q=PPI&client=opera&hs=xvQ&sca_esv=581353aac19f9e2d&sxsrf=ADLYWIJjs1a4zoyBzzbrnelsrZhvlw4oGw%3A1732015347001&ei=8nQ8Z6vsPOuuhbIPl_H1yAc&ved=0ahUKEwirrYP8o-iJAxVrV0EAHZd4HXkQ4dUDCA8&uact=5&oq=PPI&gs_lp=Egxnd3Mtd2l6LXNlcnAiA1BQSUjHA1AAWABwAHgBkAEAmAEAoAEAqgEAuAEDyAEA-AEC-AEBmAIAoAIAmAMAkgcAoAcA&sclient=gws-wiz-serp",
                             Name="PPI",
-                            Image="ppi.jpg"
+                            Image="ppi.png"
                         },
                         new PartnerModel {
                             UrlLink="https://erudef.org",
@@ -126,28 +126,6 @@ namespace Aafeben.Models
                             Image="erudef.jpg"
                         }
 
-                    );
-                    ctx.SaveChanges();
-                }
-
-                if(!ctx.Opportunities.Any() ) {
-                    ctx.Opportunities.AddRange(
-                        new OpportunityModel
-                        {
-                            Job="Training Facillitators",
-                            JobDescription="Facilitate training sessions for staff and volunteers.",
-                            Language="en",
-                            JobRequirements="Proficient in Microsoft Office Suite. \n Strong communication skills. \n 2+ years of experience in NGO sector.\n Able to Create and implement communication strategies.",
-                            PublishedDate= DateTime.Parse("2024-10-03")
-                        },
-                        new OpportunityModel
-                        {
-                            Job="Animateurs de formation",
-                            JobDescription="Animer des séances de formation pour le personnel et les bénévoles.",
-                            Language="fr",
-                            JobRequirements="Maîtrise de la suite Microsoft Office. \n Solides compétences en communication. \n Plus de 2 ans d'expérience dans le secteur des ONG. \n Capable de créer et de mettre en œuvre des stratégies de communication.\n avoir un diplome dans le domaine de Enseignements.",
-                            PublishedDate= DateTime.Parse("2024-10-03")
-                        }
                     );
                     ctx.SaveChanges();
                 }

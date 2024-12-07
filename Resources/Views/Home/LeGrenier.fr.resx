@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="title" xml:space="preserve">
-    <value>Grenier des organisations paysannes</value>
+    <value>Vitrine des organisations paysannes</value>
     <comment/>
   </data>
   <data name="description" xml:space="preserve">
@@ -126,7 +126,7 @@
     <comment/>
   </data>
   <data name="head" xml:space="preserve">
-    <value>Le Grenier</value>
+    <value>La Vitrine</value>
     <comment/>
   </data>
   <data name="lang" xml:space="preserve">

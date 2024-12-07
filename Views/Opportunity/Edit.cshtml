@@ -40,11 +40,15 @@
             <span asp-validation-for="JobDescription" class="text-danger"></span>
         </div>
 
-
         <div>
             <label asp-for="JobRequirements" class="form-label">Compétences requises</label>
             <textarea rows="6"  placeholder="compétence 1 \n compétence 2" asp-for="JobRequirements" class="form-control" ></textarea>
             <span asp-validation-for="JobRequirements" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <input type="hidden" accept=".pdf, .doc, .docx" asp-for="Doc" class="form-control" required/>
         </div>
 
         <div class="d-flex flex-wrap justify-content-between gap-2">

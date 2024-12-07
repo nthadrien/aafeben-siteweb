@@ -14,8 +14,6 @@ namespace Aafeben.Models
         public required string Email { get; set;}
         public string? Subject { get; set;}
         public required string Message { get; set;}
-        [DataType(DataType.Date)]
-        public required DateTime SendOn { get; set;}
     }
 
 }

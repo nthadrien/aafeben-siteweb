@@ -7,6 +7,9 @@ using System.Globalization;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Net;
+using System.Net.Mail;
+
 
 namespace Aafeben.Controllers;
 
@@ -38,10 +41,25 @@ public class HomeController : Controller
     public async Task<IActionResult> Contacts ([Bind("Id,Name,Email,Subject,Message")] MessageModel messageModel)
     {
         if (ModelState.IsValid)
-        {
-            _context.Add(messageModel);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+        { 
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress("your_email@example.com", "Your Name");
+            mail.To.Add(new MailAddress("recipient_email@example.com"));
+            mail.Subject = "Email Subject";
+            mail.Body = "Email Body";
+            try
+            {
+                SmtpClient client = new SmtpClient("smtp.example.com", 587);
+                client.Credentials = new NetworkCredential("your_email@example.com", "your_password");
+                client.EnableSsl = true;
+                client.Send(mail);
+                ViewBag.Message = "Email sent successfully!";
+                return View();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = "Error sending email: " + ex.Message;
+            }
         }
         return View(messageModel);
     }

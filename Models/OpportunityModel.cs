@@ -13,6 +13,7 @@ namespace Aafeben.Models
         public required string JobDescription  { get; set; }
         public required string Language  { get; set; }
         public required string JobRequirements  { get; set; }
+        public string? Doc { get; set; }
         [DataType(DataType.Date)]
         public required DateTime PublishedDate  { get; set; }
     }
