@@ -189,6 +189,7 @@ public class HomeController : Controller
     public async Task<IActionResult> Opportunites()
     {
         var cult = CultureInfo.CurrentCulture.ToString();
+        ViewBag.Language = cult;
         return View(await _context.Opportunities.Where( s => s.Language.ToLower() == cult ).OrderByDescending( s => s.PublishedDate ).ToListAsync());
     }
 

@@ -88,7 +88,6 @@ input, textarea, button {
 .login {
   max-width: min(100%, 480px);
   width: 100%;
-
 }
 
 /* navbar */
@@ -259,41 +258,6 @@ a.bog:hover , .bog a:hover {
 a.bog:hover img {
   object-position: top;
   transition: all 0.7s ease-in;
-}
-
-
-/* accordion css */
-.mon-accordion, .mon-accordion-2 {
-  cursor: pointer;
-}
-
-.mon-accordion label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.mon-accordion p, .mon-accordion-2 .accord-text {
-  max-height: 0px;
-  overflow: hidden;
-  transition:  all 0.5s linear;
-}
-
-.mon-accordion:hover p, .mon-accordion-2:has(input:checked) .accord-text {
-  max-height: max-content;
-}
-
-.mon-accordion:hover {
-  background-color: rgba(245, 245, 245, 0.356);
-}
-
-.mon-accordion-2:has(input:checked) label {
-  opacity: 0;
-}
-
-.mon-accordion:hover .bi-chevron-down {
-  transform: rotate(180deg);
 }
 
 .text-justify {

@@ -108,7 +108,7 @@ namespace Aafeben.Models
                         new PartnerModel {
                             UrlLink="https://rightsindevelopment.org/fr/member/green-development-advocates/",
                             Name="GREEN DEVELOPMENT ADVOCATES (GDA)",
-                            Image="gba.jpg"
+                            Image="gba.png"
                         },
                         new PartnerModel {
                             UrlLink="https://well-grounded.org",
@@ -129,10 +129,6 @@ namespace Aafeben.Models
                     );
                     ctx.SaveChanges();
                 }
-
-
-                
-
             }
 
         }

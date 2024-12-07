@@ -1,6 +1,7 @@
 @model IEnumerable<Aafeben.Models.OpportunityModel>
 
 @{
+    string lang  = ViewBag.Language ;
     ViewData["Title"] = @Localizer["title"];
     ViewData["Description"] = @Localizer["description"] ;
 }
@@ -17,31 +18,37 @@
 
     <div class="my-3 p-3 bg-body rounded shadow-lg mx-auto w-100">
 
-        <div data-observer="o-up" class="d-flex align-items-center p-3 w-100 text-white bg-turq rounded shadow-sm mx-auto">
+        <div data-observer="o" class="d-flex align-items-center p-3 w-100 text-white bg-turq rounded shadow-sm mx-auto">
             <i class="bi bi-people display-3 me-3"></i> 
             <h1 class="text-capitalize mb-0 text-white lh-1">@Model.Count() @Localizer["opp"]</h1>
         </div>
 
         @foreach (var item in Model)
         {
-        <aside data-observer="o-down" class="mon-accordion-2 p-3 border-bottom w-100">
-            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
-                <h4>@Html.DisplayFor(modelItem => item.Job) </h4>
-                <small class="text-capitalize text-end opacity-50"> @Html.DisplayFor(modelItem => item.PublishedDate)</small>
-            </div>
-            <p>@Html.DisplayFor(modelItem => item.JobDescription)</p>
-            <label class="btn btn-outline-secondary btn-sm">
-                Details <input type="radio" class="visually-hidden" name="accordion" id="accordion">
+        <aside data-observer="o-down" class="accord row p-2 border-bottom w-100">
+
+            <h4 class="col-8">@Html.DisplayFor(modelItem => item.Job) </h4> 
+
+            <small class="col-4 text-end">@Html.DisplayFor(modelItem => item.PublishedDate)</small>
+
+            <p class="col-12">@Html.DisplayFor(modelItem => item.JobDescription)</p>
+
+            <label class="btn btn-sm text-start w-fit">
+                @(lang =="en" ? "learn more" : "apprendre plus") <input type="radio" class="visually-hidden" name="accordion" id="accordion">
             </label>
 
-            <div  class="accord-text">
-                <h6 class="text-body-emphasis text-capitalize">@Localizer["requi"]</h6>
-                <ul>
+            <div  class="col-12 cord-body">
+                <h6 class="text-capitalize">@Localizer["requi"]</h6>
+                <ul  style="list-style-type:square;">
                     @foreach(var skill in item.JobRequirements.Split(".").ToList() ) {
-                        <li>@skill</li>
+                        <li>@skill.</li>
                     }
+                    <a id="download" class="btn btn-success btn-sm" href="/docs/jobs/@item.Doc" download>
+                        @( lang == "en" ? "how to apply here"  : "Découvrez comment postuler ici")
+                    </a>
                 </ul>
             </div>
+            
         </aside>
 
     }
@@ -58,4 +65,21 @@
   .slide-show, .slide-show-dots  {
         display: none;
     }
+
+    .accord {
+        & .cord-body {
+            display: none;
+        }
+
+        &:has(input:checked) label {
+            display: none;
+
+        }
+
+        &:has(input:checked) .cord-body {
+            display: flex;
+            flex-direction : column;
+        }
+    }
+
 </style>

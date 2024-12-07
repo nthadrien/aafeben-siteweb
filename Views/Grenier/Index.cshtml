@@ -2,7 +2,7 @@
 
 @{
     Layout ="~/Views/Shared/Dashboard/_DashboardLayout.cshtml";
-    ViewData["Title"] = "Le Grenier";
+    ViewData["Title"] = "Vitrine";
     int j = 1;
 }
 
@@ -14,7 +14,7 @@
         <h3>@ViewData["Title"]</h3>
 
         <p>
-            <a class="btn btn-primary" href="/fr/administrateurs/grenier/nouveau">
+            <a class="btn btn-primary" href="/fr/administrateurs/vitrine/nouveau">
                 <i class="bi bi-list-check me-2"></i>
                 Nouveau
             </a>
@@ -73,9 +73,9 @@
                                 options
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end position-fixed">
-                                <a class="dropdown-item" href="/fr/administrateurs/grenier/modifier/@item.Id">
+                                <a class="dropdown-item" href="/fr/administrateurs/vitrine/modifier/@item.Id">
                                     <i class="bi bi-pencil-square me-2"></i> Modifier</a> 
-                                <a class="dropdown-item" href="/fr/administrateurs/grenier/supprimer/@item.Id">
+                                <a class="dropdown-item" href="/fr/administrateurs/vitrine/supprimer/@item.Id">
                                     <i class="bi bi-trash3 me-2"></i> Supprimer
                                 </a>
                             </ul>

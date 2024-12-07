@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace Aafeben.Controllers
 {
     [Authorize]
-    [Route("/{culture}/administrateurs/grenier")]
+    [Route("/{culture}/administrateurs/vitrine")]
     public class GrenierController : Controller
     {
         private readonly AafebenDbContext _context;
@@ -93,7 +93,7 @@ namespace Aafeben.Controllers
                 productModel.Image = $"{fileName}";
                 _context.Add(productModel);
                 await _context.SaveChangesAsync();
-                return Redirect("/fr/administrateurs/grenier/");
+                return Redirect("/fr/administrateurs/vitrine/");
             }
             return View(productModel);
         }
@@ -145,7 +145,7 @@ namespace Aafeben.Controllers
                         throw;
                     }
                 }
-                return Redirect("/fr/administrateurs/grenier/");
+                return Redirect("/fr/administrateurs/vitrine/");
             }
             return View(productModel);
         }
@@ -191,7 +191,7 @@ namespace Aafeben.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return Redirect("/fr/administrateurs/grenier/");
+            return Redirect("/fr/administrateurs/vitrine/");
         }
 
         private bool ProductModelExists(int id)
