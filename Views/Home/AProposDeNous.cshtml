@@ -64,7 +64,7 @@
 
         <aside class="col">
             <div class="card border-0">
-                <img src="/images/website/axes-pfnl.jpg" class="card-img-top" alt="...">
+                <img src="/images/website/axes-pfnl.jpg" class="card-img-top" alt="pfnl - ntfps.">
                 <div class="card-body bg-sub">
                     <h5>
                         @( ViewBag.Language == "en"  ? "Valorization of NTFPs": "Valorisation des PFNL")
@@ -76,10 +76,9 @@
             </div>
         </aside>
 
-
         <aside class="col">
             <div class="card border-0">
-                <img src="/images/website/axes-agro.jpeg" class="card-img-top"  alt="...">
+                <img src="/images/website/axes-agro.jpeg" class="card-img-top"  alt="deforestation zero.">
                 <div class="card-body bg-sub">
                     <h5>
                         @( ViewBag.Language == "en"  ? 
@@ -97,7 +96,7 @@
 
         <aside class="col">
             <div class="card border-0">
-                <img src="/images/website/axes-edu.jpeg" class="card-img-top" alt="...">
+                <img src="/images/website/axes-edu.jpeg" class="card-img-top" alt="education..">
                 <div class="card-body bg-sub">
                     <h5>
                         @( ViewBag.Language == "en"  ? "Environmental education":"Education environnementale")
@@ -140,7 +139,7 @@
 
         <aside class="col">
             <div class="card border-0">
-                <img src="/images/website/axes-cito.jpeg" class="card-img-top" alt="...">
+                <img src="/images/website/axes-cito.jpeg" class="card-img-top" alt= "Citizenship - Citoyenneté">
                 <div class="card-body bg-sub">
                     <h5>
                         @( ViewBag.Language == "en" ?  "Citizenship" : "Citoyenneté" )    
@@ -156,8 +155,8 @@
 
 
         <aside class="col">
-            <div class="card border-0">
-                <img src="/images/website/axes-eco.jpeg" class="card-img-top" alt="...">
+            <div class="card">
+                <img src="/images/website/axes-eco.jpeg" class="card-img-top" alt="Ecotourism - Écotourisme" >
                 <div class="card-body bg-sub">
                     <h5>
                     @( ViewBag.Language == "en" ?  "Ecotourism" : "Écotourisme" )
@@ -213,7 +212,7 @@
             </a>
         }
 
-        @foreach(var partner in Model.Partners.Slice(0,5) ) {
+        @foreach(var partner in Model.Partners.Slice(0,6) ) {
             <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="@partner.Name" href="@partner.UrlLink" target="_blank" class="slide-item p-2">
                 <img loading="lazy"  height="130px" width="130px" class="object-fit-contain rounded" src="~/images/partenaires/@(partner.Image ?? "placeholder.png")" alt="partner image">
             </a>
