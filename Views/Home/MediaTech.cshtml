@@ -14,33 +14,19 @@
 <main class="container mx-auto p-3 row justify-content-start align-items-start g-2">
 
 
-    <aside class="col-md-4 d-flex flex-column  gap-3">
+    <aside id="video" class="col-lg-4 d-flex flex-column  gap-3">
         <h3>Videos</h3>
-        @foreach( var item in ViewBag.Videos ) {
-            <iframe class="video" src="@item.URI" allowfullscreen loading="lazy"></iframe>
-            <p class="card-text"> @( lang == "en" ? item.EnCaption : item.FrCaption )</p>
-        }
     </aside>
 
     
-    <aside class="col-md-4 d-flex flex-column gap-3">
+    <aside id="image" class="col-lg-4 d-flex flex-column gap-3">
         <h3>Images</h3>
-
-        @foreach( var item in ViewBag.Images ) {
-            <iframe style="background: transparent;" allowfullscreen class="image" src="@item.URI" loading="lazy"  allow="autoplay"></iframe>
-            <p> @( lang == "en" ? item.EnCaption : item.FrCaption )</p>
-        }
 
     </aside>
 
-    <aside class="col-md-4 d-flex flex-column gap-2">
+    <aside id="audio" class="col-lg-4 d-flex flex-column gap-2">
 
         <h3>Audios</h3>
-
-        @foreach( var item in ViewBag.Audios ) {
-            <p> @( lang == "en" ? item.EnCaption : item.FrCaption )</p>
-            <iframe class="audio" src="@item.URI" loading="lazy"></iframe>
-        }
     </aside>
 
 
@@ -49,6 +35,36 @@
 <section class="container mx-auto">
     <partial name="~/Views/Shared/HomeLayout/_Pagination.cshtml" />
 </section>
+
+<script>
+    var model = @Html.Raw(Json.Serialize(Model));
+    const fr = "fr";
+    const en = "en";
+    const language = @lang;
+
+    const vidSection = document.querySelector('#video');
+    const imgSection = document.querySelector('#image');
+    const audSection = document.querySelector('#audio');
+
+    for(let item of model ){
+        if ( item.type === "video") {
+            vidSection.innerHTML += `
+            <iframe class="video" src="${item.uri}" allowfullscreen loading="lazy"></iframe>
+            <p class="card-text"> ${ language === "en" ? item.enCaption : item.frCaption }</p>`;
+
+        } else if ( item.type === "image") {
+             vidSection.innerHTML += `
+            <iframe class="image" src="${item.uri}" allowfullscreen loading="lazy"></iframe>
+            <p class="card-text"> ${ language === "en" ? item.enCaption : item.frCaption }</p>`;
+
+        } else {
+             vidSection.innerHTML += `
+            <iframe class="audio" src="${item.uri}" allowfullscreen loading="lazy"></iframe>
+            <p class="card-text"> ${ language === "en" ? item.enCaption : item.frCaption }</p>`;
+
+        }
+    }
+</script>
 
 <style>
     .video {

@@ -28,7 +28,6 @@ const observerNav = new IntersectionObserver(entries => {
         } else {
             navbar.classList.remove("bg-primary");
             navbar.classList.add("position-absolute");
-            console.log("back");
         }
     })
 },  { rootMargin: "16px 0px 0px 0px" } );
