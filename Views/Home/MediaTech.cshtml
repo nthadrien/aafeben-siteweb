@@ -4,9 +4,6 @@
     ViewData["Title"] = @Localizer["title"];
     ViewData["Description"] = @Localizer["desc"];
     string lang = CultureInfo.CurrentCulture.ToString();
-    List<MediaModel> images = Model.Where( s => s.Type == "image" ).ToList();
-    List<MediaModel> videos = Model.Where( s => s.Type == "video" ).ToList();
-    List<MediaModel> audios = Model.Where( s => s.Type == "audio" ).ToList();
 }
 
 
@@ -19,7 +16,7 @@
 
     <aside class="col-md-4 d-flex flex-column  gap-3">
         <h3>Videos</h3>
-        @foreach( var item in videos ) {
+        @foreach( var item in ViewBag.Videos ) {
             <iframe class="video" src="@item.URI" allowfullscreen loading="lazy"></iframe>
             <p class="card-text"> @( lang == "en" ? item.EnCaption : item.FrCaption )</p>
         }
@@ -29,7 +26,7 @@
     <aside class="col-md-4 d-flex flex-column gap-3">
         <h3>Images</h3>
 
-        @foreach( var item in images ) {
+        @foreach( var item in ViewBag.Images ) {
             <iframe style="background: transparent;" allowfullscreen class="image" src="@item.URI" loading="lazy"  allow="autoplay"></iframe>
             <p> @( lang == "en" ? item.EnCaption : item.FrCaption )</p>
         }
@@ -40,7 +37,7 @@
 
         <h3>Audios</h3>
 
-        @foreach( var item in audios ) {
+        @foreach( var item in ViewBag.Audios ) {
             <p> @( lang == "en" ? item.EnCaption : item.FrCaption )</p>
             <iframe class="audio" src="@item.URI" loading="lazy"></iframe>
         }

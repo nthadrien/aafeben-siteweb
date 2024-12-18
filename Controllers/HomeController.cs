@@ -218,6 +218,9 @@ public class HomeController : Controller
     {
         var media = from p in _context.Medias select p;   
         int pageSize = 30;
+        ViewBag.Images = media.Where( s => s.Type == "image" ).ToList();
+        ViewBag.Audios = media.Where( s => s.Type == "audio" ).ToList();
+        ViewBag.Videos = media.Where( s => s.Type == "video" ).ToList();
         return View(
             await PaginatedList<MediaModel>.CreateAsync(media.AsNoTracking(), pageNumber ?? 1 , pageSize ) 
         );
